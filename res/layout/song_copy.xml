@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout 
+		android:orientation="vertical" 
+		android:background="@drawable/border" 
+		android:padding="5dp" 
+		android:layout_width="fill_parent" 
+		android:layout_height="fill_parent" 
+		android:layout_margin="7dp">
+		
+	    <WebView
+	        android:id="@+id/copyview"
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	    />
+    
+	</LinearLayout>
+
+</LinearLayout>

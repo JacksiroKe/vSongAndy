@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" 
+	android:padding="5dp" 
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent" >
+	
+    <LinearLayout 
+		android:orientation="vertical" 
+		android:background="@drawable/border" 
+		android:padding="5dp" 
+		android:layout_width="fill_parent" 
+		android:layout_height="wrap_content" 
+		android:layout_margin="7dp">
+		
+        <TextView 
+			android:textSize="20dp" 
+			android:textColor="#000" 
+			android:id="@+id/songcont" 
+			android:padding="10dp" 
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content" 
+			android:text="vSongBook" />
+			
+    </LinearLayout>
+</LinearLayout>

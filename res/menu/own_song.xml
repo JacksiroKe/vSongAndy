@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" >
+    <item 
+        android:icon="@android:drawable/ic_menu_save"  
+        android:id="@+id/editsong" 
+        android:title="@string/menu_new" 
+        app:showAsAction="always" />
+    <item 
+        android:icon="@android:drawable/ic_menu_delete" 
+        android:id="@+id/delete" 
+        android:title="@string/menu_delete" 
+        app:showAsAction="always" />
+    <item 
+        android:icon="@android:drawable/ic_menu_share"  
+        android:id="@+id/share" 
+        android:title="@string/menu_share" 
+        app:showAsAction="always" />
+
+</menu>
+

@@ -1,0 +1,95 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+	
+    <RelativeLayout
+		android:id="@+id/header"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentTop="true"
+		android:background="#FC9"
+		android:gravity="center" >
+	
+		<TextView
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_margin="5dp"
+		    android:text="Fixed Header"
+		    android:textColor="#000"
+		    android:textSize="20sp"
+		    android:visibility="gone" />
+
+	</RelativeLayout>
+	
+	<RelativeLayout
+		android:id="@+id/footer"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		android:background="#ff8c00"
+		android:gravity="center" >
+	
+	  	<TableLayout
+		    android:id="@+id/myToolbar"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content" >
+	
+		    <TableRow
+		        android:id="@+id/tableRow2"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content" >
+	
+		        <ImageButton
+		            android:id="@+id/btnprev"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="1"
+		            android:background="#ff8c00"
+		            android:padding="5dp"
+		            android:onClick="Previous"
+		    		android:src="@drawable/ic_menu_prev" />
+		        
+		        <ImageButton
+		            android:id="@+id/btnnext"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="1"
+		            android:background="#ff8c00"
+		            android:padding="5dp"
+		            android:onClick="Next"
+		    		android:src="@drawable/ic_menu_next" />
+		        
+		        <ImageButton
+		            android:id="@+id/btnminus"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="1"
+		            android:background="#ff8c00"
+		            android:padding="5dp"
+		            android:onClick="Minus"
+		    		android:src="@drawable/ic_menu_minus" />
+		        
+		        <ImageButton
+		            android:id="@+id/btnplus"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="1"
+		            android:background="#ff8c00"
+		            android:padding="5dp"
+		            android:onClick="Plus"
+		    		android:src="@drawable/ic_menu_plus" />
+		    </TableRow>
+		</TableLayout>
+		
+	</RelativeLayout>
+	
+	<ScrollView
+		android:id="@+id/ScrollSong"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_above="@id/footer"
+		android:background="#CCC"
+		android:layout_below="@id/header" >
+	
+	</ScrollView>
+</RelativeLayout>

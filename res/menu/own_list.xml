@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" >
+    <item 
+        android:icon="@android:drawable/ic_input_add" 
+        android:id="@+id/newsong" 
+        android:title="@string/menu_new" 
+        app:showAsAction="always" />
+    <item 
+        android:icon="@android:drawable/ic_dialog_info" 
+        android:id="@+id/information" 
+        android:title="@string/title_favour_info" 
+        app:showAsAction="always" />
+</menu>

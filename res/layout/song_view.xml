@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="fill_parent" >
+	
+    <RelativeLayout 
+		android:gravity="center"
+		android:id="@+id/header"
+		android:background="#c99"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentTop="true" >
+		
+        <TextView 
+			android:textSize="20sp"
+			android:textColor="#000"
+			android:visibility="gone"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_margin="5dp"
+			android:text="Fixed Header" />
+			
+    </RelativeLayout>
+	
+    <RelativeLayout 
+		android:gravity="center"
+		android:id="@+id/footer"
+		android:background="@color/vsongbook_color"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true">
+		
+        <TableLayout 
+			android:id="@+id/myToolbar"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+			
+            <TableRow 
+				android:id="@+id/tableRow2"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+				
+                <ImageButton android:id="@+id/btnprev"
+					android:background="@color/vsongbook_color"
+					android:padding="5dp"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:src="@drawable/ic_menu_prev"
+					android:layout_weight="1.0"
+					android:onClick="Previous"	/>
+                <ImageButton android:id="@+id/btnnext"
+					android:background="@color/vsongbook_color"
+					android:padding="5dp"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:src="@drawable/ic_menu_next"
+					android:layout_weight="1.0"
+					android:onClick="Next" />
+                <ImageButton android:id="@+id/btnshare"
+					android:background="@color/vsongbook_color"
+					android:padding="5dp"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:src="@drawable/ic_menu_share"
+					android:layout_weight="1.0"
+					android:onClick="Share" />
+                <ImageButton android:id="@+id/btnminus"
+					android:background="@color/vsongbook_color"
+					android:padding="5dp"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:src="@drawable/ic_menu_minus"
+					android:layout_weight="1.0"
+					android:onClick="Minus" />
+                <ImageButton android:id="@+id/btnplus"
+					android:background="@color/vsongbook_color"
+					android:padding="5dp"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:src="@drawable/ic_menu_plus"
+					android:layout_weight="1.0"
+					android:onClick="Plus"/>
+            </TableRow>
+        </TableLayout>
+    </RelativeLayout>
+    
+    <ListView
+       android:id="@+id/stanzalist"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+		android:layout_below="@id/header"
+		android:layout_above="@id/footer"
+       android:background="#eee"
+       android:divider="@null"
+       android:dividerHeight="0dp" >        
+    </ListView>
+    
+</RelativeLayout>
