@@ -1,0 +1,68 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+	
+    <RelativeLayout
+		android:id="@+id/header"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentTop="true"
+		android:background="#FC9"
+		android:gravity="center" >
+	
+		<TextView
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_margin="5dp"
+		    android:text="Fixed Header"
+		    android:textColor="#000"
+		    android:textSize="20sp"
+		    android:visibility="gone" />
+
+	</RelativeLayout>
+	
+	<RelativeLayout
+		android:id="@+id/footer"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		android:background="#ff0000"
+		android:gravity="center" >
+	
+	  	<TableLayout
+		    android:id="@+id/myToolbar"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content" >
+	
+		    <TableRow
+		        android:id="@+id/tableRow2"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content" >
+			        
+		        <Button
+		            android:id="@+id/button1"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="1"
+		            android:background="@color/vsongbook_color"
+		            android:onClick="Proceed"
+		            android:padding="10dp"
+		            android:text="@string/accept_terms"
+		            android:textColor="#fff"
+		            android:textSize="25sp" />
+		        
+		    </TableRow>
+		</TableLayout>
+		
+	</RelativeLayout>
+	
+	<ScrollView
+		android:id="@+id/ScrollStart"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_above="@id/footer"
+		android:background="#CCC"
+		android:layout_below="@id/header" >
+	
+	</ScrollView>
+</RelativeLayout>
