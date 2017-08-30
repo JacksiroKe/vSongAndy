@@ -1,0 +1,101 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+	android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jackson_siro.visongbook.CcFirstLoad" >
+	
+	<RelativeLayout
+	    android:id="@+id/Step1"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:orientation="horizontal"
+	    android:padding="20dp"
+	    android:textAlignment="center" >
+	
+	 	<ProgressBar
+			android:id="@+id/loading"
+			style="?android:attr/progressBarStyleLarge"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+	 	    android:layout_above="@+id/txtload"
+	 	    android:layout_centerHorizontal="true"
+			android:layout_margin="20dp" />
+
+	 	<TextView
+	 	    android:id="@+id/txtload"
+	 	    android:layout_width="fill_parent"
+	 	    android:layout_height="wrap_content"
+	      	android:layout_centerHorizontal="true"
+	      	android:layout_centerVertical="true"
+	 	    android:layout_marginLeft="18dp"
+	 	    android:layout_marginTop="18dp"
+	 	    android:autoLink="all"
+	 	    android:gravity="center"
+	 	    android:text="@string/alert_loading"
+	 	    android:textAlignment="center"
+	 	    android:textColor="#000"
+	 	    android:textSize="24sp" />
+
+	 	<Button
+	 	    android:id="@+id/btnretry"
+	 	    android:layout_width="wrap_content"
+	 	    android:layout_height="wrap_content"
+	 	    android:layout_below="@+id/txtload"
+	    	android:layout_marginTop="20dp"
+	    	android:onClick="Retry"
+	    	android:textSize="18dp"
+            android:background="#FF2500"
+	 	    android:layout_centerHorizontal="true"
+	 	    android:text="@string/retry"
+	    	android:visibility="gone" />
+
+  	</RelativeLayout>
+	    
+	<ImageView
+	    android:id="@+id/splashme"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_margin="20dp"
+	    android:padding="20dp"
+	    android:src="@drawable/splash"
+	    android:visibility="gone" />
+	
+    <ListView
+        android:id="@+id/songbooklist"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:choiceMode="multipleChoice"
+	    android:visibility="gone" />
+     
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/vsongbook_color"
+        android:orientation="vertical"
+        android:paddingTop="10dp" >
+		
+        <RelativeLayout
+            android:id="@+id/Step2"
+            android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:background="#eee"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/btnStep1"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:background="#FF2500"
+                android:onClick="SelectSongBooks"
+                android:padding="5dp"
+                android:text="@string/next_step"
+                android:textSize="20sp" />
+
+        </RelativeLayout>	    
+    </LinearLayout>
+    
+</LinearLayout>
