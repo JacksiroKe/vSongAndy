@@ -213,6 +213,7 @@
     <string name="all_categories">All categories</string>
     <string name="title_activity_basic">BasicActivity</string>
 
+<<<<<<< HEAD
     <string name="donate_mpesa">Donate via Mpesa</string>
     <string name="donate_mpesa_desc">"Donate via Mpesa\n\nPayBill: 891300 \nAccount: 33112\nOr DIAL: *483*57*33112#"</string>
 
@@ -225,6 +226,8 @@
     <string name="donate_paypal">Donate via PayPal</string>
     <string name="donate_paypal_desc">"Donate via PayPal to the address:\n\nappsmatake@gmail.com"</string>
 
+=======
+>>>>>>> c0aed1253c303a33b706b3212d96bfbef706cfcc
     <string name="user_Signin">Signin to your Account</string>
     <string name="user_signup">Signup your Account</string>
     <string name="title_activity_Signin">Sign in</string>

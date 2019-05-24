@@ -5,8 +5,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+<<<<<<< HEAD
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+=======
+>>>>>>> c0aed1253c303a33b706b3212d96bfbef706cfcc
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -99,7 +102,10 @@ public class CcHomeView extends AppCompatActivity implements NavigationView.OnNa
         navigationView.setNavigationItemSelectedListener(this);
 
         checkUpdates();
+<<<<<<< HEAD
         checkDonation();
+=======
+>>>>>>> c0aed1253c303a33b706b3212d96bfbef706cfcc
         checkDatabase();
         displayProfile();
         setupFloatingSearch();
@@ -271,6 +277,7 @@ public class CcHomeView extends AppCompatActivity implements NavigationView.OnNa
     }
 
     public void checkUpdates() {
+<<<<<<< HEAD
         String version = "";
         int versionCode = 0;
         try {
@@ -348,6 +355,37 @@ public class CcHomeView extends AppCompatActivity implements NavigationView.OnNa
             }
         }
     }
+=======
+        if (prefget.getString("app_version_current", "") != "1.1.3.39") {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Update your vSongBook!");
+            builder.setMessage("Hello " + mGender + mFullname + "! Enjoy improved functionality and user inteface with the new " +
+                    "vSongBook update (" + prefget.getString("app_version_size", "") + "B) released on " +
+                    prefget.getString("app_version_updated", "") + ". Please go ahead and update!"
+            );
+            builder.setNegativeButton("Remind me Later", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface arg0, int arg1) {
+
+                }
+            });
+            builder.setPositiveButton("Update Now", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface arg0, int arg1) {
+                    try {
+                        startActivity(new Intent(Intent.ACTION_VIEW,
+                                Uri.parse("market://details?id=com.jackson_siro.visongbook")));
+                    } catch (android.content.ActivityNotFoundException anfe) {
+                        startActivity(new Intent(Intent.ACTION_VIEW,
+                                Uri.parse("https://play.google.com/store/apps/details?id=com.jackson_siro.visongbook")));
+                    }
+                }
+            });
+            builder.show();
+        }
+    }
+
+>>>>>>> c0aed1253c303a33b706b3212d96bfbef706cfcc
     public void checkDatabase() {
         if (!prefget.getBoolean("app_books_loaded", false))
             startActivity(new Intent(CcHomeView.this, BbBooksLoad.class));

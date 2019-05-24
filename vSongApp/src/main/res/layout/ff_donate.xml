@@ -24,13 +24,18 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+<<<<<<< HEAD
         android:background="#eee"
+=======
+        android:background="#FFF"
+>>>>>>> c0aed1253c303a33b706b3212d96bfbef706cfcc
         app:layout_behavior="@string/appbar_scrolling_view_behavior" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+<<<<<<< HEAD
 
             <android.support.v7.widget.CardView
                 style="@style/CardView"
@@ -198,6 +203,8 @@
 
             </android.support.v7.widget.CardView>
 
+=======
+>>>>>>> c0aed1253c303a33b706b3212d96bfbef706cfcc
         </LinearLayout>
     </ScrollView>
 

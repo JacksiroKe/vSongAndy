@@ -37,6 +37,11 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="4dp"
+<<<<<<< HEAD
+=======
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+>>>>>>> c0aed1253c303a33b706b3212d96bfbef706cfcc
                 app:cardCornerRadius="2dp"
                 app:cardElevation="2dp">
 

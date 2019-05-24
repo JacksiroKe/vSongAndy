@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <?xml version="1" encoding="utf-8"?>
+=======
+<?xml version="1.0" encoding="utf-8"?>
+>>>>>>> c0aed1253c303a33b706b3212d96bfbef706cfcc
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -28,6 +32,7 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior" >
 
         <LinearLayout
+<<<<<<< HEAD
             android:orientation="vertical"
             android:id="@+id/ScrollProfile"
             android:paddingLeft="5dp"
@@ -311,6 +316,11 @@
 
             </android.support.v7.widget.CardView>-->
 
+=======
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+>>>>>>> c0aed1253c303a33b706b3212d96bfbef706cfcc
         </LinearLayout>
     </ScrollView>
 
