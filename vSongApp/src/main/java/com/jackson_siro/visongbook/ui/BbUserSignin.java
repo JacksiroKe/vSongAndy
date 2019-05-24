@@ -277,9 +277,9 @@ public class BbUserSignin extends AppCompatActivity{
             builder.setPositiveButton("Retry", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface arg0, int arg1) {
-                String code = inputCode.getText().toString().trim();
-                String phone = inputPhone.getText().toString().trim();
-                signinUser(code + phone);
+                    String code = inputCode.getText().toString().trim();
+                    String phone = inputPhone.getText().toString().trim();
+                    signinUser(code + phone);
                 }
             });
         }

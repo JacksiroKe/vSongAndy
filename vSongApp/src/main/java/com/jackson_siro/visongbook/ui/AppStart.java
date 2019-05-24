@@ -89,10 +89,10 @@ public class AppStart extends AppCompatActivity {
 
     public void setFirstUse() {
         if (!prefget.getBoolean("app_first_use", false)) {
-            prefedit.putBoolean("app_first_use", true);
-            prefedit.putBoolean("app_user_signedin", false);
-            prefedit.putLong("app_first_data", System.currentTimeMillis());
-            prefedit.commit();
+            prefedit.putBoolean("app_first_use", true).apply();
+            prefedit.putBoolean("app_user_signedin", false).apply();
+            prefedit.putBoolean("app_user_donated", false).apply();
+            prefedit.putLong("app_first_data", System.currentTimeMillis()).apply();
         }
     }
 }

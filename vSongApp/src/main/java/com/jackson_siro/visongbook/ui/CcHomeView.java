@@ -5,6 +5,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -97,6 +99,7 @@ public class CcHomeView extends AppCompatActivity implements NavigationView.OnNa
         navigationView.setNavigationItemSelectedListener(this);
 
         checkUpdates();
+        checkDonation();
         checkDatabase();
         displayProfile();
         setupFloatingSearch();
@@ -268,35 +271,83 @@ public class CcHomeView extends AppCompatActivity implements NavigationView.OnNa
     }
 
     public void checkUpdates() {
-        if (prefget.getString("app_version_current", "") != "1.1.3.39") {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Update your vSongBook!");
-            builder.setMessage("Hello " + mGender + mFullname + "! Enjoy improved functionality and user inteface with the new " +
-                    "vSongBook update (" + prefget.getString("app_version_size", "") + "B) released on " +
-                    prefget.getString("app_version_updated", "") + ". Please go ahead and update!"
-            );
-            builder.setNegativeButton("Remind me Later", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface arg0, int arg1) {
+        String version = "";
+        int versionCode = 0;
+        try {
+            PackageInfo pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+            version = pInfo.versionName;
+            versionCode = pInfo.versionCode;
+            Log.d("MyApp", "Version Name : "+version + "\n Version Code : "+versionCode);
+        }catch(PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+            Log.d("MyApp", "PackageManager Catch : "+e.toString());
+        }
 
-                }
-            });
-            builder.setPositiveButton("Update Now", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface arg0, int arg1) {
-                    try {
-                        startActivity(new Intent(Intent.ACTION_VIEW,
-                                Uri.parse("market://details?id=com.jackson_siro.visongbook")));
-                    } catch (android.content.ActivityNotFoundException anfe) {
-                        startActivity(new Intent(Intent.ACTION_VIEW,
-                                Uri.parse("https://play.google.com/store/apps/details?id=com.jackson_siro.visongbook")));
+        if (prefget.getString("app_version_current", "") != version) {
+            Long reminder_time = System.currentTimeMillis() - prefget.getLong("app_update_reminder", 0);
+            if (reminder_time > 18000) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("Update your vSongBook!");
+                builder.setMessage("Hello " + mGender + mFullname + "! Enjoy improved functionality and user inteface with the new " +
+                        "vSongBook update (" + prefget.getString("app_version_size", "") + "B) released on " +
+                        prefget.getString("app_version_updated", "") + ". Please go ahead and update!"
+                );
+                builder.setNegativeButton("Remind me Later", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        prefedit.putLong("app_update_reminder", System.currentTimeMillis()).apply();
                     }
-                }
-            });
-            builder.show();
+                });
+                builder.setPositiveButton("Update Now", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        try {
+                            startActivity(new Intent(Intent.ACTION_VIEW,
+                                    Uri.parse("market://details?id=com.jackson_siro.visongbook")));
+                        } catch (android.content.ActivityNotFoundException anfe) {
+                            startActivity(new Intent(Intent.ACTION_VIEW,
+                                    Uri.parse("https://play.google.com/store/apps/details?id=com.jackson_siro.visongbook")));
+                        }
+                    }
+                });
+                builder.show();
+            }
         }
     }
 
+    public void checkDonation(){
+        if (!prefget.getBoolean("app_user_donated", false)){
+            Long reminder_time = System.currentTimeMillis() - prefget.getLong("app_donation_reminder", 0);
+            if (reminder_time > 18000) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("vSongBook Needs Your Support");
+                builder.setMessage("Hello " + mGender + mFullname + "! vSongBook is proudly non-profit, non-corporate and non-compromised. " +
+                        "A lot of users like you help us stand up for a free vSongBook for all. We now rely on donations to carry out our " +
+                        "mission to give everyone able to use our app the freedom to sing anywhere anytime. Any amount of money will be " +
+                        "highly appreciated by our team of developers. Will you give today?"
+                );
+                builder.setNegativeButton("Remind me Later", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        prefedit.putLong("app_donation_reminder", System.currentTimeMillis()).apply();
+                    }
+                });
+                builder.setNeutralButton("Leave me out", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        prefedit.putBoolean("app_user_donated", true).apply();
+                    }
+                });
+                builder.setPositiveButton("Yes am in", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        startActivity(new Intent(CcHomeView.this, FfDonate.class));
+                    }
+                });
+                builder.show();
+            }
+        }
+    }
     public void checkDatabase() {
         if (!prefget.getBoolean("app_books_loaded", false))
             startActivity(new Intent(CcHomeView.this, BbBooksLoad.class));
