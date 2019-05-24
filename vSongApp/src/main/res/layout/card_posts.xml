@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:id="@+id/material_ripple"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/MaterialEffects">
+
+        <android.support.v7.widget.CardView
+            app:cardCornerRadius="2dp"
+            app:cardUseCompatPadding="true"
+            app:cardElevation="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="125dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:padding="3dp"
+                android:background="@color/white_color"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="100">
+
+                <ImageView
+                    android:id="@+id/imgBig"
+                    android:src="@drawable/appicon"
+                    android:scaleType="centerCrop"
+                    android:layout_width="100dp"
+                    android:layout_height="110dp" />
+
+                <View
+                    android:layout_width="4dp"
+                    android:layout_height="0dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_margin="1dp">
+
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_marginLeft="10dp"
+                        android:textSize="16dp"
+                        android:textColor="@color/black_color"
+                        android:text="@string/app_name"
+                        android:gravity="fill"
+                        android:textStyle="bold"
+                        android:lines="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/shortTitle"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/app_name"
+                        android:gravity="fill"
+                        android:lines="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <LinearLayout
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:background="@drawable/ic_date_range_black_24dp"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp" />
+
+                        <TextView
+                            android:id="@+id/date_posts"
+                            android:text="@string/app_name"
+                            android:layout_marginLeft="3dp"
+                            android:textSize="11dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+</RelativeLayout>

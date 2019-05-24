@@ -1,0 +1,251 @@
+<resources>
+    <string name="app_name">vSongBook</string>
+    <string name="main_title">Search vSongBook</string>
+    <string name="sub_title">With Admin Panel</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+    <string name="search_posts">Search</string>
+    <string name="search_delete">Search Delete</string>
+    <string name="app_favorites">Favorites Song</string>
+    <string name="app_share">Share Song</string>
+    <string name="not_yet_favorites">Not yet favorites</string>
+    <string name="delete_all">Delete All</string>
+    <string name="message_delete_all">Are you sure want to delete all favorites?</string>
+    <string name="category_list">Category List</string>
+    <string name="check_connection">Check your connection</string>
+    <string name="not_yet_posts">Not yet postModel detail or Check your connection</string>
+    <string name="view">View</string>
+    <string name="deleted">Delete ?</string>
+    <string name="not_yet_sub_category">Not yet sub-category</string>
+    <string name="load_more_posts">Load More Posts</string>
+
+    <!--BANNER ADS ADMOB-->
+    <string name="banner_ads">ca-app-pub-3553469696961315/1732679808</string>
+    <string name="interstitial_ads">ca-app-pub-3553469696961315/8485790410</string>
+
+    <!--Custom text-->
+    <string name="failed_load">Failed Load Data</string>
+    <string name="no_data_available">No Data Available</string>
+    <string name="no_data">Ooops, Post not found</string>
+    <string name="finish_guide_posts">Finish Guide</string>
+    <string name="next_guide_posts">Next</string>
+    <item name="visible" type="id" />
+    <item name="masked" type="id" />
+
+    <string-array name="title_array">
+        <item>Welcome</item>
+        <item>Category Posts</item>
+        <item>Display All Posts by limit number</item>
+        <item>Search Featured Live Viewed</item>
+    </string-array>
+    <integer-array name="image_array">
+        <item>@drawable/home</item>
+        <item>@drawable/category</item>
+        <item>@drawable/allposts</item>
+        <item>@drawable/search</item>
+    </integer-array>
+    <string-array name="description_array">
+        <item>This is slider postModel display by Fragment</item>
+        <item>This is category postModel display by Fragment</item>
+        <item>This is all postModel display by increment value</item>
+        <item>This is search featured, display postModel when keyword input</item>
+    </string-array>
+
+    <string name="item_name">What is the best shot we have so far?</string>
+    <string name="item_description">asked Mar 11 in General by jacksiro (260 points)</string>
+    <string name="item_tags">common, general, php, code,</string>
+
+    <string name="recent_questions_and_answers">Recent questions and answers</string>
+
+    <!--ABOUT AND LINK-->
+    <string name="google_play_store">https://play.google.com/store/apps/details?id=</string>
+    <string name="please_wait_loading_data">Please wait . . .</string>
+
+    <!--FIREBASE NOTIFICATION -->
+    <string name="FCM_PREF">com.jackson_siro.vsongbook.ui.notification</string>
+    <string name="FCM_TOKEN">com.jackson_siro.vsongbook.ui.notification</string>
+    <string name="PREFERENCES_NAME_ADS">com.jackson_siro.vsongbook.ui</string>
+    <string name="PREFERENCES_COUNTER">com.jackson_siro.vsongbook.ui</string>
+    <string name="text_share">Hi guy, I love this postModel, if you interest with this postModel you can get more postModel with download my app on play store </string>
+    <string name="feedback">FEEDBACK</string>
+    <string name="success">success</string>
+    <string name="thank_feedback">Thank you for your feedback</string>
+    <string name="exit">Are you sure want to exit now?</string>
+    <string name="Signin">Signin</string>
+    <string name="your_firstname">Your First Name</string>
+    <string name="your_lastname">Your Last Name</string>
+    <string name="your_gender">You are a</string>
+    <string name="your_city">Your City</string>
+    <string name="your_church">Your Church</string>
+    <string name="your_country">Select Your Country</string>
+    <string name="your_mobile">Mobile</string>
+    <string name="your_email">Email Address</string>
+    <string name="your_username">Preffered Username</string>
+    <string name="your_password">Password</string>
+    <string name="dont_have">Don\'t have account?</string>
+    <string name="signup_now">Signup</string>
+    <string name="have_acount">Do you have account?</string>
+    <string name="your_name">Name</string>
+    <string name="your_passkey">Email or Username</string>
+    <string name="name">Please input</string>
+    <string name="already_exists">Username or Email Already Exists</string>
+    <string name="hello">"Hello "</string>
+    <string name="points">" points"</string>
+    <string name="choose_photo">Choose Photo</string>
+    <string name="about">vSongBook : V.1.2.6</string>
+    <string name="edit_process">EDIT PROFILE</string>
+    <string name="rating_me">Rating us on Google Play Store</string>
+    <string name="failed_upload_image">Failed to Upload Image. Try Again</string>
+    <string name="success_upload_image">Your Profile Successfully Updated</string>
+    <string name="loading_upload_image">Uploading image. . .</string>
+    <string name="upload_image_error">Oops. Something error</string>
+    <string name="validate_input">Please input email, username and password</string>
+    <string name="image_upload">Success upload image</string>
+    <string name="adding_comment">Adding comment . . .</string>
+    <string name="success_adding_comment">New comment successfully added</string>
+    <string name="about_app">About App</string>
+    <string name="rating_text">If you like this app, please dont forget for rate my app on play store. Thanks</string>
+    <string name="you_must_Signin">You Must Signin Earlier For Comment</string>
+    <string name="title_activity_bottom_navigation">BottomNavigation</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="micsearch">MicSearch</string>
+
+    <string name="post_view">Post View</string>
+    <string name="post_title">Post Title</string>
+    <string name="post_what">asked</string>
+    <string name="post_when">Mar 10</string>
+    <string name="post_in">in General</string>
+    <string name="post_who">by jacksiro (150 points)</string>
+    <string name="post_acount">0 Answers</string>
+    <string name="post_color">Color:</string>
+    <string name="post_texture">Texture:</string>
+    <string name="post_count">120 available</string>
+    <string name="post_volume">Volume:</string>
+    <string name="post_volume_weight">Volume: 32x15x50 cm, Weight: 20 kg</string>
+    <string name="post_weight">Weight:</string>
+    <string name="post_details">asked 30 minutes ago in General by thisuser (120 points)</string>
+    <string name="post_description">Description:</string>
+    <string name="post_descriptions">The this item has many intresting things that you may like here when you look at it. I encourage you to take a second look of it if you dont mind abbout it.</string>
+    <string name="post_manufacturer">Manufacturer:</string>
+    <string name="post_tags">Tag1, Tag2, Tag3</string>
+
+    <string name="your_answer">Your Answer</string>
+    <string name="btn_answer">answer</string>
+    <string name="btn_addanswer">Add answer</string>
+    <string name="btn_cancel">Cancel</string>
+
+    <string name="quiz_tab_one">Recent</string>
+    <string name="quiz_tab_two">Hot!</string>
+    <string name="quiz_tab_three">Most Votes</string>
+    <string name="quiz_tab_four">Most Answers</string>
+    <string name="quiz_tab_five">Most Views</string>
+
+    <string name="una_tab_one">No Answers</string>
+    <string name="una_tab_two">No Selected Answer</string>
+    <string name="una_tab_three">No Upthumbd Answer</string>
+
+    <string name="users_tab_one">Top Scoring Users</string>
+    <string name="users_tab_two">Newest Users</string>
+    <string name="users_tab_three">Special Users</string>
+
+    <string name="heading">Heading</string>
+    <string name="subheading">SubHeading</string>
+    <string name="more_button">MORE</string>
+    <string name="card_app_name">App Name</string>
+    <string name="sample_rating">4.3</string>
+    <string name="free">FREE</string>
+    <string name="card_numbering">1/5</string>
+
+    <string name="app_donate">Support Us</string>
+    <string name="app_songbooks">Manage Songbooks</string>
+    <string name="app_updates">App Updates</string>
+
+    <string name="nav_proceed">Proceed</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="show_installed_apps">Show installed apps</string>
+    <string name="demo_size">46MB</string>
+
+    <string name="app_header_name">Udacity - Clone Learning</string>
+    <string name="app_dev_name">Udacity, Inc</string>
+    <string name="app_three_plus">3+</string>
+    <string name="app_size">29MB</string>
+    <string name="install_button">Install</string>
+    <string name="downloads">Downloads</string>
+    <string name="sample_users">21,831</string>
+    <string name="sample_category">Education</string>
+    <string name="sample_similar">Similar</string>
+    <string name="million">MILLION</string>
+    <string name="sample_downloads">10</string>
+    <string name="education">Education</string>
+    <string name="_4_3">4.3</string>
+    <string name="app_desc">Prepare yourself for the jobs of today, tomorrow and beyond with Udacity</string>
+    <string name="read_more">READ MORE</string>
+    <string name="rate_this_app">Rate this app</string>
+    <string name="submit">SUBMIT</string>
+    <string name="sample_date">02/04/218</string>
+    <string name="all_reviews">ALL REVIEWS</string>
+    <string name="my_updates">My Updates</string>
+    <string name="my_session">Logout</string>
+    <string name="my_profile">User jacksiro</string>
+    <string name="my_account">My Account</string>
+    <string name="my_favorites">My Favorites</string>
+    <string name="my_wall">My Wall</string>
+    <string name="my_messages">Private Messages</string>
+    <string name="my_activity">Recent Activity</string>
+    <string name="my_questions">All Questions</string>
+    <string name="my_answers">All Answers</string>
+    <string name="my_settings">App Settings</string>
+    <string name="help_and_feedback">Help and feedback</string>
+    <string name="parent_guide">Parent Guide</string>
+    <string name="about_this_app">About vSongBook</string>
+    <string name="demo_download_size">2.96MB/5.26MB</string>
+    <string name="demo_download_percent">56%</string>
+    <string name="button_proceed">PROCEED</string>
+    <string name="button_uninstall">UNINSTALL</string>
+    <string name="top_categories">Top categories</string>
+    <string name="all_categories">All categories</string>
+    <string name="title_activity_basic">BasicActivity</string>
+
+    <string name="user_Signin">Signin to your Account</string>
+    <string name="user_signup">Signup your Account</string>
+    <string name="title_activity_Signin">Sign in</string>
+    <!-- Strings related to Signin -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or signup</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="developer">© AppSmata</string>
+    <string name="title_activity_dd_post_view">DdPostView</string>
+    <string name="title_activity_signin">Welcome to vSongBook</string>
+    <string name="title_activity_signup">Just a minute to know you</string>
+    <string name="title_activity_bb_books_load">Set up your vSongBook</string>
+
+    <string name="action_voice_rec">action voice rec</string>
+    <string name="action_location">action location</string>
+    <string name="action_taxi">action taxi</string>
+    <string name="action_change_colors">change style</string>
+    <string name="color_info">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula,</string>
+    <string name="dummy_text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="action_example_with_sliding_list">Sliding list</string>
+    <string name="action_example_sliding_search_bar">Sliding search view</string>
+    <string name="random_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dictum lorem ac leo tincidunt varius. Donec lacinia elementum lobortis. Nulla pellentesque cursus sem. Aliquam vestibulum lacinia metus, ac faucibus nunc fringilla a. Nullam mauris lorem, pharetra vitae mollis in, gravida a mi. Sed eu elit vitae lorem vestibulum volutpat eget blandit tortor. Duis dignissim porta dolor, ut porttitor lectus pretium vitae.  Phasellus quis augue ante. Nam tempus egestas consectetur. Praesent nec placerat nisi, non malesuada dolor. Duis malesuada semper lorem, nec feugiat nisl. Nulla facilisi. Sed aliquam ex ut turpis malesuada dignissim. Nam risus mi, dapibus maximus nisl ac, efficitur suscipit ex. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec malesuada nisl eget faucibus mollis. Nam sit amet mauris a metus euismod porttitor et sed mi. Nunc vel vehicula arcu, eu lacinia odio. Fusce id lacus vel dui blandit maximus id eget neque.  Sed eu porta diam. Nunc vitae egestas diam. Donec semper hendrerit laoreet. Aliquam quis aliquam nulla. Aenean euismod lacus sed pretium scelerisque. Suspendisse mollis arcu at ligula pulvinar, nec elementum velit fermentum. Sed sed mollis ligula, vel eleifend metus. Sed magna metus, tempus ut bibendum at, aliquam at nisi. Integer nec fringilla mauris, vel viverra augue. Morbi eu mi mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.  Proin molestie ante nec tristique finibus. In hac habitasse platea dictumst. Maecenas sed risus condimentum, feugiat velit ac, dictum erat. Curabitur pharetra ac nulla sed lacinia. Curabitur rutrum dolor vestibulum magna ultrices congue ac sed libero. Nam semper mi a neque ultricies commodo. In condimentum in odio in porttitor. Suspendisse maximus vestibulum nunc, vel gravida dui fermentum eu. Morbi sed orci augue. Praesent dolor justo, cursus sit amet ex et, posuere mattis lorem. Donec in efficitur orci. Nam semper odio a interdum aliquet. Vivamus vitae luctus purus, in fermentum diam. Pellentesque quis orci vitae est placerat faucibus. Maecenas non gravida ipsum, sit amet ultrices sem. Phasellus fringilla ultrices erat, vel aliquam sapien varius ac.  Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam porta semper sapien. Pellentesque volutpat porta sapien, ut tristique metus. In hac habitasse platea dictumst. Aenean pharetra molestie dapibus. Nunc sed dolor elit. Quisque eget enim non tellus volutpat mollis a id dolor. Aenean sit amet sem sem. Nunc viverra efficitur lorem. Quisque quis metus dictum, mattis ante non, pellentesque sapien. Integer quis lectus feugiat, consectetur nulla quis, viverra nulla. Curabitur eu sodales nisl. Morbi non enim pellentesque, lobortis est id, dignissim mauris. Nulla et tempor lectus.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dictum lorem ac leo tincidunt varius. Donec lacinia elementum lobortis. Nulla pellentesque cursus sem. Aliquam vestibulum lacinia metus, ac faucibus nunc fringilla a. Nullam mauris lorem, pharetra vitae mollis in, gravida a mi. Sed eu elit vitae lorem vestibulum volutpat eget blandit tortor. Duis dignissim porta dolor, ut porttitor lectus pretium vitae.  Phasellus quis augue ante. Nam tempus egestas consectetur. Praesent nec placerat nisi, non malesuada dolor. Duis malesuada semper lorem, nec feugiat nisl. Nulla facilisi. Sed aliquam ex ut turpis malesuada dignissim. Nam risus mi, dapibus maximus nisl ac, efficitur suscipit ex. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec malesuada nisl eget faucibus mollis. Nam sit amet mauris a metus euismod porttitor et sed mi. Nunc vel vehicula arcu, eu lacinia odio. Fusce id lacus vel dui blandit maximus id eget neque.  Sed eu porta diam. Nunc vitae egestas diam. Donec semper hendrerit laoreet. Aliquam quis aliquam nulla. Aenean euismod lacus sed pretium scelerisque. Suspendisse mollis arcu at ligula pulvinar, nec elementum velit fermentum. Sed sed mollis ligula, vel eleifend metus. Sed magna metus, tempus ut bibendum at, aliquam at nisi. Integer nec fringilla mauris, vel viverra augue. Morbi eu mi mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.  Proin molestie ante nec tristique finibus. In hac habitasse platea dictumst. Maecenas sed risus condimentum, feugiat velit ac, dictum erat. Curabitur pharetra ac nulla sed lacinia. Curabitur rutrum dolor vestibulum magna ultrices congue ac sed libero. Nam semper mi a neque ultricies commodo. In condimentum in odio in porttitor. Suspendisse maximus vestibulum nunc, vel gravida dui fermentum eu. Morbi sed orci augue. Praesent dolor justo, cursus sit amet ex et, posuere mattis lorem. Donec in efficitur orci. Nam semper odio a interdum aliquet. Vivamus vitae luctus purus, in fermentum diam. Pellentesque quis orci vitae est placerat faucibus. Maecenas non gravida ipsum, sit amet ultrices sem. Phasellus fringilla ultrices erat, vel aliquam sapien varius ac.  Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam porta semper sapien. Pellentesque volutpat porta sapien, ut tristique metus. In hac habitasse platea dictumst. Aenean pharetra molestie dapibus. Nunc sed dolor elit. Quisque eget enim non tellus volutpat mollis a id dolor. Aenean sit amet sem sem. Nunc viverra efficitur lorem. Quisque quis metus dictum, mattis ante non, pellentesque sapien. Integer quis lectus feugiat, consectetur nulla quis, viverra nulla. Curabitur eu sodales nisl. Morbi non enim pellentesque, lobortis est id, dignissim mauris. Nulla et tempor lectus.</string>
+    <string name="action_example_scrolling_search_bar">scrolling behavior</string>
+</resources>

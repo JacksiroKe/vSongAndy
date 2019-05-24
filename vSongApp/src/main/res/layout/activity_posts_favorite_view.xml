@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/appbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="256dp"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+                <android.support.design.widget.CollapsingToolbarLayout
+                    android:id="@+id/collapsing_toolbar"
+                    android:fitsSystemWindows="true"
+                    app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.SearchResult.Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:contentScrim="?attr/colorPrimary"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                    <ImageView
+                        android:id="@+id/imageFavorites"
+                        android:background="@color/bg"
+                        android:scaleType="centerCrop"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                    <android.support.v7.widget.Toolbar
+                        android:id="@+id/toolbar"
+                        android:gravity="bottom"
+                        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                        app:layout_collapseMode="pin"
+                        android:minHeight="?attr/actionBarSize"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize">
+                    </android.support.v7.widget.Toolbar>
+
+
+                </android.support.design.widget.CollapsingToolbarLayout>
+
+            </android.support.design.widget.AppBarLayout>
+
+            <android.support.v7.widget.CardView
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="15dp"
+                app:cardUseCompatPadding="true"
+                app:cardElevation="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/shortTitle"
+                        android:textColor="@color/black_color"
+                        android:text="@string/app_name"
+                        android:textStyle="bold"
+                        android:textSize="17dp"
+                        android:textAppearance="@style/TextAppearance.AppCompat.SearchResult.Title"
+                        android:padding="6dp"
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/titleDetailsPosts"
+                        android:textColor="@color/black_color"
+                        android:text="@string/app_name"
+                        android:textStyle="bold"
+                        android:textSize="17dp"
+                        android:textAppearance="@style/TextAppearance.AppCompat.SearchResult.Title"
+                        android:padding="6dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <View
+                        android:id="@+id/view"
+                        android:layout_below="@id/titleDetailsPosts"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/colorAccent"/>
+
+                    <WebView
+                        android:id="@+id/descriptionFavorites"
+                        android:layout_below="@id/view"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    </WebView>
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

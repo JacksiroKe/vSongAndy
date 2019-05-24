@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linear_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="6dp">
+
+    <TextView
+        android:text="Comment"
+        android:gravity="center_horizontal"
+        android:textSize="15dp"
+        android:textColor="@color/black_color"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:weightSum="10">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/user_comment"
+            android:src="@drawable/bbr"
+            android:layout_width="50dp"
+            android:layout_height="40dp" />
+
+        <EditText
+            android:id="@+id/input_user_comment"
+            android:hint="input comment"
+            android:background="@drawable/custom_comment"
+            android:padding="10dp"
+            android:layout_weight="8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/user_comment_send"
+            android:src="@drawable/ic_send_black_24dp"
+            android:tint="@color/colorPrimary"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+</LinearLayout>
