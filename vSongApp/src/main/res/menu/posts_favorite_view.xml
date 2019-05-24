@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/deleteOne"
+        android:title="Delete"
+        android:icon="@drawable/ic_favorite_black_48dp"
+        app:showAsAction="always"
+        android:orderInCategory="100"
+        />
+
+    <item
+        android:id="@+id/share"
+        android:title=""
+        android:icon="@drawable/ic_share_black_48dp"
+        app:showAsAction="always"
+        android:orderInCategory="100"
+        />
+
+</menu>

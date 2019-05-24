@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF2500</color>
+    <color name="colorPrimaryDark">#FF4500</color>
+    <color name="colorAccent">#FF7C00</color>
+
+    <!--custom color-->
+    <color name="white_color">#ffffff</color>
+    <color name="tag_color">#e67e22</color>
+    <color name="green_color">#0f9d58</color>
+    <color name="red_color">#ff0000</color>
+
+    <color name="white_bg">#efefef</color>
+    <color name="blue_color">#3a9bf5</color>
+    <color name="black_color">#000000</color>
+    <color name="line_title">#468b2828</color>
+    <color name="slider_posts">#c69e9e</color>
+    <color name="bg">#2e2e2e</color>
+	
+	<color name="colorGrey">#616161</color>
+    <color name="colorLightGrey">#757575</color>
+    <color name="colorVeryLightGrey">#E0E0E0</color>
+    <color name="colorGreyTransparent">#50000000</color>
+
+    <color name="colorPageGrey">#EEEEEE</color>
+    <color name="colorBlack">#000000</color>
+
+    <color name="colorRatingBackground">#f2f2f2</color>
+
+    <color name="colorProgressRating1">#57bb8a</color>
+    <color name="colorProgressRating2">#9ace6a</color>
+    <color name="colorProgressRating3">#ffeb3b</color>
+    <color name="colorProgressRating4">#ffbb50</color>
+    <color name="colorProgressRating5">#ff8a65</color>
+</resources>

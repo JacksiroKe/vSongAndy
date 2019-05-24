@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white_bg"
+    android:clipToPadding="false"
+    android:scrollbars="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <android.support.v7.widget.CardView
+        app:cardCornerRadius="15dp"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title"
+                android:visibility="gone"
+                android:textColor="@color/black_color"
+                android:text="@string/app_name"
+                android:textStyle="bold"
+                android:textSize="17dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.SearchResult.Title"
+                android:padding="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorAccent"/>
+
+            <Button
+                android:id="@+id/user_comment"
+                android:visibility="gone"
+                android:textColor="@color/white_color"
+                android:layout_margin="10dp"
+                android:layout_gravity="center"
+                android:padding="8dp"
+                android:background="@drawable/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</android.support.v4.widget.NestedScrollView>
