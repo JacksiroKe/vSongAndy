@@ -15,7 +15,7 @@
         <item name="colorControlNormal">#696969</item>
     </style>
 
-    <!-- your custom search view text style -->
+    <!-- your custom search view text style Widget.AppCompat.EditText -->
     <style name="searchViewEditTextStyle" parent="Widget.AppCompat.EditText">
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>

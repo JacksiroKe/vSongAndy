@@ -11,8 +11,8 @@ public class vSongBook extends AppCompatActivity {
 
     public static void passingIntent(Activity activity, Integer postid, String request){
         switch (request) {
-            case "DdPostView":
-                Intent intent = new Intent(activity, DdPostView.class);
+            case "EePostView":
+                Intent intent = new Intent(activity, EePostView.class);
                 intent.putExtra(EXT_OBJ_ID, postid);
                 intent.putExtra(EXT_NOTIFICATION_ID, postid);
                 activity.startActivity(intent);

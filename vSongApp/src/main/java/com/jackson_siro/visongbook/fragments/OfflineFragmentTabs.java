@@ -51,7 +51,7 @@ public class OfflineFragmentTabs extends Fragment {
         listAdapter.setOnItemClickListener(new ListsSongsAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, PostModel postModel) {
-                vSongBook.passingIntent(getActivity(), postModel.songid, "DdPostView");
+                vSongBook.passingIntent(getActivity(), postModel.songid, "EePostView");
             }
         });
     }

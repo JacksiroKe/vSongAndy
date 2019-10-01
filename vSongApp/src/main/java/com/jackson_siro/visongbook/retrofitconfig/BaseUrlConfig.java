@@ -5,7 +5,7 @@ import java.io.IOException;
 public class BaseUrlConfig {
     public static final String BaseJsonOffline = "https://192.168.43.233/appsmata/appsmata/"; // change this url with your base file
     public static final String BaseJsonOnline = "https://raw.githubusercontent.com/AppSmata/AppSmata/master/"; // change this url with your base file
-    public static final String BaseUrl = "https://appsmata.kenyanexamsrevisions.co.ke/vsongbook/"; // change this url with your base url
+    public static final String BaseUrl = "https://sing.appsmata.com/"; // change this url with your base url
     //public static final String BaseUrl = "https://192.168.43.233/vsongbook/"; // change this url with your base url
 
     public static final String AppToken = "as-api/insert_token_from_app.php"; // change this url with your base url http://192.168.0.101/com.jackson_siro.vsongbook-posts

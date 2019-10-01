@@ -162,7 +162,7 @@ public class Feedback extends AppCompatActivity{
         builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Intent intent = new Intent(getApplicationContext(), CcHomeView.class);
+                Intent intent = new Intent(getApplicationContext(), DdHomeView.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.animation_right_left, R.anim.animation_blank);
             }
@@ -183,7 +183,7 @@ public class Feedback extends AppCompatActivity{
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(Feedback.this, CcHomeView.class);
+        Intent intent = new Intent(Feedback.this, DdHomeView.class);
         startActivity(intent);
         overridePendingTransition(R.anim.animation_right_left, R.anim.animation_blank);
     }
