@@ -3,6 +3,7 @@ package com.jackson_siro.visongbook.fragments;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -47,11 +48,12 @@ public class OfflineFragmentTabs extends Fragment {
         List<PostModel> songslist = db.getSongList(songbookid);
         listAdapter = new ListsSongsAdapter(songslist, getContext());
         itemsRecyclerView.setAdapter(listAdapter);
+        itemsRecyclerView.addItemDecoration(new DividerItemDecoration(itemsRecyclerView.getContext(), DividerItemDecoration.VERTICAL));
 
         listAdapter.setOnItemClickListener(new ListsSongsAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, PostModel postModel) {
-                vSongBook.passingIntent(getActivity(), postModel.songid, "DdPostView");
+                vSongBook.passingIntent(getActivity(), postModel.songid, "EePostView");
             }
         });
     }

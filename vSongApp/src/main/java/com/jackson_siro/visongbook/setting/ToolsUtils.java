@@ -5,14 +5,14 @@ import android.content.Context;
 import android.util.DisplayMetrics;
 import android.view.Display;
 
-import com.jackson_siro.visongbook.ui.CcHomeView;
+import com.jackson_siro.visongbook.ui.DdHomeView;
 
 public class ToolsUtils {
 
-    public static CcHomeView homeview;
+    public static DdHomeView homeview;
 
     public ToolsUtils(Context context){
-        this.homeview = (CcHomeView) context;
+        this.homeview = (DdHomeView) context;
     }
 
     public static int getFeaturedPostsImageHeight(Activity activity){

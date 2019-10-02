@@ -15,7 +15,7 @@ import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
 import com.jackson_siro.visongbook.R;
-import com.jackson_siro.visongbook.ui.CcHomeView;
+import com.jackson_siro.visongbook.ui.DdHomeView;
 
 public class FcmMessagingService extends FirebaseMessagingService {
     @Override
@@ -23,7 +23,7 @@ public class FcmMessagingService extends FirebaseMessagingService {
 
         String title = remoteMessage.getData().get("title");
         String photos = remoteMessage.getData().get("photos");
-        Intent intent = new Intent(this, CcHomeView.class);
+        Intent intent = new Intent(this, DdHomeView.class);
         intent.getIntExtra(title, 0);
         intent.getIntExtra(photos, 0);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT);

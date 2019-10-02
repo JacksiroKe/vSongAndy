@@ -27,7 +27,7 @@ import retrofit2.Response;
 public class OnlineFragmentTabs extends Fragment {
     private String request;
     private View view;
-    private ListsQuestionsAdapter recentAdapter;
+    private ListsSongsAdapter recentAdapter;
     private Call<CallbackPostsLists> callbackPostsCall;
     private RecyclerView itemsRecyclerView;
 
@@ -72,12 +72,12 @@ public class OnlineFragmentTabs extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         itemsRecyclerView.setLayoutManager(layoutManager);
 
-        recentAdapter = new ListsQuestionsAdapter(new ArrayList<PostModel>(), getContext());
+        recentAdapter = new ListsSongsAdapter(new ArrayList<PostModel>(), getContext());
 
-        recentAdapter.setOnItemClickListener(new ListsQuestionsAdapter.OnItemClickListener() {
+        recentAdapter.setOnItemClickListener(new ListsSongsAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, PostModel postModel) {
-                vSongBook.passingIntent(getActivity(), postModel.songid, "DdPostView");
+                vSongBook.passingIntent(getActivity(), postModel.songid, "EePostView");
             }
         });
 

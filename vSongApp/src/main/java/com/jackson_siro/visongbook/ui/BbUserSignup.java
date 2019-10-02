@@ -17,8 +17,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.Toast;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -220,7 +218,7 @@ public class BbUserSignup extends AppCompatActivity {
         prefedit.putBoolean("app_user_signedin", true).apply();
 
         prefedit.putBoolean("app_user_signedin", true);
-        startActivity(new Intent(BbUserSignup.this, CcHomeView.class));
+        startActivity(new Intent(BbUserSignup.this, DdHomeView.class));
         finish();
     }
 
@@ -267,10 +265,10 @@ public class BbUserSignup extends AppCompatActivity {
     }
 
     public void checkDatabase() {
-        if (!prefget.getBoolean("app_books_loaded", false)) startActivity(new Intent(BbUserSignup.this, BbBooksLoad.class));
+        if (!prefget.getBoolean("app_books_loaded", false)) startActivity(new Intent(BbUserSignup.this, CcBooksLoad.class));
         else if (prefget.getBoolean("app_books_loaded", false) && !prefget.getBoolean("app_songs_loaded", false))
-            startActivity(new Intent(BbUserSignup.this, BbSongsLoad.class));
-        else startActivity(new Intent(BbUserSignup.this, CcHomeView.class));
+            startActivity(new Intent(BbUserSignup.this, CcSongsLoad.class));
+        else startActivity(new Intent(BbUserSignup.this, DdHomeView.class));
         finish();
     }
 

@@ -1,10 +1,8 @@
 package com.jackson_siro.visongbook.ui;
 
-<<<<<<< HEAD
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-=======
->>>>>>> c0aed1253c303a33b706b3212d96bfbef706cfcc
+
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,11 +12,9 @@ import com.jackson_siro.visongbook.R;
 
 public class FfDonate extends AppCompatActivity {
 
-<<<<<<< HEAD
     private SharedPreferences prefget;
     private SharedPreferences.Editor prefedit;
-=======
->>>>>>> c0aed1253c303a33b706b3212d96bfbef706cfcc
+
     private Toolbar toolbar;
     private ActionBar actionBar;
 
@@ -26,7 +22,6 @@ public class FfDonate extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ff_donate);
-<<<<<<< HEAD
 
         prefget = PreferenceManager.getDefaultSharedPreferences(this);
         prefedit = prefget.edit();
@@ -34,10 +29,6 @@ public class FfDonate extends AppCompatActivity {
         toolbarSet();
 
         prefedit.putBoolean("app_user_donated", true).apply();
-=======
-        toolbarSet();
-
->>>>>>> c0aed1253c303a33b706b3212d96bfbef706cfcc
     }
 
     private void toolbarSet() {

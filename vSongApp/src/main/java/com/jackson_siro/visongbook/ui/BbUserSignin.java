@@ -19,7 +19,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -211,9 +210,9 @@ public class BbUserSignin extends AppCompatActivity{
         prefedit.putBoolean("app_user_signedin", true).apply();
 
         if (!prefget.getBoolean("app_books_loaded", false)) {
-            startActivity(new Intent(BbUserSignin.this, BbBooksLoad.class));
+            startActivity(new Intent(BbUserSignin.this, CcBooksLoad.class));
         }
-        else startActivity(new Intent(BbUserSignin.this, CcHomeView.class));
+        else startActivity(new Intent(BbUserSignin.this, DdHomeView.class));
         finish();
     }
 
@@ -224,12 +223,12 @@ public class BbUserSignin extends AppCompatActivity{
         switch (errorno) {
             case 1:
                 if (!prefget.getBoolean("app_books_loaded", false)) {
-                    startActivity(new Intent(BbUserSignin.this, BbBooksLoad.class));
+                    startActivity(new Intent(BbUserSignin.this, CcBooksLoad.class));
                 }
                 else if (prefget.getBoolean("app_books_reload", false)) {
-                    startActivity(new Intent(BbUserSignin.this, BbBooksLoad.class));
+                    startActivity(new Intent(BbUserSignin.this, CcBooksLoad.class));
                 }
-                else startActivity(new Intent(BbUserSignin.this, CcHomeView.class));
+                else startActivity(new Intent(BbUserSignin.this, DdHomeView.class));
                 finish();
                 break;
 
@@ -256,10 +255,10 @@ public class BbUserSignin extends AppCompatActivity{
     }
 
     public void checkDatabase() {
-        if (!prefget.getBoolean("app_books_loaded", false)) startActivity(new Intent(BbUserSignin.this, BbBooksLoad.class));
+        if (!prefget.getBoolean("app_books_loaded", false)) startActivity(new Intent(BbUserSignin.this, CcBooksLoad.class));
         else if (prefget.getBoolean("app_books_loaded", false) && !prefget.getBoolean("app_songs_loaded", false))
-            startActivity(new Intent(BbUserSignin.this, BbSongsLoad.class));
-        else startActivity(new Intent(BbUserSignin.this, CcHomeView.class));
+            startActivity(new Intent(BbUserSignin.this, CcSongsLoad.class));
+        else startActivity(new Intent(BbUserSignin.this, DdHomeView.class));
         finish();
     }
 
@@ -277,15 +276,9 @@ public class BbUserSignin extends AppCompatActivity{
             builder.setPositiveButton("Retry", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface arg0, int arg1) {
-<<<<<<< HEAD
                     String code = inputCode.getText().toString().trim();
                     String phone = inputPhone.getText().toString().trim();
                     signinUser(code + phone);
-=======
-                String code = inputCode.getText().toString().trim();
-                String phone = inputPhone.getText().toString().trim();
-                signinUser(code + phone);
->>>>>>> c0aed1253c303a33b706b3212d96bfbef706cfcc
                 }
             });
         }

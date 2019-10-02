@@ -49,50 +49,6 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    public void createDatabase(SQLiteDatabase sqLiteDatabase){
-        boolean dbExist = checkDatabase();
-        db = null;
-
-        if (dbExist){
-
-        } else {
-            db = this.getReadableDatabase();
-            db.close();
-            try{
-                copyDatabase();
-            }catch (IOException ex){
-                throw new Error("Error Copy DB");
-            }
-        }
-    }
-
-    public void openDatabase(){
-        db = getWritableDatabase();
-        String path = DB_PATH + Utils.DATABASE_NAME;
-        db = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.OPEN_READWRITE);
-    }
-
-    private boolean checkDatabase() {
-        File file = new File(DB_PATH + Utils.DATABASE_NAME);
-        return file.exists();
-    }
-
-    private void copyDatabase() throws IOException{
-        InputStream inputStream = context.getAssets().open(Utils.DATABASE_NAME);
-        String outFileName = DB_PATH + Utils.DATABASE_NAME;
-        OutputStream outputStream = new FileOutputStream(outFileName);
-
-        byte[] bytes = new byte[1024];
-        int length;
-        while ((length = inputStream.read(bytes)) > 0){
-            outputStream.write(bytes, 0, length);
-        }
-
-        outputStream.flush();
-        outputStream.close();
-        inputStream.close();
-    }
-
     public void addBook(CategoryModel book){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -200,8 +156,11 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     public List<PostModel> getSongList(int songbook) {
         List<PostModel> SongsList = new LinkedList<>();
         String wherequery = (songbook == 0) ? "" : " WHERE " + Utils.CATEGORYID + "=" + songbook;
-        String fullquery = "SELECT * FROM " + Utils.TBL_SONGS + wherequery + " ORDER BY " + Utils.NUMBER;
+        String fullquery = "SELECT songid, as_songs.bookid, number, alias, as_songs.title, as_songs.tags, as_songs.content, as_books.title  FROM " +
+                Utils.TBL_SONGS + "INNER JOIN as_books ON as_books.bookid = as_songs.bookid " + wherequery + " ORDER BY " + Utils.NUMBER;
 
+        //"SELECT songid, number, songs.title, alias, songs.content, key, author, books.title, code FROM songs";
+        //sql_query = sql_query +	" INNER JOIN books ON books.bookid = songs.bookid WHERE"
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(fullquery, null);
         PostModel song;
@@ -227,6 +186,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                 song.views = cursor.getInt(16);
                 song.acount = cursor.getInt(17);
                 song.userid = cursor.getInt(18);
+                song.categoryname = "Songs of worship";
 
                 SongsList.add(song);
             } while (cursor.moveToNext());
