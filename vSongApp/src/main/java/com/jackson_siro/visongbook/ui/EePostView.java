@@ -79,7 +79,8 @@ public class EePostView extends AppCompatActivity {
             try {
                 cur_stanza = cur_stanza - 1;
                 setSongContent(cur_stanza);
-            } catch (Exception e) {
+            }
+            catch (Exception e) {
                 cur_stanza = cur_stanza + 1;
                 fab_last.hide();
             }

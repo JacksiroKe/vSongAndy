@@ -139,9 +139,6 @@ public class CcSongsLoad extends AppCompatActivity {
                 song.created = songs.get(count).created;
                 song.what = songs.get(count).what;
                 song.when = songs.get(count).when;
-                song.when = songs.get(count).when;
-                song.when = songs.get(count).when;
-                song.when = songs.get(count).when;
                 song.where = songs.get(count).where;
                 song.netthumbs = songs.get(count).netthumbs;
                 song.views = songs.get(count).views;

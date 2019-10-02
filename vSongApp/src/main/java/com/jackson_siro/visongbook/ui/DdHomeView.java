@@ -98,7 +98,7 @@ public class DdHomeView extends AppCompatActivity implements NavigationView.OnNa
 
         navigationView.setNavigationItemSelectedListener(this);
 
-        checkUpdates();
+        //checkUpdates();
         checkDonation();
         setupFloatingSearch();
     }

@@ -2,26 +2,21 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_marginTop="2dp"
+    android:background="@color/white_bg" >
 
     <com.balysv.materialripple.MaterialRippleLayout
         android:id="@+id/material_ripple"
         style="@style/MaterialEffects"
-        android:layout_marginTop="1dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white_color"
-            android:orientation="horizontal"
             android:padding="5dp"
-            android:weightSum="100">
-
-            <View
-                android:layout_width="4dp"
-                android:layout_height="0dp" />
+            android:clickable="true"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -29,23 +24,35 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/post_title"
+                    android:id="@+id/song_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
+                    android:text="Mungu Mtukufu aliye Bwana\nTo God be Glory"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="18sp"
-                    android:singleLine="true"
-                    android:maxLines="1"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/post_details"
+                    android:id="@+id/song_content"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="2dp"
+                    android:textSize="18sp"
                     android:singleLine="true"
-                    android:maxLines="1"  />
+                    android:maxLines="1"
+                    android:text="Mungu Mtukufu aliye Bwana, Akamtoa Yesu" />
+
+                <TextView
+                    android:id="@+id/song_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="Key E; Has Chorus, 4 Verses"
+                    android:textSize="15sp"
+                    android:textStyle="italic" />
 
             </LinearLayout>
 

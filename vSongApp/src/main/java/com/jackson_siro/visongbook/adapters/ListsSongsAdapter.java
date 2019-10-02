@@ -5,6 +5,7 @@ import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +23,7 @@ import com.jackson_siro.visongbook.R;
 
 public class ListsSongsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private List<PostModel> Questions;
+    private List<PostModel> Songs;
     public OnItemClickListener onItemClickListener;
     public OnLoadMoreListener onLoadMoreListener;
     public boolean loading;
@@ -31,15 +32,15 @@ public class ListsSongsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     private final Context context;
     public interface OnItemClickListener{
-        void onItemClick(View view, PostModel Questions);
+        void onItemClick(View view, PostModel Songs);
     }
 
     public void setOnItemClickListener(OnItemClickListener onItemClickListener){
         this.onItemClickListener = onItemClickListener;
     }
 
-    public ListsSongsAdapter(List<PostModel> Questions, Context context){
-        this.Questions = Questions;
+    public ListsSongsAdapter(List<PostModel> Songs, Context context){
+        this.Songs = Songs;
         this.context = context;
     }
 
@@ -51,7 +52,7 @@ public class ListsSongsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         RecyclerView.ViewHolder viewHolder;
         if (viewType == VIEW_ITEM){
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.listing_posts, parent, false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.listing_songs, parent, false);
             viewHolder = new MyViewHolder(view);
         }else{
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.loading_data, parent, false);
@@ -63,27 +64,45 @@ public class ListsSongsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     @SuppressLint("NewApi")
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
-        final PostModel Song = Questions.get(position);
+        final PostModel Song = Songs.get(position);
         MyViewHolder view = (MyViewHolder) holder;
-        String details = Song.what  + " " + Song.when + " " + Song.where + " " + Song.who;
 
-        view.post_title.setText(Song.title);
-        view.post_netthumbs.setText(Song.netthumbs);
-        view.post_acount.setText(Song.acount);
-        view.post_details.setText(Html.fromHtml(details, Html.FROM_HTML_MODE_COMPACT));
+        String details, alias;
+        try
+        {
+            if (Song.categoryname.isEmpty()) details = "";
+            else details = Song.categoryname + "; ";
+        }
+        catch (Exception ex)
+        {
+            details = "";
+        }
 
-        /*if (!Song.tags.isEmpty()) {
-            String[] MyTags = TextUtils.split(Song.tags, ",");
-            for (int i = 0; i < MyTags.length; i++) {
-                TextView tagView = new TextView(context);F
-                tagView.setText(MyTags[i]);
-                tagView.setTextColor(context.getResources().getColor(R.color.white_color));
-                tagView.setBackground(context.getResources().getDrawable(R.drawable.custom_tag_view));
-                tagView.setPadding(20, 5, 20, 5);
-                tagView.setTextSize(15);
-                view.post_tags.addView(tagView);
-            }
-        }*/
+        try
+        {
+            String[] songconts = TextUtils.split(Song.content, "\n\n");
+            if (Song.content.contains("CHORUS"))
+                details = details + (songconts.length - 1) + " Verse" + (songconts.length == 1 ? "" : "s") + ", Has Chorus";
+            else details = details + songconts.length + " Verse" + (songconts.length == 1 ? "" : "s") + ", No Chorus";
+        }
+        catch (Exception ex)
+        {
+            if (details.isEmpty()) view.song_details.setVisibility(View.GONE);
+        }
+
+        try
+        {
+            if (Song.alias.isEmpty()) alias = "";
+            else alias = "\n" + Song.alias;
+        }
+        catch (Exception ex)
+        {
+            alias = "";
+        }
+
+        view.song_title.setText(Song.number + "# " + Song.title + alias);
+        view.song_content.setText(Song.content);
+        view.song_details.setText(details);
 
         view.layout_parent.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,22 +117,20 @@ public class ListsSongsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public MaterialRippleLayout layout_parent;
-        public TextView post_title, post_netthumbs, post_acount, post_details, post_tags;
+        public TextView song_title, song_content, song_details;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             layout_parent = itemView.findViewById(R.id.material_ripple);
-            post_title = itemView.findViewById(R.id.post_title);
-            post_netthumbs = itemView.findViewById(R.id.post_netthumbs);
-            post_acount = itemView.findViewById(R.id.post_acount);
-            post_details = itemView.findViewById(R.id.post_details);
-            post_tags = itemView.findViewById(R.id.post_tags);
+            song_title = itemView.findViewById(R.id.song_title);
+            song_content = itemView.findViewById(R.id.song_content);
+            song_details = itemView.findViewById(R.id.song_details);
         }
     }
 
     @Override
     public int getItemCount() {
-        return Questions.size();
+        return Songs.size();
     }
 
     @Override
@@ -123,27 +140,27 @@ public class ListsSongsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     @Override
     public int getItemViewType(int position) {
-        return this.Questions.get(position) != null ? VIEW_ITEM : VIEW_PROGRES;
+        return this.Songs.get(position) != null ? VIEW_ITEM : VIEW_PROGRES;
     }
 
     public void resetData(){
-        this.Questions = new ArrayList<>();
+        this.Songs = new ArrayList<>();
         notifyDataSetChanged();
     }
 
-    public void insertData(List<PostModel> Questions){
+    public void insertData(List<PostModel> Songs){
         setLoaded();
         int itemStart = getItemCount();
-        int itemCount = Questions.size();
-        this.Questions.addAll(Questions);
+        int itemCount = Songs.size();
+        this.Songs.addAll(Songs);
         notifyItemRangeInserted(itemStart, itemCount);
     }
 
     public void setLoaded(){
         loading = false;
         for (int pl = 0; pl<getItemCount(); pl++){
-            if (Questions.get(pl) == null){
-                Questions.remove(pl);
+            if (Songs.get(pl) == null){
+                Songs.remove(pl);
                 notifyItemRemoved(pl);
             }
         }
@@ -151,7 +168,7 @@ public class ListsSongsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     public void setLoading(){
         if (getItemCount() != 0){
-            this.Questions.add(null);
+            this.Songs.add(null);
             notifyItemInserted(getItemCount() - 1);
             loading = true;
         }

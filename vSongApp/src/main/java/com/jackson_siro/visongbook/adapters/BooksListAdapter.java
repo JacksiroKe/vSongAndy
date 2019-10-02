@@ -32,7 +32,7 @@ public class BooksListAdapter extends RecyclerView.Adapter implements Selectable
 
     @Override
     public SelectableViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.book_list_item, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.listing_book, parent, false);
 
         return new SelectableViewHolder(itemView, this);
     }

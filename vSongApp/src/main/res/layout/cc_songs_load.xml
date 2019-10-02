@@ -42,7 +42,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
                     android:text="On your marks ..."
-                    android:textFontWeight="Bold"
+                    android:textStyle="bold"
                     android:background="@drawable/custom_edit_text1"
                     android:padding="10dp"
                     android:layout_margin="10dp" />
