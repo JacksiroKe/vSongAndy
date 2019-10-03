@@ -229,7 +229,7 @@ public class EePostView extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
-        getMenuInflater().inflate(R.menu.dd_post_view, menu);
+        getMenuInflater().inflate(R.menu.ee_post_view, menu);
         favourites = menu.findItem(R.id.action_wish);
         wishlist = menu.findItem(R.id.user_comment);
 

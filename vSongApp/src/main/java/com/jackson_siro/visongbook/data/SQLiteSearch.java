@@ -69,21 +69,6 @@ public class SQLiteSearch {
 
                 List<SearchModel> suggestionList = db.searchSongs(searchstr.toUpperCase());
 
-                /*List<SearchModel> suggestionList = new ArrayList<>();
-                if (!(constraint == null || constraint.length() == 0)) {
-
-                    for (SearchModel suggestion : sSearchSuggestions) {
-                        if (suggestion.getBody().toUpperCase()
-                                .startsWith(constraint.toString().toUpperCase())) {
-
-                            suggestionList.add(suggestion);
-                            if (limit != -1 && suggestionList.size() == limit) {
-                                break;
-                            }
-                        }
-                    }
-                }*/
-
                 FilterResults results = new FilterResults();
                 Collections.sort(suggestionList, new Comparator<SearchModel>() {
                     @Override

@@ -43,7 +43,7 @@
                         android:id="@+id/user_image"
                         app:civ_border_width="3dp"
                         app:civ_border_color="@color/colorAccent"
-                        android:src="@drawable/bbr"
+                        android:src="@drawable/usericon"
                         android:layout_width="120dp"
                         android:layout_height="120dp" />
 
@@ -112,7 +112,7 @@
                         android:layout_height="wrap_content">
 
                         <ImageView
-                            android:src="@drawable/ic_account_circle_black_24dp"
+                            android:src="@drawable/usericon"
                             android:layout_width="30dp"
                             android:layout_height="30dp" />
 
@@ -134,7 +134,7 @@
                         android:layout_height="wrap_content">
 
                         <ImageView
-                            android:src="@drawable/ic_email_black_24dp"
+                            android:src="@drawable/usericon"
                             android:layout_width="30dp"
                             android:layout_height="30dp" />
 
@@ -167,7 +167,7 @@
                         android:layout_height="wrap_content">
 
                         <ImageView
-                            android:src="@drawable/ic_date_range_black_24dp"
+                            android:src="@drawable/usericon"
                             android:layout_width="30dp"
                             android:layout_height="30dp" />
 
@@ -214,7 +214,7 @@
                         android:layout_height="wrap_content">
 
                         <ImageView
-                            android:src="@drawable/ic_help_outline_black_24dp"
+                            android:src="@drawable/appicon"
                             android:layout_width="30dp"
                             android:layout_height="30dp" />
 
@@ -237,7 +237,7 @@
                         android:layout_height="wrap_content">
 
                         <ImageView
-                            android:src="@drawable/ic_stars_black_24dp"
+                            android:src="@drawable/appicon"
                             android:layout_width="30dp"
                             android:layout_height="30dp" />
 

@@ -89,7 +89,7 @@
                 android:layout_alignTop="@+id/tv_app_rating"
                 android:layout_toEndOf="@+id/tv_app_rating"
                 android:contentDescription="@string/app_name"
-                android:src="@drawable/ic_star_black_18dp" />
+                android:src="@drawable/ic_star_black" />
 
             <TextView
                 android:id="@+id/tv_is_free"

@@ -74,7 +74,7 @@ public class AppStart extends AppCompatActivity {
             else if (prefget.getBoolean("app_books_reload", false)) startActivity(new Intent(AppStart.this, CcBooksLoad.class));
             else if (prefget.getBoolean("app_books_loaded", false) && !prefget.getBoolean("app_songs_loaded", false))
                 startActivity(new Intent(AppStart.this, CcSongsLoad.class));
-            else startActivity(new Intent(AppStart.this, DdHomeView.class));
+            else startActivity(new Intent(AppStart.this, DdMainView.class));
         }
 
         finish();

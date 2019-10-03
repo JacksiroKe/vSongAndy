@@ -106,7 +106,7 @@ public class DdHomeView extends AppCompatActivity implements NavigationView.OnNa
     private void setupViewPager() {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new OfflineFragment(), "My Collection");
-        adapter.addFragment(new OnlineFragment(), "Online");
+        adapter.addFragment(new OnlineFragmentx(), "Online");
         viewPager.setAdapter(adapter);
     }
 
