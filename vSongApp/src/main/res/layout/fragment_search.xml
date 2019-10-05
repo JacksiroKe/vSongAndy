@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/search_recycler_view"
+            android:layout_marginTop="60dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="true"
+            android:background="#eee"
+            app:elevation="0dp"/>
+
+        <LinearLayout
+            android:id="@+id/no_result_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorAccent"
+            android:orientation="vertical"
+            android:layout_marginTop="60dp"
+            android:gravity="center"
+            android:paddingBottom="@dimen/no_message_vertical_padding"
+            android:paddingLeft="@dimen/no_message_horizontal_padding"
+            android:paddingRight="@dimen/no_message_horizontal_padding"
+            android:paddingTop="@dimen/no_message_vertical_padding">
+
+            <TextView
+                android:id="@+id/no_direct_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif"
+                android:text="@string/no_result"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/no_message_text_size"
+                android:textStyle="bold" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/no_message_vertical_padding"
+                android:backgroundTint="@android:color/white"
+                android:text="@string/no_result_button"
+                android:textColor="@color/colorAccent" />
+        </LinearLayout>
+
+        <com.arlib.floatingsearchview.FloatingSearchView
+            android:id="@+id/search_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/custom_edit_text1"
+            app:floatingSearch_close_search_on_keyboard_dismiss="true"
+            app:floatingSearch_menu="@menu/main"
+            app:floatingSearch_searchHint="@string/main_title"
+            app:floatingSearch_showSearchKey="false"
+            app:floatingSearch_suggestionsListAnimDuration="250" />
+
+    </FrameLayout>
+
+</LinearLayout>

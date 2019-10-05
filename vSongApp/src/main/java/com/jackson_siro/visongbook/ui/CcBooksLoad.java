@@ -7,18 +7,19 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.jackson_siro.visongbook.R;
 import com.jackson_siro.visongbook.adapters.*;
 import com.jackson_siro.visongbook.data.SQLiteHelper;
@@ -76,7 +77,7 @@ public class CcBooksLoad extends AppCompatActivity implements SelectableViewHold
         selectedBooks = booksAdapter.getSelectedItems();
         if (selectableItem.isSelected())
             Snackbar.make(recyclerView,"You've selected: "+ selectableItem.getTitle()+
-                "\n" + selectedBooks.size() + " songbooks selected",Snackbar.LENGTH_LONG).show();
+                "\n" + selectedBooks.size() + " songbooks selected", Snackbar.LENGTH_LONG).show();
         else
             Snackbar.make(recyclerView,"You've unselected: "+ selectableItem.getTitle()+
                     "\n" + selectedBooks.size() + " songbooks selected",Snackbar.LENGTH_LONG).show();
@@ -126,7 +127,7 @@ public class CcBooksLoad extends AppCompatActivity implements SelectableViewHold
     }
 
     private void displayApiResult(final List<CategoryModel> books) {
-        List<CategoryModel> booksItems = new ArrayList<>();
+        List<CategoryModel> booksItems = new ArrayList<CategoryModel>();
         for (int i = 0; i < books.size(); i ++) {
             booksItems.add( new CategoryModel(
                     books.get(i).getBookid(),

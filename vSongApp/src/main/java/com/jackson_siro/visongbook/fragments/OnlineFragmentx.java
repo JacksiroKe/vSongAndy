@@ -2,15 +2,16 @@ package com.jackson_siro.visongbook.fragments;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
 import com.jackson_siro.visongbook.R;
 import com.jackson_siro.visongbook.adapters.ViewPagerAdapter;
 import com.jackson_siro.visongbook.components.CustomViewPager;
@@ -52,15 +53,15 @@ public class OnlineFragmentx extends Fragment {
         Bundle bundle1 = new Bundle();
         bundle1.putString("api_request", "recent");
         OnlineFragmentTabs tab1 = new OnlineFragmentTabs();
-        tab1.setArguments(bundle1);
-        adapter.addFragment(tab1, "recent");
+        //tab1.setArguments(bundle1);
+        //adapter.addFragment(tab1, "recent");
 
         viewPager.setAdapter(adapter);
     }
 
     @SuppressLint("NewApi")
     private void setupTabIcons() {
-        TextView tabOne = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.custom_sub_tab, null);
+        TextView tabOne = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.fragment_subtab, null);
         tabOne.setText("Coming Soon!");
         Objects.requireNonNull(subTabLayout.getTabAt(0)).setCustomView(tabOne);
 

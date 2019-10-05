@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Countries {
 
     public static ArrayList<CountryModel> createSampleData() {
-        ArrayList<CountryModel> countries = new ArrayList<>();
+        ArrayList<CountryModel> countries = new ArrayList<CountryModel>();
         countries.add(new CountryModel("Afghanistan", "AF", "93"));
         countries.add(new CountryModel("Albania", "AL", "355"));
         countries.add(new CountryModel("Algeria", "DZ", "213"));

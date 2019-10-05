@@ -1,9 +1,11 @@
 package com.jackson_siro.visongbook.ui;
 
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import android.widget.TextView;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.jackson_siro.visongbook.R;
 
@@ -11,13 +13,17 @@ public class GgAboutapp extends AppCompatActivity {
 
     private Toolbar toolbar;
     private ActionBar actionBar;
+    private TextView txttitle, txtcontent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gg_aboutapp);
+        txttitle = findViewById(R.id.txttitle);
+        txtcontent = findViewById(R.id.txtcontent);
         toolbarSet();
-
+        txttitle.setText("vSongBook for Android");
+        txtcontent.setText("vSongBook (Virtual SongBook)");
     }
 
     private void toolbarSet() {

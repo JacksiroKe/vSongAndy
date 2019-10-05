@@ -2,12 +2,13 @@ package com.jackson_siro.visongbook.adapters;
 
 import android.app.Activity;
 import android.graphics.Color;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.arlib.floatingsearchview.util.Util;
 import com.jackson_siro.visongbook.R;
@@ -18,7 +19,7 @@ import java.util.List;
 
 public class SearchResultsListAdapter extends RecyclerView.Adapter<SearchResultsListAdapter.ViewHolder> {
 
-    private List<SearchWrapper> mDataSet = new ArrayList<>();
+    private List<SearchWrapper> mDataSet = new ArrayList<SearchWrapper>();
 
     private int mLastAnimatedItemPosition = -1;
 

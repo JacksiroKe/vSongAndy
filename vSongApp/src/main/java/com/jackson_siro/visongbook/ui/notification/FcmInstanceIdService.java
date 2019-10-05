@@ -50,7 +50,7 @@ public class FcmInstanceIdService extends FirebaseInstanceIdService {
         }){
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> parameters = new HashMap<>();
+                Map<String, String> parameters = new HashMap<String, String>();
                 parameters.put("fcm_token", token);
                 Log.d("TOKENNNNNNNN8 8888", token);
                 return parameters;

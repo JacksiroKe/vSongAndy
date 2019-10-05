@@ -2,11 +2,6 @@ package com.jackson_siro.visongbook.core;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.IdRes;
-import android.support.annotation.LayoutRes;
-import android.support.v7.app.AppCompatDialog;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -14,6 +9,12 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.Filterable;
+
+import androidx.annotation.IdRes;
+import androidx.annotation.LayoutRes;
+import androidx.appcompat.app.AppCompatDialog;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
@@ -83,16 +84,18 @@ public abstract class BaseSearchDialogCompat<T extends Searchable> extends AppCo
 	
 	protected abstract void getView(View view);
 	
-	@LayoutRes protected abstract int getLayoutResId();
+	@LayoutRes
+	protected abstract int getLayoutResId();
 	
 	@IdRes protected abstract int getSearchBoxId();
 	
-	@IdRes protected abstract int getRecyclerViewId();
+	@IdRes
+	protected abstract int getRecyclerViewId();
 	
 	@Override
 	public Filter getFilter() {
 		if (mFilter == null) {
-			mFilter = new SimpleSearchFilter<>(mItems, mFilterResultListener, true, 0.33f);
+			mFilter = new SimpleSearchFilter(mItems, mFilterResultListener, true, 0.33f);
 		}
 		return mFilter;
 	}

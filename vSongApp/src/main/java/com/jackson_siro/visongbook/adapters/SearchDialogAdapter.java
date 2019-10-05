@@ -2,15 +2,16 @@ package com.jackson_siro.visongbook.adapters;
 
 import android.content.Context;
 import android.os.Build;
-import android.support.annotation.ColorRes;
-import android.support.annotation.IdRes;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.ColorRes;
+import androidx.annotation.IdRes;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +23,7 @@ import com.jackson_siro.visongbook.core.*;
 public class SearchDialogAdapter<T extends Searchable>
 	extends RecyclerView.Adapter<SearchDialogAdapter.ViewHolder> {
 	protected Context mContext;
-	private List<T> mItems = new ArrayList<>();
+	private List<T> mItems = new ArrayList<T>();
 	private LayoutInflater mLayoutInflater;
 	private int mLayout;
 	private SearchResultListener mSearchResultListener;

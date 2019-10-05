@@ -19,7 +19,14 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/MyMaterialTheme">
-
+        <activity
+            android:name=".ui.FfSettings"
+            android:label="@string/title_activity_ff_settings"
+            android:parentActivityName=".ui.DdMainView">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jackson_siro.visongbook.ui.DdMainView" />
+        </activity>
         <activity android:name=".ui.CcSongsLoad" />
         <activity
             android:name=".ui.CcBooksLoad"
@@ -97,21 +104,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jackson_siro.visongbook.ui.DdHomeView" />
         </activity>
-        <activity android:name=".ui.GgAboutapp"
+        <activity
+            android:name=".ui.GgAboutapp"
             android:parentActivityName=".ui.DdHomeView"
             android:theme="@style/MyMaterialTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jackson_siro.visongbook.ui.DdHomeView" />
         </activity>
-        <activity android:name=".ui.GgHelpdesk"
-            android:parentActivityName=".ui.DdHomeView"
-            android:theme="@style/MyMaterialTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jackson_siro.visongbook.ui.DdHomeView" />
-        </activity>
-        <activity android:name=".ui.FfSettings"
+        <activity
+            android:name=".ui.GgHelpdesk"
             android:parentActivityName=".ui.DdHomeView"
             android:theme="@style/MyMaterialTheme.NoActionBar">
             <meta-data

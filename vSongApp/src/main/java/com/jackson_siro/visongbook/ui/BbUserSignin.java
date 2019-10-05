@@ -9,10 +9,6 @@ import android.graphics.Typeface;
 
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,8 +17,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import java.util.ArrayList;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.jackson_siro.visongbook.components.SearchDialogCompat;
 import com.jackson_siro.visongbook.data.Countries;
 import com.jackson_siro.visongbook.models.Callback.*;
@@ -36,7 +37,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class BbUserSignin extends AppCompatActivity{
+public class BbUserSignin extends AppCompatActivity {
 
     private ProgressDialog progressDialog;
 
@@ -57,7 +58,7 @@ public class BbUserSignin extends AppCompatActivity{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bb_user_signin);
-        countries = new ArrayList<>(Countries.createSampleData());
+        countries = new ArrayList<CountryModel>(Countries.createSampleData());
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -137,7 +138,7 @@ public class BbUserSignin extends AppCompatActivity{
     }
 
     private void countryDialog(){
-        SearchDialogCompat<CountryModel> dialog = new SearchDialogCompat<>(BbUserSignin.this,
+        SearchDialogCompat<CountryModel> dialog = new SearchDialogCompat<CountryModel>(BbUserSignin.this,
             "Which is your Country?", "Search for your country", null, countries, new SearchResultListener<CountryModel>() {
                 @Override
                 public void onSelected( BaseSearchDialogCompat dialog, CountryModel country, int position )

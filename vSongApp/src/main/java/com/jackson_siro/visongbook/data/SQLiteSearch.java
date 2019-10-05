@@ -21,7 +21,7 @@ public class SQLiteSearch {
     private static final String COLORS_FILE_NAME = "colors.json";
 
     private static SQLiteHelper db = new SQLiteHelper(MyApplication.getAppContext());
-    private static List<SearchWrapper> sSearchWrappers = new ArrayList<>();
+    private static List<SearchWrapper> sSearchWrappers = new ArrayList<SearchWrapper>();
 
     private static List<SearchModel> sSearchSuggestions = db.searchSongs("");
 
@@ -35,7 +35,7 @@ public class SQLiteSearch {
 
     public static List<SearchModel> getHistory(Context context, int count) {
 
-        List<SearchModel> suggestionList = new ArrayList<>();
+        List<SearchModel> suggestionList = new ArrayList<SearchModel>();
         SearchModel SearchModel;
         for (int i = 0; i < sSearchSuggestions.size(); i++) {
             SearchModel = sSearchSuggestions.get(i);
@@ -101,7 +101,7 @@ public class SQLiteSearch {
             @Override
             protected FilterResults performFiltering(CharSequence constraint) {
 
-                List<SearchWrapper> suggestionList = new ArrayList<>();
+                List<SearchWrapper> suggestionList = new ArrayList<SearchWrapper>();
 
                 if (!(constraint == null || constraint.length() == 0)) {
                     for (SearchWrapper color : sSearchWrappers) {

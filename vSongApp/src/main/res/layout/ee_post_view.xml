@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,19 +7,19 @@
     android:background="#eee"
     tools:context=".ui.EePostView">
 
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/MyMaterialTheme.AppBarOverlay">
 
-        <android.support.v7.widget.Toolbar
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/MyMaterialTheme.PopupOverlay" />
 
-    </android.support.design.widget.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -88,7 +88,7 @@
                     android:background="@color/transparent"
                     android:orientation="horizontal" >
 
-                    <android.support.design.widget.FloatingActionButton
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
                         android:id="@+id/fab_smaller"
                         app:srcCompat="@drawable/ic_font_smaller"
                         android:layout_width="wrap_content"
@@ -96,7 +96,7 @@
                         android:layout_margin="5dp"
                         android:layout_weight="1" />
 
-                    <android.support.design.widget.FloatingActionButton
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
                         android:id="@+id/fab_bigger"
                         app:srcCompat="@drawable/ic_font_bigger"
                         android:layout_width="wrap_content"
@@ -104,7 +104,7 @@
                         android:layout_margin="5dp"
                         android:layout_weight="1" />
 
-                    <android.support.design.widget.FloatingActionButton
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
                         android:id="@+id/fab_last"
                         app:srcCompat="@drawable/ic_stanza_last"
                         android:layout_width="wrap_content"
@@ -112,14 +112,14 @@
                         android:layout_margin="5dp"
                         android:layout_weight="1" />
 
-                    <android.support.design.widget.FloatingActionButton
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
                         android:id="@+id/fab_nothing"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:layout_weight="1" />
 
-                    <android.support.design.widget.FloatingActionButton
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
                         android:id="@+id/fab_next"
                         app:srcCompat="@drawable/ic_stanza_next"
                         android:layout_width="wrap_content"
@@ -127,7 +127,7 @@
                         android:layout_margin="5dp"
                         android:layout_weight="1" />
 
-                    <android.support.design.widget.FloatingActionButton
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
                         android:id="@+id/fab_lastsong"
                         app:srcCompat="@drawable/ic_song_last"
                         android:layout_width="wrap_content"
@@ -135,14 +135,14 @@
                         android:layout_margin="5dp"
                         android:layout_weight="1" />
 
-                    <android.support.design.widget.FloatingActionButton
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
                         android:id="@+id/fab_nosong"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:layout_weight="1" />
 
-                    <android.support.design.widget.FloatingActionButton
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
                         android:id="@+id/fab_nextsong"
                         app:srcCompat="@drawable/ic_song_next"
                         android:layout_width="wrap_content"
@@ -157,4 +157,4 @@
 
     </RelativeLayout>
 
-</android.support.design.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

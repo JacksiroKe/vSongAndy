@@ -7,21 +7,23 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.annotation.Nullable;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.jackson_siro.visongbook.data.Countries;
 import com.jackson_siro.visongbook.models.Callback.CallbackUser;
 import com.jackson_siro.visongbook.models.CountryModel;
@@ -49,7 +51,7 @@ public class BbUserSignup extends AppCompatActivity {
     private Call<CallbackUser> usersCall;
     private int cntry;
 
-    private ArrayList<CountryModel> countries = new ArrayList<>(Countries.createSampleData());
+    private ArrayList<CountryModel> countries = new ArrayList<CountryModel>(Countries.createSampleData());
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

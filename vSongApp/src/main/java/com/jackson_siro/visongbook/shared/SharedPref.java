@@ -26,7 +26,7 @@ public class SharedPref {
             } else {
                 prefs.edit().putString(key, (String) value).commit();
             }
-        } else if (value instanceof Integer) {
+        }/* else if (value instanceof Integer) {
             if (mode == APPLY) {
                 prefs.edit().putInt(key, (int) value).apply();
             } else {
@@ -50,7 +50,7 @@ public class SharedPref {
             } else {
                 prefs.edit().putLong(key, (long) value).commit();
             }
-        }
+        }*/
     }
 
     public static String getString(int key, String defaultValue) {

@@ -1,9 +1,10 @@
 package com.jackson_siro.visongbook.adapters;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.jackson_siro.visongbook.R;
 import com.jackson_siro.visongbook.models.SelectableBook;
@@ -24,7 +25,7 @@ public class BooksListAdapter extends RecyclerView.Adapter implements Selectable
         this.listener = listener;
         this.isMultiSelectionEnabled = isMultiSelectionEnabled;
 
-        mValues = new ArrayList<>();
+        mValues = new ArrayList<SelectableBook>();
         for (CategoryModel sliderModel : sliderModels) {
             mValues.add(new SelectableBook(sliderModel, false));
         }
@@ -55,7 +56,7 @@ public class BooksListAdapter extends RecyclerView.Adapter implements Selectable
 
     public List<CategoryModel> getSelectedItems() {
 
-        List<CategoryModel> selectedSliderModels = new ArrayList<>();
+        List<CategoryModel> selectedSliderModels = new ArrayList<CategoryModel>();
         for (SelectableBook item : mValues) {
             if (item.isSelected()) {
                 selectedSliderModels.add(item);

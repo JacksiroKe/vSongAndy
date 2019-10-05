@@ -208,7 +208,7 @@
     <string name="title_activity_basic">BasicActivity</string>
 
     <string name="donate_mpesa">Donate via Mpesa</string>
-    <string name="donate_mpesa_desc">"Donate via Mpesa\n\nPayBill: 891300 \nAccount: 33112\nOr DIAL: *483*57*33112#"</string>
+    <string name="donate_mpesa_desc">"Donate via Mpesa\n\nPayBill: 891300 \nAccount: 33112\n\nOr Simply DIAL:\n\n*483*57*33112#"</string>
 
     <string name="donate_airtel">Donate via Airtel</string>
     <string name="donate_airtel_desc">"Donate via Airtel \n\nBusiness Name: MCHANGA\nReference: 33112"</string>
@@ -270,6 +270,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dictum lorem 
     <string name="no_direct_message">Talk privately with anyone who follows you. Start by adding your number and uploading your contacts.</string>
     <string name="no_direct_message_button">Find friends</string>
 
+    <string name="no_result">Get things started. Search for a song or simply swipe from right to discover more.</string>
+    <string name="no_result_button">Learn More</string>
+
     <!-- Navigation Drawer items-->
     <string name="user_name">Abhishek Chaudhary</string>
     <string name="user_screen_name">\@coder_abhishek</string>
@@ -293,4 +296,35 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dictum lorem 
     <string name="screen_name">
         \@<xliff:g example="abhishek" id="name">%1$s</xliff:g>
     </string>
+
+    <string name="helpdesk_1">CONTACT US</string>
+    <string name="helpdesk_1_desc">"CONTACT US\nIf you have got a complain or issue you would wish to be addressed then contact us soon via the following:"</string>
+
+    <string name="helpdesk_2">Email</string>
+    <string name="helpdesk_2_desc">"Email us\nappsmatake@gmail.com\nvsongbookapp@gmail.com"</string>
+
+    <string name="helpdesk_3">Google Groups Forum</string>
+    <string name="helpdesk_3_desc">"Check us on Google Groups Forum\nhttps://groups.google.com/forum/m/#forum/vsongbook</string>
+
+    <string name="helpdesk_4">Website</string>
+    <string name="helpdesk_4_desc">"Log Onto our Website\nhttps://sing.appsmata.com</string>
+
+    <string name="about_1">ABOUT THE VSONGBOOK APP</string>
+    <string name="title_activity_ff_settings">App Prefrences</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+
 </resources>

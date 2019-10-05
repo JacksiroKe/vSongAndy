@@ -2,13 +2,14 @@ package com.jackson_siro.visongbook.adapters;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import com.balysv.materialripple.MaterialRippleLayout;
 
@@ -17,7 +18,7 @@ import java.util.List;
 import com.jackson_siro.visongbook.models.PostsSlider;
 import com.jackson_siro.visongbook.R;
 
-public class PostsSliderAdapter extends PagerAdapter{
+public class PostsSliderAdapter extends PagerAdapter {
 
     private Activity activity;
     private List<PostsSlider> postsList;

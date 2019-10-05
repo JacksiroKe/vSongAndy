@@ -2,12 +2,13 @@ package com.jackson_siro.visongbook.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.preference.PreferenceManager;
 import android.content.SharedPreferences;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.jackson_siro.visongbook.R;
 import com.jackson_siro.visongbook.models.Callback.CallbackApp;

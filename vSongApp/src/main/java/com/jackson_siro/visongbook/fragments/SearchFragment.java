@@ -2,19 +2,21 @@ package com.jackson_siro.visongbook.fragments;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.res.ResourcesCompat;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.core.content.res.ResourcesCompat;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.arlib.floatingsearchview.FloatingSearchView;
 import com.arlib.floatingsearchview.suggestions.SearchSuggestionsAdapter;
@@ -48,6 +50,8 @@ public class SearchFragment extends Fragment {
     public static final long FIND_SUGGESTION_SIMULATED_DELAY = 250;
 
     private FloatingSearchView mSearchView;
+    private List<PostModel> resultList;
+    private LinearLayout noResultView;
 
     public SearchFragment() {
         // Required empty public constructor
@@ -66,14 +70,32 @@ public class SearchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         searchView = inflater.inflate(R.layout.fragment_search, container, false);
         recyclerView = searchView.findViewById(R.id.search_recycler_view);
+        noResultView = searchView.findViewById(R.id.no_result_view);
         mSearchView = searchView.findViewById(R.id.search_view);
 
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
-        List<PostModel> songslist = db.getSongList(1);
-        listAdapter = new ListsSongsAdapter(songslist, getContext());
+        setupFloatingSearch();
+        recyclerView.setVisibility(View.GONE);
+        noResultView.setVisibility(View.VISIBLE);
+        return searchView;
+    }
+
+    private void lookUpASong(String searchstr)
+    {
+        try
+        {
+            if (resultList.size() > 1) resultList.clear();
+        }
+        catch (Exception ex) {}
+
+        recyclerView.setVisibility(View.VISIBLE);
+        noResultView.setVisibility(View.GONE);
+
+        resultList = db.searchForSongs(searchstr);
+        listAdapter = new ListsSongsAdapter(resultList, getContext());
         recyclerView.setAdapter(listAdapter);
         recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
 
@@ -83,17 +105,14 @@ public class SearchFragment extends Fragment {
                 vSongBook.passingIntent(getActivity(), postModel.songid, "EePostView");
             }
         });
-        setupFloatingSearch();
-        return searchView;
     }
 
     private void setupFloatingSearch() {
         mSearchView.setOnQueryChangeListener(new FloatingSearchView.OnQueryChangeListener() {
             @Override
             public void onSearchTextChanged(String oldQuery, final String newQuery) {
-                if (!oldQuery.equals("") && newQuery.equals("")) {
-                    mSearchView.clearSuggestions();
-                } else {
+                if (!oldQuery.equals("") && newQuery.equals("")) mSearchView.clearSuggestions();
+                else {
                     mSearchView.showProgress();
                     SQLiteSearch.findSuggestions(getContext(), newQuery, 5, FIND_SUGGESTION_SIMULATED_DELAY,
                             new SQLiteSearch.OnFindSuggestionsListener() {
@@ -104,7 +123,6 @@ public class SearchFragment extends Fragment {
                                 }
                             });
                 }
-                //Log.d(TAG, "onSearchTextChanged()");
             }
         });
 
@@ -114,10 +132,10 @@ public class SearchFragment extends Fragment {
                 SearchModel searchModel = (SearchModel) searchSuggestion;
                 try {
                     mSearchView.clearSearchFocus();
-                    vSongBook.passingIntent(getActivity(), searchModel.getID(), "DdPostView");
+                    mSearchView.setSearchText(searchModel.getBody());
+                    lookUpASong(searchModel.getBody());
                 }
                 catch (Exception e){ }
-                //Log.d(TAG, "onSuggestionClicked()");
 
                 mLastQuery = searchSuggestion.getBody();
             }
@@ -137,7 +155,6 @@ public class SearchFragment extends Fragment {
                     }
 
                 });*/
-                //Log.d(TAG, "onSearchAction()");
             }
         });
 
@@ -146,15 +163,13 @@ public class SearchFragment extends Fragment {
             public void onFocus() {
                 //show suggestions when search bar gains focus (typically history suggestions)
                 mSearchView.swapSuggestions(SQLiteSearch.getHistory(getContext(), 3));
-
-                //Log.d(TAG, "onFocus()");
             }
 
             @Override
             public void onFocusCleared() {
 
                 //set the title of the bar so that when focus is returned a new query begins
-                mSearchView.setSearchBarTitle(mLastQuery);
+                //mSearchView.setSearchBarTitle(mLastQuery);
 
                 //you can also set setSearchText(...) to make keep the query there when not focused and when focus returns
                 //mSearchView.setSearchText(searchSuggestion.getBody());

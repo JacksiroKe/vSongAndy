@@ -1,7 +1,7 @@
 package com.jackson_siro.visongbook.core;
 
-import android.support.annotation.NonNull;
-import android.support.v4.util.Pair;
+import androidx.annotation.NonNull;
+import androidx.core.util.Pair;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -32,7 +32,7 @@ public class SimpleSearchFilter<T extends Searchable> extends BaseFilter {
 		mFilterResultListener = filterResultListener;
 		mCheckLCS = checkLCS;
 		mAccuracyPercentage = accuracyPercentage;
-		mItems = new ArrayList<>();
+		mItems = new ArrayList<T>();
 		synchronized (this) {
 			mItems.addAll(objects);
 		}
@@ -53,21 +53,21 @@ public class SimpleSearchFilter<T extends Searchable> extends BaseFilter {
 			return result;
 		}
 		
-		ArrayList<Pair<T, Integer>> filteredItems = new ArrayList<>();
+		ArrayList<Pair<T, Integer>> filteredItems = new ArrayList<Pair<T, Integer>>();
 		for (T item : mItems) {
 			if (item.getTitle().toLowerCase().contains(filterSeq)) {
-				filteredItems.add(new Pair<>(item, filterSeq.length()));
+				filteredItems.add(new Pair<T, Integer>(item, filterSeq.length()));
 			} else if (mCheckLCS) {
 				int lcsLength = StringsHelper.lcs(item.getTitle(), filterSeq).length();
 				if (lcsLength > item.getTitle().length() * mAccuracyPercentage) {
-					filteredItems.add(new Pair<>(item, lcsLength));
+					filteredItems.add(new Pair<T, Integer>(item, lcsLength));
 				}
 			}
 		}
 		
 		Collections.sort(filteredItems, mComparator);
 		
-		ArrayList<T> finalResult = new ArrayList<>();
+		ArrayList<T> finalResult = new ArrayList<T>();
 		for (Pair<T, Integer> item : filteredItems) {
 			finalResult.add(item.first);
 		}
