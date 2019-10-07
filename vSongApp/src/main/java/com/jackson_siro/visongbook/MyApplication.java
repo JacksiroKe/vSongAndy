@@ -1,4 +1,4 @@
-package com.jackson_siro.visongbook.ui;
+package com.jackson_siro.visongbook;
 
 import android.app.Application;
 import android.content.Context;

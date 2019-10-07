@@ -28,7 +28,7 @@ import com.jackson_siro.visongbook.adapters.ListsSongsAdapter;
 import com.jackson_siro.visongbook.data.SQLiteHelper;
 import com.jackson_siro.visongbook.data.SQLiteSearch;
 import com.jackson_siro.visongbook.models.PostModel;
-import com.jackson_siro.visongbook.ui.MyApplication;
+import com.jackson_siro.visongbook.MyApplication;
 import com.jackson_siro.visongbook.ui.vSongBook;
 import com.jackson_siro.visongbook.models.SearchModel;
 

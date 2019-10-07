@@ -6,7 +6,7 @@ import android.widget.Filter;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.jackson_siro.visongbook.models.SearchModel;
-import com.jackson_siro.visongbook.ui.MyApplication;
+import com.jackson_siro.visongbook.MyApplication;
 
 import java.io.IOException;
 import java.io.InputStream;

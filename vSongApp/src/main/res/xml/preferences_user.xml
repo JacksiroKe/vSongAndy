@@ -15,7 +15,7 @@
             app:useSimpleSummaryProvider="true" />
 
         <ListPreference
-            app:key="user_sex"
+            app:key="user_gender"
             app:defaultValue="1"
             app:dialogTitle="@string/your_gender"
             app:entries="@array/gender_entries"

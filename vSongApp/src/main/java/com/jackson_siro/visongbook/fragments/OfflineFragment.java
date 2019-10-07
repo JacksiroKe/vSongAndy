@@ -17,7 +17,7 @@ import com.jackson_siro.visongbook.adapters.ViewPagerAdapter;
 import com.jackson_siro.visongbook.components.CustomViewPager;
 import com.jackson_siro.visongbook.data.SQLiteHelper;
 import com.jackson_siro.visongbook.models.CategoryModel;
-import com.jackson_siro.visongbook.ui.MyApplication;
+import com.jackson_siro.visongbook.MyApplication;
 
 import java.util.List;
 import java.util.Objects;

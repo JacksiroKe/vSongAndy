@@ -21,10 +21,6 @@
     <string name="not_yet_sub_category">Not yet sub-category</string>
     <string name="load_more_posts">Load More Posts</string>
 
-    <!--BANNER ADS ADMOB-->
-    <string name="banner_ads">ca-app-pub-3553469696961315/1732679808</string>
-    <string name="interstitial_ads">ca-app-pub-3553469696961315/8485790410</string>
-
     <!--Custom text-->
     <string name="failed_load">Failed Load Data</string>
     <string name="no_data_available">No Data Available</string>
@@ -60,8 +56,6 @@
     <!--FIREBASE NOTIFICATION -->
     <string name="FCM_PREF">com.jackson_siro.vsongbook.ui.notification</string>
     <string name="FCM_TOKEN">com.jackson_siro.vsongbook.ui.notification</string>
-    <string name="PREFERENCES_NAME_ADS">com.jackson_siro.vsongbook.ui</string>
-    <string name="PREFERENCES_COUNTER">com.jackson_siro.vsongbook.ui</string>
     <string name="text_share">Hi guy, I love this postModel, if you interest with this postModel you can get more postModel with download my app on play store </string>
     <string name="feedback">FEEDBACK</string>
     <string name="success">success</string>

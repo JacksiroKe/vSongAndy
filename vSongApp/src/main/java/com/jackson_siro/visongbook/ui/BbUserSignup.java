@@ -206,7 +206,7 @@ public class BbUserSignup extends AppCompatActivity {
         prefedit.putString("user_firstname", Appuser.firstname).apply();
         prefedit.putString("user_lastname", Appuser.lastname);
         prefedit.putString("user_mobile", Appuser.mobile).apply();
-        prefedit.putString("user_sex", Appuser.sex).apply();
+        prefedit.putString("user_gender", Appuser.gender).apply();
         prefedit.putString("user_city", Appuser.city).apply();
         prefedit.putString("user_church", Appuser.church).apply();
         prefedit.putString("user_email", Appuser.email).apply();
@@ -233,7 +233,7 @@ public class BbUserSignup extends AppCompatActivity {
 
         prefedit.putString("user_firstname", firstname);
         prefedit.putString("user_lastname", lastname);
-        prefedit.putString("user_sex", gender);
+        prefedit.putString("user_gender", gender);
         prefedit.putString("user_city", city);
         prefedit.putString("user_church", church);
         prefedit.putBoolean("app_user_signedin", false);

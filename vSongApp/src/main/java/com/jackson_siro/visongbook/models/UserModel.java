@@ -6,7 +6,7 @@ public class UserModel {
     public String lastname;
     public String country;
     public String mobile;
-    public String sex;
+    public String gender;
     public String city;
     public String church;
     public String email;

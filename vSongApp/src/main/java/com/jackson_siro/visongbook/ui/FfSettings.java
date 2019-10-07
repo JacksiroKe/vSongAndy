@@ -65,7 +65,7 @@ public class FfSettings extends AppCompatActivity  {
         prefget = PreferenceManager.getDefaultSharedPreferences(this);
         prefedit = prefget.edit();
 
-        String mGender = prefget.getString("user_sex", "1") == "1" ? "Bro. " : "Sis. ";
+        String mGender = prefget.getString("user_gender", "1") == "1" ? "Bro. " : "Sis. ";
         String mFullname = prefget.getString("user_firstname", "") + " " + prefget.getString("user_lastname", "");
 
         TextView full_name = findViewById(R.id.full_name);

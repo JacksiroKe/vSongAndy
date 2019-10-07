@@ -2,14 +2,10 @@ package com.jackson_siro.visongbook.retrofitconfig;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-
-import com.jackson_siro.visongbook.ui.MyApplication;
-
+import com.jackson_siro.visongbook.MyApplication;
 import java.util.concurrent.TimeUnit;
-
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
-//import com.jackson_siro.vsongbook.ui.BuildConfig;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 

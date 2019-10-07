@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.jackson_siro.visongbook.MyApplication;
 import com.jackson_siro.visongbook.R;
 import com.jackson_siro.visongbook.adapters.*;
 import com.jackson_siro.visongbook.data.SQLiteHelper;

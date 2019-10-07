@@ -103,15 +103,13 @@
                                 android:text="+"
                                 android:textSize="20dp"
                                 android:textStyle="bold"
-                                android:layout_marginTop="20dp"
                                 android:layout_marginLeft="10dp" />
 
                             <com.google.android.material.textfield.TextInputLayout
                                 android:id="@+id/text_input_code"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
-                                app:passwordToggleEnabled="true">
+                                android:layout_marginTop="5dp">
 
                                 <EditText
                                     android:id="@+id/input_code"

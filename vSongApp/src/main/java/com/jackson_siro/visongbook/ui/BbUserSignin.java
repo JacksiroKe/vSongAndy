@@ -197,7 +197,7 @@ public class BbUserSignin extends AppCompatActivity {
         prefedit.putString("user_firstname", Appuser.firstname).apply();
         prefedit.putString("user_lastname", Appuser.lastname);
         prefedit.putString("user_mobile", Appuser.mobile).apply();
-        prefedit.putString("user_sex", Appuser.sex).apply();
+        prefedit.putString("user_gender", Appuser.gender).apply();
         prefedit.putString("user_city", Appuser.city).apply();
         prefedit.putString("user_church", Appuser.church).apply();
         prefedit.putString("user_email", Appuser.email).apply();
@@ -287,12 +287,16 @@ public class BbUserSignin extends AppCompatActivity {
     }
 
     private void showDialog(final boolean show){
-        if (show){
-            progressDialog.setTitle("Signing you in");
-            progressDialog.setMessage("Some patience please . . .");
-            progressDialog.show();
+        try
+        {
+            if (show){
+                progressDialog.setTitle("Signing you in");
+                progressDialog.setMessage("Some patience please . . .");
+                progressDialog.show();
+            }
+            else progressDialog.dismiss();
         }
-        else progressDialog.dismiss();
+        catch (Exception ex) { }
     }
 
     @Override

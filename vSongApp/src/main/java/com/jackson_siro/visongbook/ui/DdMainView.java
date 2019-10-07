@@ -52,7 +52,7 @@ public class DdMainView extends AppCompatActivity implements TabLayout.OnTabSele
         setContentView(R.layout.dd_main_view);
         prefget = PreferenceManager.getDefaultSharedPreferences(this);
         prefedit = prefget.edit();
-        mGender = prefget.getString("user_sex", "1") == "1" ? "Bro. " : "Sis. ";
+        mGender = prefget.getString("user_gender", "1") == "1" ? "Bro. " : "Sis. ";
         mFullname = prefget.getString("user_firstname", "") + " " + prefget.getString("user_lastname", "");
 
         drawer = findViewById(R.id.drawer_layout);
