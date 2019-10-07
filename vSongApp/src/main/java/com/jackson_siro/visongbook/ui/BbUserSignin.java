@@ -197,7 +197,7 @@ public class BbUserSignin extends AppCompatActivity {
         prefedit.putString("user_firstname", Appuser.firstname).apply();
         prefedit.putString("user_lastname", Appuser.lastname);
         prefedit.putString("user_mobile", Appuser.mobile).apply();
-        prefedit.putInt("user_gender", Appuser.gender).apply();
+        prefedit.putString("user_sex", Appuser.sex).apply();
         prefedit.putString("user_city", Appuser.city).apply();
         prefedit.putString("user_church", Appuser.church).apply();
         prefedit.putString("user_email", Appuser.email).apply();
@@ -229,7 +229,7 @@ public class BbUserSignin extends AppCompatActivity {
                 else if (prefget.getBoolean("app_books_reload", false)) {
                     startActivity(new Intent(BbUserSignin.this, CcBooksLoad.class));
                 }
-                else startActivity(new Intent(BbUserSignin.this, DdHomeView.class));
+                else startActivity(new Intent(BbUserSignin.this, DdMainView.class));
                 finish();
                 break;
 

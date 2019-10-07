@@ -1,102 +1,109 @@
 package com.jackson_siro.visongbook.ui;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.preference.Preference;
+import androidx.appcompat.widget.Toolbar;
 import androidx.preference.PreferenceFragmentCompat;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.jackson_siro.visongbook.R;
 
-public class FfSettings extends AppCompatActivity implements
-        PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
+public class FfSettings extends AppCompatActivity  {
 
+    private Toolbar toolbar;
+    private ActionBar actionBar;
     private static final String TITLE_TAG = "settingsActivityTitle";
+
+    private SharedPreferences prefget;
+    private SharedPreferences.Editor prefedit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.settings_activity);
-        if (savedInstanceState == null) {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.settings, new HeaderFragment())
-                    .commit();
-        } else {
-            setTitle(savedInstanceState.getCharSequence(TITLE_TAG));
-        }
-        getSupportFragmentManager().addOnBackStackChangedListener(
-                new FragmentManager.OnBackStackChangedListener() {
-                    @Override
-                    public void onBackStackChanged() {
-                        if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
-                            setTitle(R.string.title_activity_ff_settings);
-                        }
-                    }
-                });
+        setContentView(R.layout.ff_settings);
+        toolbarSet();
+        displayProfile();
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.app_settings, new SettingsFragment()).commit();
+
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+
+        FloatingActionButton fab = findViewById(R.id.fabaction);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                startActivity(new Intent(FfSettings.this, FfSettingsProfile.class));
+            }
+        });
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        // Save current activity title so we can set it again after a configuration change
-        outState.putCharSequence(TITLE_TAG, getTitle());
+    private void toolbarSet() {
+        toolbar =  findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeButtonEnabled(true);
+        actionBar.setTitle("vSongBook Settings");
     }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        if (getSupportFragmentManager().popBackStackImmediate()) {
-            return true;
+    private void displayProfile() {
+        prefget = PreferenceManager.getDefaultSharedPreferences(this);
+        prefedit = prefget.edit();
+
+        String mGender = prefget.getString("user_sex", "1") == "1" ? "Bro. " : "Sis. ";
+        String mFullname = prefget.getString("user_firstname", "") + " " + prefget.getString("user_lastname", "");
+
+        TextView full_name = findViewById(R.id.full_name);
+        TextView mobile_phone = findViewById(R.id.mobile_phone);
+        TextView profile_text = findViewById(R.id.profile_text);
+
+        full_name.setText(String.format(mGender + mFullname));
+        mobile_phone.setText(prefget.getString("user_mobile", "-"));
+        profile_text.setText(String.format(
+                prefget.getString("user_church", "-") + " Church\n" +
+                        prefget.getString("user_city", "-") + " " + prefget.getString("user_country_ccode", ""))
+        );
+
+    }
+
+    public static class SettingsFragment extends PreferenceFragmentCompat {
+        @Override
+        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+            setPreferencesFromResource(R.xml.preferences_app, rootKey);
         }
-        return super.onSupportNavigateUp();
     }
 
     @Override
-    public boolean onPreferenceStartFragment(PreferenceFragmentCompat caller, Preference pref) {
-        // Instantiate the new Fragment
-        final Bundle args = pref.getExtras();
-        final Fragment fragment = getSupportFragmentManager().getFragmentFactory().instantiate(
-                getClassLoader(),
-                pref.getFragment());
-        fragment.setArguments(args);
-        fragment.setTargetFragment(caller, 0);
-        // Replace the existing Fragment with the new Fragment
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.settings, fragment)
-                .addToBackStack(null)
-                .commit();
-        setTitle(pref.getTitle());
+    public boolean onCreateOptionsMenu(final Menu menu) {
+        getMenuInflater().inflate(R.menu.ff_settings, menu);
+
         return true;
     }
 
-    public static class HeaderFragment extends PreferenceFragmentCompat {
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_reset:
+                return true;
 
-        @Override
-        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-            setPreferencesFromResource(R.xml.header_preferences, rootKey);
+            default:
+                return false;
         }
     }
 
-    public static class MessagesFragment extends PreferenceFragmentCompat {
-
-        @Override
-        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-            setPreferencesFromResource(R.xml.messages_preferences, rootKey);
-        }
-    }
-
-    public static class SyncFragment extends PreferenceFragmentCompat {
-
-        @Override
-        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-            setPreferencesFromResource(R.xml.sync_preferences, rootKey);
-        }
-    }
 }

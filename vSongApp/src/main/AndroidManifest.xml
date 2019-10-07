@@ -20,34 +20,33 @@
         android:supportsRtl="true"
         android:theme="@style/MyMaterialTheme">
         <activity
-            android:name=".ui.FfSettings"
-            android:label="@string/title_activity_ff_settings"
-            android:parentActivityName=".ui.DdMainView">
+            android:name=".ui.FfSettingsProfile"
+            android:label="@string/title_activity_ff_settings_profile"
+            android:parentActivityName=".ui.FfSettings">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jackson_siro.visongbook.ui.DdMainView" />
+                android:value="com.jackson_siro.visongbook.ui.FfSettings" />
+        </activity>
+        <activity
+            android:name=".ui.FfSettings"
+            android:label="@string/title_activity_ff_settings"
+            android:parentActivityName=".ui.DdMainView"
+            android:theme="@style/MyMaterialTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jackson_siro.visongbook.ui.DdHomeView" />
+
         </activity>
         <activity android:name=".ui.CcSongsLoad" />
         <activity
             android:name=".ui.CcBooksLoad"
             android:label="@string/title_activity_bb_books_load"
             android:theme="@style/MyMaterialTheme.NoActionBar" />
-
-        <service android:name=".ui.notification.FcmMessagingService">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-            </intent-filter>
-        </service>
-        <service android:name=".ui.notification.FcmInstanceIdService">
-            <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
-            </intent-filter>
-        </service>
-
         <activity
             android:name=".ui.AppStart"
             android:label="@string/app_name"
             android:noHistory="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

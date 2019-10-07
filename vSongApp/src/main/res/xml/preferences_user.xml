@@ -1,0 +1,58 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        app:title="@string/user_header"
+        app:icon="@drawable/ic_settings">
+
+        <EditTextPreference
+            app:key="user_firstname"
+            app:title="@string/your_firstname"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
+            app:key="user_lastname"
+            app:title="@string/your_lastname"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            app:key="user_sex"
+            app:defaultValue="1"
+            app:dialogTitle="@string/your_gender"
+            app:entries="@array/gender_entries"
+            app:entryValues="@array/gender_values"
+            app:title="@string/your_gender"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
+            app:key="user_church"
+            app:title="@string/your_church"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
+            app:key="user_city"
+            app:title="@string/your_city"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:title="@string/online_header"
+        app:icon="@drawable/ic_settings">
+
+        <EditTextPreference
+            app:key="user_email"
+            app:title="@string/your_email"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
+            app:key="user_handle"
+            app:title="@string/your_username"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
+            app:key="user_password"
+            app:title="@string/your_password" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

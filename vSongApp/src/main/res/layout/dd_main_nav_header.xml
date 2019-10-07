@@ -3,81 +3,90 @@
     android:id="@+id/user_profile"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:padding="16dp"
-    android:background="@color/colorPrimaryDark"
+    android:background="@drawable/vsb_bg_"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image"
         android:layout_width="62dp"
         android:layout_height="62dp"
-        android:layout_marginTop="16dp"
         android:src="@drawable/usericon" />
 
-    <TextView
-        android:id="@+id/full_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:textColor="@color/white_color"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/mobile_phone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/white_color" />
-
-    <TextView
-        android:id="@+id/profile_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="15sp"
-        android:textColor="@color/white_color" />
-
     <LinearLayout
-        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/tweet_margin_vertical"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/full_name"
+            android:text="Bro. Jacksiro"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/tweet_margin_vertical"
-            android:text="@string/following_number"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
             android:textColor="@color/white_color"
-            android:textSize="@dimen/no_notification_info_text_size"
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/mobile_phone"
+            android:text="0711474787"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/no_content_padding"
-            android:text="@string/following"
-            android:textColor="@color/white_color"
-            android:textSize="@dimen/no_notification_info_text_size" />
-
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/white_color" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/profile_text"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/tweet_margin_vertical"
-            android:text="@string/followers_number"
-            android:textColor="@color/white_color"
-            android:textSize="@dimen/no_notification_info_text_size"
-            android:textStyle="bold" />
+            android:text="Kayole ETMA,\nNairobi, Kenya"
+            android:textSize="15sp"
+            android:textColor="@color/white_color" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:visibility="gone"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/tweet_margin_vertical"
-            android:text="@string/followers"
-            android:textColor="@color/white_color"
+            android:layout_marginTop="@dimen/tweet_margin_vertical"
+            android:orientation="horizontal">
 
-            android:textSize="@dimen/no_notification_info_text_size" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/tweet_margin_vertical"
+                android:text="@string/following_number"
+                android:textColor="@color/white_color"
+                android:textSize="@dimen/no_notification_info_text_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/no_content_padding"
+                android:text="@string/following"
+                android:textColor="@color/white_color"
+                android:textSize="@dimen/no_notification_info_text_size" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/tweet_margin_vertical"
+                android:text="@string/followers_number"
+                android:textColor="@color/white_color"
+                android:textSize="@dimen/no_notification_info_text_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/tweet_margin_vertical"
+                android:text="@string/followers"
+                android:textColor="@color/white_color"
+
+                android:textSize="@dimen/no_notification_info_text_size" />
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

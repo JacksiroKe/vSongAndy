@@ -76,7 +76,7 @@
     <string name="your_country">Select Your Country</string>
     <string name="your_mobile">Mobile</string>
     <string name="your_email">Email Address</string>
-    <string name="your_username">Preffered Username</string>
+    <string name="your_username">Username</string>
     <string name="your_password">Password</string>
     <string name="dont_have">Don\'t have account?</string>
     <string name="signup_now">Signup</string>
@@ -313,18 +313,34 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dictum lorem 
     <string name="title_activity_ff_settings">App Prefrences</string>
 
     <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
-    <string name="sync_header">Sync</string>
+    <string name="viewer_header">SONG VIEWER SETTINGS</string>
+    <string name="theme_header">THEME SETTINGS</string>
+    <string name="user_header">WHAT WE KNOW ABOUT YOU</string>
+    <string name="online_header">ONLINE SETTINGS (OPTIONAL)</string>
 
-    <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
+    <string name="app_theme">App Overall Theme</string>
+    <string name="choose_theme">Choose Theme</string>
 
-    <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
-    </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <!-- Presentation Preferences -->
+    <string name="presentation_title">Song Presentation Mode</string>
+    <string name="presentation_desc">How the song should be presented to you</string>
+
+    <!-- Keep Screen On Preferences -->
+    <string name="keep_screenon">Keep Screen ON</string>
+    <string name="keep_screenon_desc">Keep screen ON when viewing a song</string>
+
+    <!-- Keep Screen On Time Preferences -->
+    <string name="keep_screenon_time">Screen ON Time</string>
+    <string name="keep_screenon_time_desc">How long to keep Screen ON</string>
+
+    <!-- Font Preferences -->choose_time
+    <string name="fontsize_title">Song Font Size</string>
+    <string name="fontsize_desc">Size of text on the song viewer</string>
+
+    <!-- Screen Preferences -->
+    <string name="choose_time">How long to keep screen ON</string>
+
+    <string name="menu_reset">Reset Settings</string>
+    <string name="title_activity_ff_settings_profile">User Profile</string>
 
 </resources>

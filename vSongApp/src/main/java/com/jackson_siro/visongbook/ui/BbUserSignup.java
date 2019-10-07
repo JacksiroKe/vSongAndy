@@ -206,7 +206,7 @@ public class BbUserSignup extends AppCompatActivity {
         prefedit.putString("user_firstname", Appuser.firstname).apply();
         prefedit.putString("user_lastname", Appuser.lastname);
         prefedit.putString("user_mobile", Appuser.mobile).apply();
-        prefedit.putInt("user_gender", Appuser.gender).apply();
+        prefedit.putString("user_sex", Appuser.sex).apply();
         prefedit.putString("user_city", Appuser.city).apply();
         prefedit.putString("user_church", Appuser.church).apply();
         prefedit.putString("user_email", Appuser.email).apply();
@@ -220,7 +220,7 @@ public class BbUserSignup extends AppCompatActivity {
         prefedit.putBoolean("app_user_signedin", true).apply();
 
         prefedit.putBoolean("app_user_signedin", true);
-        startActivity(new Intent(BbUserSignup.this, DdHomeView.class));
+        startActivity(new Intent(BbUserSignup.this, DdMainView.class));
         finish();
     }
 
@@ -233,7 +233,7 @@ public class BbUserSignup extends AppCompatActivity {
 
         prefedit.putString("user_firstname", firstname);
         prefedit.putString("user_lastname", lastname);
-        prefedit.putString("user_gender", gender);
+        prefedit.putString("user_sex", gender);
         prefedit.putString("user_city", city);
         prefedit.putString("user_church", church);
         prefedit.putBoolean("app_user_signedin", false);
@@ -270,7 +270,7 @@ public class BbUserSignup extends AppCompatActivity {
         if (!prefget.getBoolean("app_books_loaded", false)) startActivity(new Intent(BbUserSignup.this, CcBooksLoad.class));
         else if (prefget.getBoolean("app_books_loaded", false) && !prefget.getBoolean("app_songs_loaded", false))
             startActivity(new Intent(BbUserSignup.this, CcSongsLoad.class));
-        else startActivity(new Intent(BbUserSignup.this, DdHomeView.class));
+        else startActivity(new Intent(BbUserSignup.this, DdMainView.class));
         finish();
     }
 
@@ -303,6 +303,7 @@ public class BbUserSignup extends AppCompatActivity {
         }
         else progressDialog.dismiss();
     }
+
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
         getMenuInflater().inflate(R.menu.bb_proceed, menu);
