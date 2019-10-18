@@ -76,7 +76,7 @@
                 android:id="@+id/iv_tweet_image"
                 android:layout_width="wrap_content"
                 android:layout_height="180dp"
-                android:src="@drawable/twitter_sample_image" />
+                android:src="@drawable/splash_i" />
         </LinearLayout>
 
         <LinearLayout
