@@ -27,6 +27,7 @@ public class FfSettings extends AppCompatActivity  {
 
     private SharedPreferences prefget;
     private SharedPreferences.Editor prefedit;
+    private String mGender = "", mFullname = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,8 +66,16 @@ public class FfSettings extends AppCompatActivity  {
         prefget = PreferenceManager.getDefaultSharedPreferences(this);
         prefedit = prefget.edit();
 
-        String mGender = prefget.getString("user_gender", "1") == "1" ? "Bro. " : "Sis. ";
-        String mFullname = prefget.getString("user_firstname", "") + " " + prefget.getString("user_lastname", "");
+        try
+        {
+            mGender = prefget.getString("user_gender", "1") == "1" ? "Sis. " : "Bro. ";
+        }
+        catch (Exception ex)
+        {
+            mGender = "Bro.";
+            prefedit.putString("user_gender", "1").apply();
+        }
+       mFullname = prefget.getString("user_firstname", "") + " " + prefget.getString("user_lastname", "");
 
         TextView full_name = findViewById(R.id.full_name);
         TextView mobile_phone = findViewById(R.id.mobile_phone);
@@ -106,4 +115,15 @@ public class FfSettings extends AppCompatActivity  {
         }
     }
 
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        /*Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        startActivity(intent);
+        startActivity(new Intent(FfSettings.this, AppStart.class));
+        finish();*/
+    }
 }

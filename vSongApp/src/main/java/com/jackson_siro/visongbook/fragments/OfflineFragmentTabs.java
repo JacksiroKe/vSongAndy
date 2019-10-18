@@ -1,6 +1,8 @@
 package com.jackson_siro.visongbook.fragments;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,10 +54,18 @@ public class OfflineFragmentTabs extends Fragment {
         itemsRecyclerView.setAdapter(listAdapter);
         itemsRecyclerView.addItemDecoration(new DividerItemDecoration(itemsRecyclerView.getContext(), DividerItemDecoration.VERTICAL));
 
+
+
+        //
+
         listAdapter.setOnItemClickListener(new ListsSongsAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, PostModel postModel) {
-                vSongBook.passingIntent(getActivity(), postModel.songid, "EePostView");
+                /*SharedPreferences prefget = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                if (prefget.getString("app_song_presentation", "slides") == "scroll")
+                    vSongBook.passingIntent(getActivity(), postModel.songid, "EePostScroller");
+                else vSongBook.passingIntent(getActivity(), postModel.songid, "EePostSlider");*/
+                vSongBook.passingIntent(getActivity(), postModel.songid, "EePostSlider");
             }
         });
     }

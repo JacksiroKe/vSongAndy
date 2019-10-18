@@ -32,7 +32,7 @@ public class AppStart extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_app_start);
+        setContentView(R.layout.app_start);
 
         prefget = PreferenceManager.getDefaultSharedPreferences(this);
         prefedit = prefget.edit();

@@ -172,7 +172,7 @@ public class CcSongsLoad extends AppCompatActivity {
     }
 
     public void finishLoading(){
-        startActivity(new Intent(CcSongsLoad.this, DdHomeView.class));
+        startActivity(new Intent(CcSongsLoad.this, DdMainView.class));
         finish();
     }
 }

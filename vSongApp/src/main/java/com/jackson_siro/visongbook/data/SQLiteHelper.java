@@ -216,7 +216,10 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     }
 
     public PostModel viewSong(int songid) {
-        String query = "SELECT  * FROM " + Utils.TBL_SONGS + " WHERE " + Utils.SONGID + "=" + songid;
+        //String query = "SELECT  * FROM " + Utils.TBL_SONGS + " WHERE " + Utils.SONGID + "=" + songid;
+        String query = "SELECT songid, as_songs.bookid, number, alias, as_songs.title, as_songs.tags, as_songs.content, as_books.title " +
+                "FROM " + Utils.TBL_SONGS +
+                " INNER JOIN as_books ON as_books.categoryid = as_songs.categoryid WHERE " + Utils.SONGID + "=" + songid;
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
 
@@ -224,25 +227,13 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
         PostModel song = new PostModel();
         song.songid = Integer.parseInt(cursor.getString(0));
-        song.postid = cursor.getInt(1);
-        song.categoryid = cursor.getInt(2);
-        song.bookid = cursor.getInt(3);
-        song.basetype = cursor.getString(4);
-        song.number = cursor.getInt(5);
-        song.alias = cursor.getString(6);
-        song.title = cursor.getString(7);
-        song.tags = cursor.getString(8);
-        song.content = cursor.getString(9);
-        song.created = cursor.getString(10);
-        song.what = cursor.getString(11);
-        song.when = cursor.getString(12);
-        song.where = cursor.getString(13);
-        song.who = cursor.getString(14);
-        song.netthumbs = cursor.getInt(15);
-        song.views = cursor.getInt(16);
-        song.acount = cursor.getInt(17);
-        song.userid = cursor.getInt(18);
-        song.categoryname = getBookName( song.bookid );
+        song.bookid = cursor.getInt(1);
+        song.number = cursor.getInt(2);
+        song.alias = cursor.getString(3);
+        song.title = cursor.getString(4);
+        song.tags = cursor.getString(5);
+        song.content = cursor.getString(6);
+        song.categoryname = cursor.getString(7);
 
         return song;
     }

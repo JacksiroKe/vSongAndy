@@ -43,8 +43,7 @@ public class DdMainView extends AppCompatActivity implements TabLayout.OnTabSele
     private DrawerLayout mDrawerLayout;
     private TextView mTabTitle;
 
-    private String mGender = "";
-    private String mFullname = "";
+    private String mGender = "", mFullname = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +51,15 @@ public class DdMainView extends AppCompatActivity implements TabLayout.OnTabSele
         setContentView(R.layout.dd_main_view);
         prefget = PreferenceManager.getDefaultSharedPreferences(this);
         prefedit = prefget.edit();
-        mGender = prefget.getString("user_gender", "1") == "1" ? "Bro. " : "Sis. ";
+        try
+        {
+            mGender = prefget.getString("user_gender", "1") == "1" ? "Sis. " : "Bro. ";
+        }
+        catch (Exception ex)
+        {
+            mGender = "Bro.";
+            prefedit.putString("user_gender", "1").apply();
+        }
         mFullname = prefget.getString("user_firstname", "") + " " + prefget.getString("user_lastname", "");
 
         drawer = findViewById(R.id.drawer_layout);

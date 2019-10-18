@@ -1,7 +1,9 @@
 package com.jackson_siro.visongbook.fragments;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -102,7 +104,11 @@ public class SearchFragment extends Fragment {
         listAdapter.setOnItemClickListener(new ListsSongsAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, PostModel postModel) {
-                vSongBook.passingIntent(getActivity(), postModel.songid, "EePostView");
+                /*SharedPreferences prefget = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                if (prefget.getString("app_song_presentation", "slides") == "scroll")
+                    vSongBook.passingIntent(getActivity(), postModel.songid, "EePostScroller");
+                else vSongBook.passingIntent(getActivity(), postModel.songid, "EePostSlider");*/
+                vSongBook.passingIntent(getActivity(), postModel.songid, "EePostSlider");
             }
         });
     }

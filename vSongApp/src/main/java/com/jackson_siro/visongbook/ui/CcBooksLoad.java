@@ -65,7 +65,8 @@ public class CcBooksLoad extends AppCompatActivity implements SelectableViewHold
         fabdone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                confirmCheckout();
+                try { confirmCheckout(); }
+                catch (Exception ex) { }
             }
         });
 
