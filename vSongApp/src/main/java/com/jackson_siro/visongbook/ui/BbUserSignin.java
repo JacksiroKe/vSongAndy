@@ -9,10 +9,6 @@ import android.graphics.Typeface;
 
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,8 +17,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import java.util.ArrayList;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.jackson_siro.visongbook.components.SearchDialogCompat;
 import com.jackson_siro.visongbook.data.Countries;
 import com.jackson_siro.visongbook.models.Callback.*;
@@ -36,7 +37,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class BbUserSignin extends AppCompatActivity{
+public class BbUserSignin extends AppCompatActivity {
 
     private ProgressDialog progressDialog;
 
@@ -57,7 +58,7 @@ public class BbUserSignin extends AppCompatActivity{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bb_user_signin);
-        countries = new ArrayList<>(Countries.createSampleData());
+        countries = new ArrayList<CountryModel>(Countries.createSampleData());
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -137,7 +138,7 @@ public class BbUserSignin extends AppCompatActivity{
     }
 
     private void countryDialog(){
-        SearchDialogCompat<CountryModel> dialog = new SearchDialogCompat<>(BbUserSignin.this,
+        SearchDialogCompat<CountryModel> dialog = new SearchDialogCompat<CountryModel>(BbUserSignin.this,
             "Which is your Country?", "Search for your country", null, countries, new SearchResultListener<CountryModel>() {
                 @Override
                 public void onSelected( BaseSearchDialogCompat dialog, CountryModel country, int position )
@@ -168,13 +169,13 @@ public class BbUserSignin extends AppCompatActivity{
                     Appuser = cl.data;
                     if (cl.data.success == 1) handleUserData();
                     else apiResult(cl.data.success, cl.data.message);
-                } else apiResult(5, "null response");
+                }// else apiResult(5, "null response");
             }
 
             @Override
             public void onFailure(Call<CallbackUser> call, Throwable t) {
                 showDialog(false);
-                apiResult(5, t.getMessage());
+                //apiResult(5, t.getMessage());
             }
 
         });
@@ -196,7 +197,7 @@ public class BbUserSignin extends AppCompatActivity{
         prefedit.putString("user_firstname", Appuser.firstname).apply();
         prefedit.putString("user_lastname", Appuser.lastname);
         prefedit.putString("user_mobile", Appuser.mobile).apply();
-        prefedit.putInt("user_gender", Appuser.gender).apply();
+        prefedit.putString("user_gender", Appuser.gender).apply();
         prefedit.putString("user_city", Appuser.city).apply();
         prefedit.putString("user_church", Appuser.church).apply();
         prefedit.putString("user_email", Appuser.email).apply();
@@ -212,7 +213,7 @@ public class BbUserSignin extends AppCompatActivity{
         if (!prefget.getBoolean("app_books_loaded", false)) {
             startActivity(new Intent(BbUserSignin.this, CcBooksLoad.class));
         }
-        else startActivity(new Intent(BbUserSignin.this, DdHomeView.class));
+        else startActivity(new Intent(BbUserSignin.this, DdMainView.class));
         finish();
     }
 
@@ -228,7 +229,7 @@ public class BbUserSignin extends AppCompatActivity{
                 else if (prefget.getBoolean("app_books_reload", false)) {
                     startActivity(new Intent(BbUserSignin.this, CcBooksLoad.class));
                 }
-                else startActivity(new Intent(BbUserSignin.this, DdHomeView.class));
+                else startActivity(new Intent(BbUserSignin.this, DdMainView.class));
                 finish();
                 break;
 
@@ -246,10 +247,7 @@ public class BbUserSignin extends AppCompatActivity{
                 break;
 
             case 5:
-                showFeedback("Unfortunately you can not connect to our server at the moment due to the error of:\n\n" + errormsg +
-                        "\n\n Kindly take a screenshot of this error, a screenshot of your About Phone (Under Settings) and email " +
-                        "it the developers on: appsmatake@gmail.com with a simple report of what you were doing " +
-                        "before the error occurred", 0);
+                showFeedback("Unfortunately you can not connect to our server at the moment due to an error ", 0);
         }
 
     }
@@ -258,7 +256,7 @@ public class BbUserSignin extends AppCompatActivity{
         if (!prefget.getBoolean("app_books_loaded", false)) startActivity(new Intent(BbUserSignin.this, CcBooksLoad.class));
         else if (prefget.getBoolean("app_books_loaded", false) && !prefget.getBoolean("app_songs_loaded", false))
             startActivity(new Intent(BbUserSignin.this, CcSongsLoad.class));
-        else startActivity(new Intent(BbUserSignin.this, DdHomeView.class));
+        else startActivity(new Intent(BbUserSignin.this, DdMainView.class));
         finish();
     }
 
@@ -286,12 +284,16 @@ public class BbUserSignin extends AppCompatActivity{
     }
 
     private void showDialog(final boolean show){
-        if (show){
-            progressDialog.setTitle("Signing you in");
-            progressDialog.setMessage("Some patience please . . .");
-            progressDialog.show();
+        try
+        {
+            if (show){
+                progressDialog.setTitle("Signing you in");
+                progressDialog.setMessage("Some patience please . . .");
+                progressDialog.show();
+            }
+            else progressDialog.dismiss();
         }
-        else progressDialog.dismiss();
+        catch (Exception ex) { }
     }
 
     @Override

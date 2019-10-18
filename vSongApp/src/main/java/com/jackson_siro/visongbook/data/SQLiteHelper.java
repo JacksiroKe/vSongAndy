@@ -101,7 +101,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     }
 
     public List<CategoryModel> getBookList() {
-        List<CategoryModel> SongBooks = new LinkedList<>();
+        List<CategoryModel> SongBooks = new LinkedList<CategoryModel>();
         String query = "SELECT * FROM " + Utils.TBL_BOOKS;
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -125,27 +125,24 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     }
 
     public List<SearchModel> searchSongs(String searchthis){
-        List<SearchModel> SearchLists = new ArrayList<>();
-        String wherequery = "";
+        List<SearchModel> SearchLists = new ArrayList<SearchModel>();
+        String whereQuery = "";
 
         if (searchthis.length() > 1) {
             if (TextUtils.isDigitsOnly(searchthis))
-                wherequery = " WHERE " + Utils.NUMBER + "=" + searchthis;
+                whereQuery = " WHERE " + Utils.NUMBER + "=" + searchthis;
             else
-                wherequery = " WHERE " + Utils.TITLE + " LIKE '%" + searchthis + "%' OR " + Utils.CONTENT + " LIKE '%" + searchthis + "%'";
+                whereQuery = " WHERE " + Utils.TITLE + " LIKE '%" + searchthis + "%' OR " + Utils.CONTENT + " LIKE '%" + searchthis + "%'";
         }
 
-        String fullquery = "SELECT  * FROM " + Utils.TBL_SONGS + wherequery + " ORDER BY " + Utils.NUMBER + " LIMIT 30";
+        String fullQuery = "SELECT  * FROM " + Utils.TBL_SONGS + whereQuery + " ORDER BY " + Utils.NUMBER + " LIMIT 30";
 
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(fullquery, null);
+        Cursor cursor = db.rawQuery(fullQuery, null);
         SearchModel searchresult;
         if (cursor.moveToFirst()) {
             do {
-                searchresult = new SearchModel(
-                        cursor.getInt(5) + "# " + cursor.getString(7) + " (" + getBookName( cursor.getInt(3) ) + ")",
-                        Integer.parseInt(cursor.getString(0))
-                );
+                searchresult = new SearchModel(cursor.getString(7), Integer.parseInt(cursor.getString(0)));
                 SearchLists.add(searchresult);
             } while (cursor.moveToNext());
         }
@@ -153,40 +150,64 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         return SearchLists;
     }
 
-    public List<PostModel> getSongList(int songbook) {
-        List<PostModel> SongsList = new LinkedList<>();
-        String wherequery = (songbook == 0) ? "" : " WHERE " + Utils.CATEGORYID + "=" + songbook;
-        String fullquery = "SELECT songid, as_songs.bookid, number, alias, as_songs.title, as_songs.tags, as_songs.content, as_books.title  FROM " +
-                Utils.TBL_SONGS + "INNER JOIN as_books ON as_books.bookid = as_songs.bookid " + wherequery + " ORDER BY " + Utils.NUMBER;
+    public List<PostModel> searchForSongs(String searchthis) {
+        List<PostModel> SongsList = new LinkedList<PostModel>();
+        String whereQuery = "";
 
-        //"SELECT songid, number, songs.title, alias, songs.content, key, author, books.title, code FROM songs";
-        //sql_query = sql_query +	" INNER JOIN books ON books.bookid = songs.bookid WHERE"
+        if (searchthis.length() > 1) {
+            if (TextUtils.isDigitsOnly(searchthis)) whereQuery = " WHERE as_songs." + Utils.NUMBER + "=" + searchthis;
+            else
+                whereQuery = " WHERE as_songs." + Utils.TITLE + " LIKE '%" + searchthis +
+                        "%' OR as_songs." + Utils.CONTENT + " LIKE '%" + searchthis + "%'";
+        }
+
+        String fullQuery = "SELECT songid, as_songs.bookid, number, alias, as_songs.title, as_songs.tags, as_songs.content, as_books.title " +
+                "FROM " + Utils.TBL_SONGS + " INNER JOIN as_books ON as_books.categoryid = as_songs.categoryid" +
+                whereQuery + " ORDER BY as_songs." + Utils.NUMBER;
+
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(fullquery, null);
+        Cursor cursor = db.rawQuery(fullQuery, null);
         PostModel song;
         if (cursor.moveToFirst()) {
             do {
                 song = new PostModel();
                 song.songid = Integer.parseInt(cursor.getString(0));
-                song.postid = cursor.getInt(1);
-                song.categoryid = cursor.getInt(2);
-                song.bookid = cursor.getInt(3);
-                song.basetype = cursor.getString(4);
-                song.number = cursor.getInt(5);
-                song.alias = cursor.getString(6);
-                song.title = cursor.getString(7);
-                song.tags = cursor.getString(8);
-                song.content = cursor.getString(9);
-                song.created = cursor.getString(10);
-                song.what = cursor.getString(11);
-                song.when = cursor.getString(12);
-                song.where = cursor.getString(13);
-                song.who = cursor.getString(14);
-                song.netthumbs = cursor.getInt(15);
-                song.views = cursor.getInt(16);
-                song.acount = cursor.getInt(17);
-                song.userid = cursor.getInt(18);
-                song.categoryname = "Songs of worship";
+                song.bookid = cursor.getInt(1);
+                song.number = cursor.getInt(2);
+                song.alias = cursor.getString(3);
+                song.title = cursor.getString(4);
+                song.tags = cursor.getString(5);
+                song.content = cursor.getString(6);
+                song.categoryname = cursor.getString(7);
+
+                SongsList.add(song);
+            } while (cursor.moveToNext());
+        }
+        return SongsList;
+    }
+
+    public List<PostModel> getSongList(int songbook) {
+        List<PostModel> SongsList = new LinkedList<PostModel>();
+        String whereQuery = (songbook == 0) ? "" : " WHERE as_songs." + Utils.CATEGORYID + "=" + songbook;
+        String fullQuery = "SELECT songid, as_songs.bookid, number, alias, as_songs.title, as_songs.tags, as_songs.content, as_books.title " +
+                "FROM " + Utils.TBL_SONGS +
+                " INNER JOIN as_books ON as_books.categoryid = as_songs.categoryid" +
+                whereQuery + " ORDER BY as_songs." + Utils.NUMBER;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(fullQuery, null);
+        PostModel song;
+        if (cursor.moveToFirst()) {
+            do {
+                song = new PostModel();
+                song.songid = Integer.parseInt(cursor.getString(0));
+                song.bookid = cursor.getInt(1);
+                song.number = cursor.getInt(2);
+                song.alias = cursor.getString(3);
+                song.title = cursor.getString(4);
+                song.tags = cursor.getString(5);
+                song.content = cursor.getString(6);
+                song.categoryname = cursor.getString(7);
 
                 SongsList.add(song);
             } while (cursor.moveToNext());
@@ -195,7 +216,10 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     }
 
     public PostModel viewSong(int songid) {
-        String query = "SELECT  * FROM " + Utils.TBL_SONGS + " WHERE " + Utils.SONGID + "=" + songid;
+        //String query = "SELECT  * FROM " + Utils.TBL_SONGS + " WHERE " + Utils.SONGID + "=" + songid;
+        String query = "SELECT songid, as_songs.bookid, number, alias, as_songs.title, as_songs.tags, as_songs.content, as_books.title " +
+                "FROM " + Utils.TBL_SONGS +
+                " INNER JOIN as_books ON as_books.categoryid = as_songs.categoryid WHERE " + Utils.SONGID + "=" + songid;
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
 
@@ -203,25 +227,13 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
         PostModel song = new PostModel();
         song.songid = Integer.parseInt(cursor.getString(0));
-        song.postid = cursor.getInt(1);
-        song.categoryid = cursor.getInt(2);
-        song.bookid = cursor.getInt(3);
-        song.basetype = cursor.getString(4);
-        song.number = cursor.getInt(5);
-        song.alias = cursor.getString(6);
-        song.title = cursor.getString(7);
-        song.tags = cursor.getString(8);
-        song.content = cursor.getString(9);
-        song.created = cursor.getString(10);
-        song.what = cursor.getString(11);
-        song.when = cursor.getString(12);
-        song.where = cursor.getString(13);
-        song.who = cursor.getString(14);
-        song.netthumbs = cursor.getInt(15);
-        song.views = cursor.getInt(16);
-        song.acount = cursor.getInt(17);
-        song.userid = cursor.getInt(18);
-        song.categoryname = getBookName( song.bookid );
+        song.bookid = cursor.getInt(1);
+        song.number = cursor.getInt(2);
+        song.alias = cursor.getString(3);
+        song.title = cursor.getString(4);
+        song.tags = cursor.getString(5);
+        song.content = cursor.getString(6);
+        song.categoryname = cursor.getString(7);
 
         return song;
     }
@@ -235,7 +247,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     }
 
     public ArrayList<ArrayList<Object>> getSongsAll(){
-        ArrayList<ArrayList<Object>> dataArray = new ArrayList<>();
+        ArrayList<ArrayList<Object>> dataArray = new ArrayList<ArrayList<Object>>();
         db = this.getReadableDatabase();
         try{
             Cursor cursor = db.query(
@@ -247,7 +259,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
            
             if (cursor.moveToFirst()){
                 do {
-                    ArrayList<Object> dataList = new ArrayList<>();
+                    ArrayList<Object> dataList = new ArrayList<Object>();
                     dataList.add(cursor.getLong(0));
 					dataList.add(cursor.getString(1));
 					dataList.add(cursor.getString(2));
@@ -278,7 +290,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     }
 
     public ArrayList<ArrayList<Object>> getAllDataOne(int id){
-        ArrayList<ArrayList<Object>> dataArray = new ArrayList<>();
+        ArrayList<ArrayList<Object>> dataArray = new ArrayList<ArrayList<Object>>();
         db = this.getReadableDatabase();
 
         try{
@@ -289,7 +301,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
             if (cursor.moveToFirst()){
                 do {
-                    ArrayList<Object> dataList = new ArrayList<>();
+                    ArrayList<Object> dataList = new ArrayList<Object>();
                     dataList.add(cursor.getLong(0));
                     dataList.add(cursor.getString(1));
                     dataList.add(cursor.getString(2));

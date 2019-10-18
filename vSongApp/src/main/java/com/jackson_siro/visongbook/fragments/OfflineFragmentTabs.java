@@ -1,15 +1,19 @@
 package com.jackson_siro.visongbook.fragments;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.jackson_siro.visongbook.MyApplication;
 import com.jackson_siro.visongbook.R;
 import com.jackson_siro.visongbook.adapters.*;
 import com.jackson_siro.visongbook.data.SQLiteHelper;
@@ -50,10 +54,18 @@ public class OfflineFragmentTabs extends Fragment {
         itemsRecyclerView.setAdapter(listAdapter);
         itemsRecyclerView.addItemDecoration(new DividerItemDecoration(itemsRecyclerView.getContext(), DividerItemDecoration.VERTICAL));
 
+
+
+        //
+
         listAdapter.setOnItemClickListener(new ListsSongsAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, PostModel postModel) {
-                vSongBook.passingIntent(getActivity(), postModel.songid, "EePostView");
+                /*SharedPreferences prefget = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                if (prefget.getString("app_song_presentation", "slides") == "scroll")
+                    vSongBook.passingIntent(getActivity(), postModel.songid, "EePostScroller");
+                else vSongBook.passingIntent(getActivity(), postModel.songid, "EePostSlider");*/
+                vSongBook.passingIntent(getActivity(), postModel.songid, "EePostSlider");
             }
         });
     }

@@ -6,7 +6,7 @@ public class UserModel {
     public String lastname;
     public String country;
     public String mobile;
-    public Integer gender;
+    public String gender;
     public String city;
     public String church;
     public String email;
@@ -22,9 +22,3 @@ public class UserModel {
     public Integer success;
     public String message;
 }
-//'^users.userid', 'passsalt', 'passcheck' => 'HEX(passcheck)', 'passhash', 'firstname', 'lastname', 'country', 'mobile', 'gender',
-// 'city', 'church', 'email', 'level', 'emailcode', 'handle',
-//			'created' => 'UNIX_TIMESTAMP(created)', 'sessioncode', 'sessionsource', 'flags', 'signedin' => 'UNIX_TIMESTAMP(signedin)',
-//			'signinip', 'written' => 'UNIX_TIMESTAMP(written)', 'writeip',
-//			'avatarblobid' => 'BINARY avatarblobid', // cast to BINARY due to MySQL bug which renders it signed in a union
-//			'avatarwidth', 'avatarheight', 'points', 'wallposts

@@ -1,0 +1,59 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        app:title="@string/viewer_header"
+        app:icon="@drawable/ic_settings">
+
+        <SeekBarPreference
+            app:key="app_song_fontsize"
+            app:title="@string/fontsize_title"
+            app:summary="@string/fontsize_desc"
+            app:min="25"
+            app:defaultValue="25"
+            app:seekBarIncrement="2"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            app:key="app_song_presentation"
+            app:defaultValue="slides"
+            app:dialogTitle="@string/choose_theme"
+            app:entries="@array/presentation_entries"
+            app:entryValues="@array/presentation_values"
+            app:title="@string/presentation_title"
+            app:summary="@string/presentation_desc"
+            app:useSimpleSummaryProvider="true" />
+
+        <SwitchPreferenceCompat
+            app:key="app_song_screenon"
+            app:title="@string/keep_screenon"
+            app:summary="@string/keep_screenon_desc" />-->
+
+        <ListPreference
+            app:dependency="app_song_screenon"
+            app:key="app_song_screenon_time"
+            app:defaultValue="unlimited"
+            app:dialogTitle="@string/choose_time"
+            app:entries="@array/screenon_entries"
+            app:entryValues="@array/screenon_values"
+            app:title="@string/keep_screenon_time"
+            app:summary="@string/keep_screenon_time_desc"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:title="@string/theme_header"
+        app:icon="@drawable/ic_settings">
+
+        <ListPreference
+            app:key="app_theme"
+            app:title="@string/app_theme"
+            app:defaultValue="default"
+            app:dialogTitle="@string/choose_theme"
+            app:entries="@array/theme_entries"
+            app:entryValues="@array/theme_values"
+            app:useSimpleSummaryProvider="true"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

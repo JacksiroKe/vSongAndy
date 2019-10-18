@@ -6,7 +6,7 @@ import android.widget.Filter;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.jackson_siro.visongbook.models.SearchModel;
-import com.jackson_siro.visongbook.ui.MyApplication;
+import com.jackson_siro.visongbook.MyApplication;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -21,7 +21,7 @@ public class SQLiteSearch {
     private static final String COLORS_FILE_NAME = "colors.json";
 
     private static SQLiteHelper db = new SQLiteHelper(MyApplication.getAppContext());
-    private static List<SearchWrapper> sSearchWrappers = new ArrayList<>();
+    private static List<SearchWrapper> sSearchWrappers = new ArrayList<SearchWrapper>();
 
     private static List<SearchModel> sSearchSuggestions = db.searchSongs("");
 
@@ -35,7 +35,7 @@ public class SQLiteSearch {
 
     public static List<SearchModel> getHistory(Context context, int count) {
 
-        List<SearchModel> suggestionList = new ArrayList<>();
+        List<SearchModel> suggestionList = new ArrayList<SearchModel>();
         SearchModel SearchModel;
         for (int i = 0; i < sSearchSuggestions.size(); i++) {
             SearchModel = sSearchSuggestions.get(i);
@@ -69,21 +69,6 @@ public class SQLiteSearch {
 
                 List<SearchModel> suggestionList = db.searchSongs(searchstr.toUpperCase());
 
-                /*List<SearchModel> suggestionList = new ArrayList<>();
-                if (!(constraint == null || constraint.length() == 0)) {
-
-                    for (SearchModel suggestion : sSearchSuggestions) {
-                        if (suggestion.getBody().toUpperCase()
-                                .startsWith(constraint.toString().toUpperCase())) {
-
-                            suggestionList.add(suggestion);
-                            if (limit != -1 && suggestionList.size() == limit) {
-                                break;
-                            }
-                        }
-                    }
-                }*/
-
                 FilterResults results = new FilterResults();
                 Collections.sort(suggestionList, new Comparator<SearchModel>() {
                     @Override
@@ -100,7 +85,11 @@ public class SQLiteSearch {
             @Override
             protected void publishResults(CharSequence constraint, FilterResults results) {
                 if (listener != null) {
-                    listener.onResults((List<SearchModel>) results.values);
+                    try
+                    {
+                        listener.onResults((List<SearchModel>) results.values);
+                    }
+                    catch (Exception ex) { }
                 }
             }
         }.filter(query);
@@ -116,7 +105,7 @@ public class SQLiteSearch {
             @Override
             protected FilterResults performFiltering(CharSequence constraint) {
 
-                List<SearchWrapper> suggestionList = new ArrayList<>();
+                List<SearchWrapper> suggestionList = new ArrayList<SearchWrapper>();
 
                 if (!(constraint == null || constraint.length() == 0)) {
                     for (SearchWrapper color : sSearchWrappers) {

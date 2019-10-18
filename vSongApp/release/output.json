@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-[{"outputType":{"type":"APK"},"apkInfo":{"type":"MAIN","splits":[],"versionCode":53,"versionName":"1.1.3.42","enabled":true,"outputFile":"vSongApp-release.apk","fullName":"release","baseName":"release"},"path":"vSongApp-release.apk","properties":{}}]
-=======
-[{"outputType":{"type":"APK"},"apkInfo":{"type":"MAIN","splits":[],"versionCode":52,"versionName":"1.1.3.40","enabled":true,"outputFile":"vSongApp-release.apk","fullName":"release","baseName":"release"},"path":"vSongApp-release.apk","properties":{}}]
->>>>>>> c0aed1253c303a33b706b3212d96bfbef706cfcc
+[{"outputType":{"type":"APK"},"apkData":{"type":"MAIN","splits":[],"versionCode":58,"versionName":"1.1.3.49","enabled":true,"outputFile":"vSongApp-release.apk","fullName":"release","baseName":"release"},"path":"vSongApp-release.apk","properties":{}}]

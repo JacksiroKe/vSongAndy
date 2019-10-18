@@ -7,21 +7,23 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.annotation.Nullable;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.jackson_siro.visongbook.data.Countries;
 import com.jackson_siro.visongbook.models.Callback.CallbackUser;
 import com.jackson_siro.visongbook.models.CountryModel;
@@ -49,7 +51,7 @@ public class BbUserSignup extends AppCompatActivity {
     private Call<CallbackUser> usersCall;
     private int cntry;
 
-    private ArrayList<CountryModel> countries = new ArrayList<>(Countries.createSampleData());
+    private ArrayList<CountryModel> countries = new ArrayList<CountryModel>(Countries.createSampleData());
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -176,13 +178,13 @@ public class BbUserSignup extends AppCompatActivity {
                     Appuser = cl.data;
                     if (cl.data.success == 1) handleUserData();
                     else apiResult(cl.data.success, cl.data.message);
-                } else apiResult(5, "null response");
+                } //else apiResult(5, "null response");
             }
 
             @Override
             public void onFailure(Call<CallbackUser> call, Throwable t) {
                 showDialog(false);
-                apiResult(5, t.getMessage());
+                //apiResult(5, t.getMessage());
             }
 
         });
@@ -204,7 +206,7 @@ public class BbUserSignup extends AppCompatActivity {
         prefedit.putString("user_firstname", Appuser.firstname).apply();
         prefedit.putString("user_lastname", Appuser.lastname);
         prefedit.putString("user_mobile", Appuser.mobile).apply();
-        prefedit.putInt("user_gender", Appuser.gender).apply();
+        prefedit.putString("user_gender", Appuser.gender).apply();
         prefedit.putString("user_city", Appuser.city).apply();
         prefedit.putString("user_church", Appuser.church).apply();
         prefedit.putString("user_email", Appuser.email).apply();
@@ -218,7 +220,7 @@ public class BbUserSignup extends AppCompatActivity {
         prefedit.putBoolean("app_user_signedin", true).apply();
 
         prefedit.putBoolean("app_user_signedin", true);
-        startActivity(new Intent(BbUserSignup.this, DdHomeView.class));
+        startActivity(new Intent(BbUserSignup.this, DdMainView.class));
         finish();
     }
 
@@ -268,7 +270,7 @@ public class BbUserSignup extends AppCompatActivity {
         if (!prefget.getBoolean("app_books_loaded", false)) startActivity(new Intent(BbUserSignup.this, CcBooksLoad.class));
         else if (prefget.getBoolean("app_books_loaded", false) && !prefget.getBoolean("app_songs_loaded", false))
             startActivity(new Intent(BbUserSignup.this, CcSongsLoad.class));
-        else startActivity(new Intent(BbUserSignup.this, DdHomeView.class));
+        else startActivity(new Intent(BbUserSignup.this, DdMainView.class));
         finish();
     }
 
@@ -301,6 +303,7 @@ public class BbUserSignup extends AppCompatActivity {
         }
         else progressDialog.dismiss();
     }
+
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
         getMenuInflater().inflate(R.menu.bb_proceed, menu);

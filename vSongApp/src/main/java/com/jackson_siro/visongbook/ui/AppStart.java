@@ -2,12 +2,13 @@ package com.jackson_siro.visongbook.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.preference.PreferenceManager;
 import android.content.SharedPreferences;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.jackson_siro.visongbook.R;
 import com.jackson_siro.visongbook.models.Callback.CallbackApp;
@@ -31,7 +32,7 @@ public class AppStart extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_app_start);
+        setContentView(R.layout.app_start);
 
         prefget = PreferenceManager.getDefaultSharedPreferences(this);
         prefedit = prefget.edit();
@@ -74,7 +75,7 @@ public class AppStart extends AppCompatActivity {
             else if (prefget.getBoolean("app_books_reload", false)) startActivity(new Intent(AppStart.this, CcBooksLoad.class));
             else if (prefget.getBoolean("app_books_loaded", false) && !prefget.getBoolean("app_songs_loaded", false))
                 startActivity(new Intent(AppStart.this, CcSongsLoad.class));
-            else startActivity(new Intent(AppStart.this, DdHomeView.class));
+            else startActivity(new Intent(AppStart.this, DdMainView.class));
         }
 
         finish();

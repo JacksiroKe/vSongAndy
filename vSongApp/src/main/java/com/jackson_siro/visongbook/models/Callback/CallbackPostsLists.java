@@ -8,5 +8,5 @@ import com.jackson_siro.visongbook.models.PostModel;
 
 public class CallbackPostsLists implements Serializable{
     public int total = -1;
-    public List<PostModel> data = new ArrayList<>();
+    public List<PostModel> data = new ArrayList<PostModel>();
 }

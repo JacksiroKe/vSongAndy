@@ -2,13 +2,14 @@ package com.jackson_siro.visongbook.adapters;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.balysv.materialripple.MaterialRippleLayout;
 import com.jackson_siro.visongbook.R;
@@ -107,7 +108,7 @@ public class ListsReviewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     public void resetData(){
-        this.thisPost = new ArrayList<>();
+        this.thisPost = new ArrayList<PostModel>();
         notifyDataSetChanged();
     }
 

@@ -7,5 +7,5 @@ import java.util.List;
 import com.jackson_siro.visongbook.models.PostsSlider;
 
 public class CallbackPostsSlider implements Serializable {
-    public List<PostsSlider> data = new ArrayList<>();
+    public List<PostsSlider> data = new ArrayList<PostsSlider>();
 }

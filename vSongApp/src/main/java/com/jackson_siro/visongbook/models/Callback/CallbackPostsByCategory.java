@@ -6,5 +6,5 @@ import java.util.List;
 import com.jackson_siro.visongbook.models.PostModel;
 
 public class CallbackPostsByCategory {
-    public List<PostModel> data = new ArrayList<>();
+    public List<PostModel> data = new ArrayList<PostModel>();
 }

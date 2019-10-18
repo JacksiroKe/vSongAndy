@@ -2,9 +2,6 @@ package com.jackson_siro.visongbook.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,10 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.balysv.materialripple.MaterialRippleLayout;
 import com.jackson_siro.visongbook.models.PostModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.jackson_siro.visongbook.retrofitconfig.BaseUrlConfig;
@@ -141,11 +140,6 @@ public class ListsSongsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     @Override
     public int getItemViewType(int position) {
         return this.Songs.get(position) != null ? VIEW_ITEM : VIEW_PROGRES;
-    }
-
-    public void resetData(){
-        this.Songs = new ArrayList<>();
-        notifyDataSetChanged();
     }
 
     public void insertData(List<PostModel> Songs){

@@ -1,14 +1,17 @@
 package com.jackson_siro.visongbook.fragments;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.jackson_siro.visongbook.R;
 import com.jackson_siro.visongbook.adapters.*;
@@ -42,26 +45,16 @@ public class OnlineFragmentTabs extends Fragment {
         view = inflater.inflate(R.layout.posts_fragment_tabs, container, false);
         itemsRecyclerView = view.findViewById(R.id.posts_recycler_view);
 
-        switch (request) {
-            case "hot":
-                loadItemsData("hot");
-                break;
-
-            case "thumbs":
-                loadItemsData("thumbs");
-                break;
-
-            case "answers":
-                loadItemsData("answers");
-                break;
-
-            case "views":
-                loadItemsData("views");
-                break;
-
-            default:
-                loadItemsData("created");
-                break;
+        if ("hot".equals(request)) {
+            loadItemsData("hot");
+        } else if ("thumbs".equals(request)) {
+            loadItemsData("thumbs");
+        } else if ("answers".equals(request)) {
+            loadItemsData("answers");
+        } else if ("views".equals(request)) {
+            loadItemsData("views");
+        } else {
+            loadItemsData("created");
         }
 
         return view;
@@ -77,7 +70,11 @@ public class OnlineFragmentTabs extends Fragment {
         recentAdapter.setOnItemClickListener(new ListsSongsAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, PostModel postModel) {
-                vSongBook.passingIntent(getActivity(), postModel.songid, "EePostView");
+                /*SharedPreferences prefget = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                if (prefget.getString("app_song_presentation", "slides") == "scroll")
+                    vSongBook.passingIntent(getActivity(), postModel.songid, "EePostScroller");
+                else vSongBook.passingIntent(getActivity(), postModel.songid, "EePostSlider");*/
+                vSongBook.passingIntent(getActivity(), postModel.songid, "EePostSlider");
             }
         });
 

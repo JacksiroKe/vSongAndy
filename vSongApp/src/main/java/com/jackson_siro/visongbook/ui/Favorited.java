@@ -4,23 +4,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.preference.PreferenceManager;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -71,7 +68,7 @@ public class Favorited extends AppCompatActivity {
         String html = "<style>img{display: inline; height: auto; max-width: 100%;}</style>";
 
         titleDetailsPosts.setText(storeTitle);
-        Picasso.with(context).load(prefget.getString("app_base_url", BaseUrlConfig.BaseUrl)+storeImage).into(imgDetailNew);
+        //Picasso.with(context).load(prefget.getString("app_base_url", BaseUrlConfig.BaseUrl)+storeImage).into(imgDetailNew);
         webView.loadDataWithBaseURL(null, html+storeContent, "text/html", "UTF-8", null);
 
     }
@@ -86,7 +83,7 @@ public class Favorited extends AppCompatActivity {
     }
 
     public void shareItem(String url, final String text) {
-        Picasso.with(getApplicationContext()).load(url).into(new Target() {
+        /*Picasso.with(getApplicationContext()).load(url).into(new Target() {
             @Override public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
                 Intent i = new Intent(Intent.ACTION_SEND);
                 i.setType("image/*");
@@ -97,7 +94,7 @@ public class Favorited extends AppCompatActivity {
             }
             @Override public void onBitmapFailed(Drawable errorDrawable) { }
             @Override public void onPrepareLoad(Drawable placeHolderDrawable) { }
-        });
+        });*/
     }
 
     private Uri getLocalBitmapUri(Bitmap bitmap) {
@@ -119,7 +116,7 @@ public class Favorited extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.posts_favorite_view, menu);
         menuItem = menu.findItem(R.id.deleteOne);
         if (SQLiteHelper.isDataExist(storeId)){
-            menuItem.setIcon(R.drawable.ic_favorite_black_48dp);
+            menuItem.setIcon(R.drawable.ic_favorite_black);
         }
         return true;
     }
@@ -132,12 +129,12 @@ public class Favorited extends AppCompatActivity {
         }else if (item_variable == R.id.deleteOne){
             if (SQLiteHelper.isDataExist(storeId)){
                 SQLiteHelper.deleteData(storeId);
-                menuItem.setIcon(R.drawable.ic_favorite_border_black_24dp);
+                menuItem.setIcon(R.drawable.ic_favorite_border_black);
                 onBackPressed();
                 finish();
             }else{
                 //databaseHelpers.addData(storeId, storeTitle, storeCode, storeCategory, storeImage, storeContent, "");
-                menuItem.setIcon(R.drawable.ic_favorite_black_48dp);
+                menuItem.setIcon(R.drawable.ic_favorite_black);
             }
         }else if (item_variable == R.id.share){
             String url = prefget.getString("app_base_url", BaseUrlConfig.BaseUrl)+storeImage;

@@ -1,4 +1,4 @@
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card_view"
@@ -89,7 +89,7 @@
                 android:layout_alignTop="@+id/tv_app_rating"
                 android:layout_toEndOf="@+id/tv_app_rating"
                 android:contentDescription="@string/app_name"
-                android:src="@drawable/ic_star_black_18dp" />
+                android:src="@drawable/ic_star_black" />
 
             <TextView
                 android:id="@+id/tv_is_free"
@@ -103,4 +103,4 @@
 
     </LinearLayout>
 
-</android.support.v7.widget.CardView>
+</androidx.cardview.widget.CardView>

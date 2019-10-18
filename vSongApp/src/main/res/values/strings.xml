@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">vSongBook</string>
     <string name="main_title">Search vSongBook</string>
     <string name="sub_title">With Admin Panel</string>
@@ -20,10 +20,6 @@
     <string name="deleted">Delete ?</string>
     <string name="not_yet_sub_category">Not yet sub-category</string>
     <string name="load_more_posts">Load More Posts</string>
-
-    <!--BANNER ADS ADMOB-->
-    <string name="banner_ads">ca-app-pub-3553469696961315/1732679808</string>
-    <string name="interstitial_ads">ca-app-pub-3553469696961315/8485790410</string>
 
     <!--Custom text-->
     <string name="failed_load">Failed Load Data</string>
@@ -60,8 +56,6 @@
     <!--FIREBASE NOTIFICATION -->
     <string name="FCM_PREF">com.jackson_siro.vsongbook.ui.notification</string>
     <string name="FCM_TOKEN">com.jackson_siro.vsongbook.ui.notification</string>
-    <string name="PREFERENCES_NAME_ADS">com.jackson_siro.vsongbook.ui</string>
-    <string name="PREFERENCES_COUNTER">com.jackson_siro.vsongbook.ui</string>
     <string name="text_share">Hi guy, I love this postModel, if you interest with this postModel you can get more postModel with download my app on play store </string>
     <string name="feedback">FEEDBACK</string>
     <string name="success">success</string>
@@ -76,7 +70,7 @@
     <string name="your_country">Select Your Country</string>
     <string name="your_mobile">Mobile</string>
     <string name="your_email">Email Address</string>
-    <string name="your_username">Preffered Username</string>
+    <string name="your_username">Username</string>
     <string name="your_password">Password</string>
     <string name="dont_have">Don\'t have account?</string>
     <string name="signup_now">Signup</string>
@@ -208,7 +202,7 @@
     <string name="title_activity_basic">BasicActivity</string>
 
     <string name="donate_mpesa">Donate via Mpesa</string>
-    <string name="donate_mpesa_desc">"Donate via Mpesa\n\nPayBill: 891300 \nAccount: 33112\nOr DIAL: *483*57*33112#"</string>
+    <string name="donate_mpesa_desc">"Donate via Mpesa\n\nPayBill: 891300 \nAccount: 33112\n\nOr Simply DIAL:\n\n*483*57*33112#"</string>
 
     <string name="donate_airtel">Donate via Airtel</string>
     <string name="donate_airtel_desc">"Donate via Airtel \n\nBusiness Name: MCHANGA\nReference: 33112"</string>
@@ -254,4 +248,93 @@
     <string name="random_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dictum lorem ac leo tincidunt varius. Donec lacinia elementum lobortis. Nulla pellentesque cursus sem. Aliquam vestibulum lacinia metus, ac faucibus nunc fringilla a. Nullam mauris lorem, pharetra vitae mollis in, gravida a mi. Sed eu elit vitae lorem vestibulum volutpat eget blandit tortor. Duis dignissim porta dolor, ut porttitor lectus pretium vitae.  Phasellus quis augue ante. Nam tempus egestas consectetur. Praesent nec placerat nisi, non malesuada dolor. Duis malesuada semper lorem, nec feugiat nisl. Nulla facilisi. Sed aliquam ex ut turpis malesuada dignissim. Nam risus mi, dapibus maximus nisl ac, efficitur suscipit ex. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec malesuada nisl eget faucibus mollis. Nam sit amet mauris a metus euismod porttitor et sed mi. Nunc vel vehicula arcu, eu lacinia odio. Fusce id lacus vel dui blandit maximus id eget neque.  Sed eu porta diam. Nunc vitae egestas diam. Donec semper hendrerit laoreet. Aliquam quis aliquam nulla. Aenean euismod lacus sed pretium scelerisque. Suspendisse mollis arcu at ligula pulvinar, nec elementum velit fermentum. Sed sed mollis ligula, vel eleifend metus. Sed magna metus, tempus ut bibendum at, aliquam at nisi. Integer nec fringilla mauris, vel viverra augue. Morbi eu mi mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.  Proin molestie ante nec tristique finibus. In hac habitasse platea dictumst. Maecenas sed risus condimentum, feugiat velit ac, dictum erat. Curabitur pharetra ac nulla sed lacinia. Curabitur rutrum dolor vestibulum magna ultrices congue ac sed libero. Nam semper mi a neque ultricies commodo. In condimentum in odio in porttitor. Suspendisse maximus vestibulum nunc, vel gravida dui fermentum eu. Morbi sed orci augue. Praesent dolor justo, cursus sit amet ex et, posuere mattis lorem. Donec in efficitur orci. Nam semper odio a interdum aliquet. Vivamus vitae luctus purus, in fermentum diam. Pellentesque quis orci vitae est placerat faucibus. Maecenas non gravida ipsum, sit amet ultrices sem. Phasellus fringilla ultrices erat, vel aliquam sapien varius ac.  Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam porta semper sapien. Pellentesque volutpat porta sapien, ut tristique metus. In hac habitasse platea dictumst. Aenean pharetra molestie dapibus. Nunc sed dolor elit. Quisque eget enim non tellus volutpat mollis a id dolor. Aenean sit amet sem sem. Nunc viverra efficitur lorem. Quisque quis metus dictum, mattis ante non, pellentesque sapien. Integer quis lectus feugiat, consectetur nulla quis, viverra nulla. Curabitur eu sodales nisl. Morbi non enim pellentesque, lobortis est id, dignissim mauris. Nulla et tempor lectus.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dictum lorem ac leo tincidunt varius. Donec lacinia elementum lobortis. Nulla pellentesque cursus sem. Aliquam vestibulum lacinia metus, ac faucibus nunc fringilla a. Nullam mauris lorem, pharetra vitae mollis in, gravida a mi. Sed eu elit vitae lorem vestibulum volutpat eget blandit tortor. Duis dignissim porta dolor, ut porttitor lectus pretium vitae.  Phasellus quis augue ante. Nam tempus egestas consectetur. Praesent nec placerat nisi, non malesuada dolor. Duis malesuada semper lorem, nec feugiat nisl. Nulla facilisi. Sed aliquam ex ut turpis malesuada dignissim. Nam risus mi, dapibus maximus nisl ac, efficitur suscipit ex. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec malesuada nisl eget faucibus mollis. Nam sit amet mauris a metus euismod porttitor et sed mi. Nunc vel vehicula arcu, eu lacinia odio. Fusce id lacus vel dui blandit maximus id eget neque.  Sed eu porta diam. Nunc vitae egestas diam. Donec semper hendrerit laoreet. Aliquam quis aliquam nulla. Aenean euismod lacus sed pretium scelerisque. Suspendisse mollis arcu at ligula pulvinar, nec elementum velit fermentum. Sed sed mollis ligula, vel eleifend metus. Sed magna metus, tempus ut bibendum at, aliquam at nisi. Integer nec fringilla mauris, vel viverra augue. Morbi eu mi mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.  Proin molestie ante nec tristique finibus. In hac habitasse platea dictumst. Maecenas sed risus condimentum, feugiat velit ac, dictum erat. Curabitur pharetra ac nulla sed lacinia. Curabitur rutrum dolor vestibulum magna ultrices congue ac sed libero. Nam semper mi a neque ultricies commodo. In condimentum in odio in porttitor. Suspendisse maximus vestibulum nunc, vel gravida dui fermentum eu. Morbi sed orci augue. Praesent dolor justo, cursus sit amet ex et, posuere mattis lorem. Donec in efficitur orci. Nam semper odio a interdum aliquet. Vivamus vitae luctus purus, in fermentum diam. Pellentesque quis orci vitae est placerat faucibus. Maecenas non gravida ipsum, sit amet ultrices sem. Phasellus fringilla ultrices erat, vel aliquam sapien varius ac.  Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam porta semper sapien. Pellentesque volutpat porta sapien, ut tristique metus. In hac habitasse platea dictumst. Aenean pharetra molestie dapibus. Nunc sed dolor elit. Quisque eget enim non tellus volutpat mollis a id dolor. Aenean sit amet sem sem. Nunc viverra efficitur lorem. Quisque quis metus dictum, mattis ante non, pellentesque sapien. Integer quis lectus feugiat, consectetur nulla quis, viverra nulla. Curabitur eu sodales nisl. Morbi non enim pellentesque, lobortis est id, dignissim mauris. Nulla et tempor lectus.</string>
     <string name="action_example_scrolling_search_bar">scrolling behavior</string>
+
+    <string name="tweet_middle">•</string>
+
+    <string name="sample_tweet_profile_name">Apple TV</string>
+    <string name="sample_tweet_profile_id">\@AppleTV</string>
+    <string name="sample_tweet_time">12m</string>
+    <string name="sample_tweet">2017.4 is the first of our long-term supported (LTS) releases, completely focused on bug fixes! Learn more about our new release plans:  https://on.unity.com/2IDZhiE  #QA #unitytips</string>
+
+    <string name="no_search_results">Nothing to search. Yet.</string>
+
+    <string name="nothing_here">Nothing to see here. Yet.</string>
+    <string name="no_online_info">This should be available in the coming updates</string>
+
+    <string name="no_direct_message">Talk privately with anyone who follows you. Start by adding your number and uploading your contacts.</string>
+    <string name="no_direct_message_button">Find friends</string>
+
+    <string name="no_result">Get things started. Search for a song or simply swipe from right to discover more.</string>
+    <string name="no_result_button">Learn More</string>
+
+    <!-- Navigation Drawer items-->
+    <string name="user_name">Abhishek Chaudhary</string>
+    <string name="user_screen_name">\@coder_abhishek</string>
+    <string name="following_number">32</string>
+    <string name="followers_number">7</string>
+    <string name="following">Following</string>
+    <string name="followers">Followers</string>
+
+    <string name="profile">Profile</string>
+    <string name="lists">Lists</string>
+    <string name="moments">Moments</string>
+    <string name="settings_and_privacy">Settings and Privacy</string>
+    <string name="help_center">Help Center</string>
+
+    <!-- Navigation Action Bar Titles-->
+    <string name="tab1">Search</string>
+    <string name="tab2">Online</string>
+    <string name="tab3">My Collections</string>
+    <string name="tab4">My Songs</string>
+
+    <string name="screen_name">
+        \@<xliff:g example="abhishek" id="name">%1$s</xliff:g>
+    </string>
+
+    <string name="helpdesk_1">CONTACT US</string>
+    <string name="helpdesk_1_desc">"CONTACT US\nIf you have got a complain or issue you would wish to be addressed then contact us soon via the following:"</string>
+
+    <string name="helpdesk_2">Email</string>
+    <string name="helpdesk_2_desc">"Email us\nappsmatake@gmail.com\nvsongbookapp@gmail.com"</string>
+
+    <string name="helpdesk_3">Google Groups Forum</string>
+    <string name="helpdesk_3_desc">"Check us on Google Groups Forum\nhttps://groups.google.com/forum/m/#forum/vsongbook</string>
+
+    <string name="helpdesk_4">Website</string>
+    <string name="helpdesk_4_desc">"Log Onto our Website\nhttps://sing.appsmata.com</string>
+
+    <string name="about_1">ABOUT THE VSONGBOOK APP</string>
+    <string name="title_activity_ff_settings">App Prefrences</string>
+
+    <!-- Preference Titles -->
+    <string name="viewer_header">SONG VIEWER SETTINGS</string>
+    <string name="theme_header">THEME SETTINGS</string>
+    <string name="user_header">WHAT WE KNOW ABOUT YOU</string>
+    <string name="online_header">ONLINE SETTINGS (OPTIONAL)</string>
+
+    <string name="app_theme">App Overall Theme</string>
+    <string name="choose_theme">Choose Theme</string>
+
+    <!-- Presentation Preferences -->
+    <string name="presentation_title">Song Presentation Mode</string>
+    <string name="presentation_desc">How the song should be presented to you</string>
+
+    <!-- Keep Screen On Preferences -->
+    <string name="keep_screenon">Keep Screen ON</string>
+    <string name="keep_screenon_desc">Keep screen ON when viewing a song</string>
+
+    <!-- Keep Screen On Time Preferences -->
+    <string name="keep_screenon_time">Screen ON Time</string>
+    <string name="keep_screenon_time_desc">How long to keep Screen ON</string>
+
+    <!-- Font Preferences -->choose_time
+    <string name="fontsize_title">Song Font Size</string>
+    <string name="fontsize_desc">Size of text on the song viewer</string>
+
+    <!-- Screen Preferences -->
+    <string name="choose_time">How long to keep screen ON</string>
+
+    <string name="menu_reset">Reset Settings</string>
+    <string name="title_activity_ff_settings_profile">User Profile</string>
+
 </resources>

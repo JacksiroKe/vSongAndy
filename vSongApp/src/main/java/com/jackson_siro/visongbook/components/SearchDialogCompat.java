@@ -2,15 +2,16 @@ package com.jackson_siro.visongbook.components;
 
 import android.content.Context;
 import android.os.Handler;
-import android.support.annotation.IdRes;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import androidx.annotation.IdRes;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
@@ -30,9 +31,9 @@ public class SearchDialogCompat<T extends Searchable> extends BaseSearchDialogCo
 	private Handler mHandler;
 	
 	public SearchDialogCompat(
-		Context context, String title, String searchHint,
-		@Nullable Filter filter, ArrayList<T> items,
-		SearchResultListener<T> searchResultListener
+			Context context, String title, String searchHint,
+			@Nullable Filter filter, ArrayList<T> items,
+			SearchResultListener<T> searchResultListener
 	) {
 		super(context, items, filter, null, null);
 		init(title, searchHint, searchResultListener);
@@ -77,7 +78,7 @@ public class SearchDialogCompat<T extends Searchable> extends BaseSearchDialogCo
 				}
 			});
 
-		final SearchDialogAdapter adapter = new SearchDialogAdapter<>(getContext(),
+		final SearchDialogAdapter adapter = new SearchDialogAdapter<T>(getContext(),
 			android.R.layout.simple_list_item_1, getItems()
 		);
 

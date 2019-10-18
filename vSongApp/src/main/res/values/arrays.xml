@@ -1,0 +1,62 @@
+<resources>
+    <!-- Presentation Preference -->
+    <string-array name="presentation_entries">
+        <item>Slides View</item>
+        <item>Scroll View</item>
+    </string-array>
+
+    <string-array name="presentation_values">
+        <item>slides</item>
+        <item>scroll</item>
+    </string-array>
+
+    <!-- Theme Preference -->
+    <string-array name="theme_entries">
+        <item>Light</item>
+        <item>Dark</item>
+        <item>Set by Battery Saver</item>
+    </string-array>
+
+    <string-array name="theme_values">
+        <item>light</item>
+        <item>dark</item>
+        <item>default</item>
+    </string-array>
+
+    <!-- Screen On Preference -->
+    <string-array name="screenon_entries">
+        <item>1 Minute</item>
+        <item>2 Minutes</item>
+        <item>5 Minutes</item>
+        <item>Unlimited</item>
+    </string-array>
+
+    <string-array name="screenon_values">
+        <item>1minute</item>
+        <item>2minutes</item>
+        <item>5minutes</item>
+        <item>unlimited</item>
+    </string-array>
+    <!-- Reply Preference -->
+    <string-array name="reply_entries">
+        <item>Reply</item>
+        <item>Reply to all</item>
+    </string-array>
+
+    <string-array name="reply_values">
+        <item>reply</item>
+        <item>reply_all</item>
+    </string-array>
+
+    <!-- Gender Preference -->
+    <string-array name="gender_entries">
+        <item>Brother</item>
+        <item>Sister</item>
+    </string-array>
+
+    <string-array name="gender_values">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+</resources>

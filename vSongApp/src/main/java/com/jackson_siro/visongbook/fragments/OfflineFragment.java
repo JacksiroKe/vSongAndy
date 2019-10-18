@@ -2,21 +2,22 @@ package com.jackson_siro.visongbook.fragments;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
 import com.jackson_siro.visongbook.R;
 import com.jackson_siro.visongbook.adapters.ViewPagerAdapter;
 import com.jackson_siro.visongbook.components.CustomViewPager;
 import com.jackson_siro.visongbook.data.SQLiteHelper;
 import com.jackson_siro.visongbook.models.CategoryModel;
-import com.jackson_siro.visongbook.ui.MyApplication;
+import com.jackson_siro.visongbook.MyApplication;
 
 import java.util.List;
 import java.util.Objects;
@@ -64,7 +65,7 @@ public class OfflineFragment extends Fragment {
     @SuppressLint("NewApi")
     private void setupTabIcons() {
         for (int i = 0; i < booksItems.size(); i ++) {
-            TextView tabtitle = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.custom_sub_tab, null);
+            TextView tabtitle = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.fragment_subtab, null);
             tabtitle.setText(booksItems.get(i).getBackpath());
             Objects.requireNonNull(subTabLayout.getTabAt(i)).setCustomView(tabtitle);
         }

@@ -6,11 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.annotation.Nullable;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +14,12 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.jackson_siro.visongbook.models.Callback.FeedbackModal;
 import com.jackson_siro.visongbook.retrofitconfig.API;
@@ -28,7 +30,7 @@ import retrofit2.Response;
 
 import com.jackson_siro.visongbook.R;
 
-public class Feedback extends AppCompatActivity{
+public class Feedback extends AppCompatActivity {
 
     private RadioGroup radioGroup;
     private RadioButton radioButton;
@@ -155,14 +157,13 @@ public class Feedback extends AppCompatActivity{
     }
 
     private void showSuccessPopup() {
-        AlertDialog.Builder builder =
-                new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.success);
         builder.setMessage(R.string.thank_feedback);
         builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Intent intent = new Intent(getApplicationContext(), DdHomeView.class);
+                Intent intent = new Intent(getApplicationContext(), DdMainView.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.animation_right_left, R.anim.animation_blank);
             }
@@ -183,7 +184,7 @@ public class Feedback extends AppCompatActivity{
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(Feedback.this, DdHomeView.class);
+        Intent intent = new Intent(Feedback.this, DdMainView.class);
         startActivity(intent);
         overridePendingTransition(R.anim.animation_right_left, R.anim.animation_blank);
     }

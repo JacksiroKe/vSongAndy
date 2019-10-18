@@ -4,7 +4,7 @@
     <item
         android:id="@+id/deleteOne"
         android:title="Delete"
-        android:icon="@drawable/ic_favorite_black_48dp"
+        android:icon="@drawable/ic_favorite_black"
         app:showAsAction="always"
         android:orderInCategory="100"
         />
@@ -12,7 +12,7 @@
     <item
         android:id="@+id/share"
         android:title=""
-        android:icon="@drawable/ic_share_black_48dp"
+        android:icon="@drawable/ic_share_black"
         app:showAsAction="always"
         android:orderInCategory="100"
         />

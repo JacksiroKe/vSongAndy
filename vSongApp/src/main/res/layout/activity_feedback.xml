@@ -6,11 +6,11 @@
     android:background="@color/white_color"
     android:orientation="vertical">
 
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <android.support.v7.widget.Toolbar
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
@@ -18,9 +18,9 @@
             app:contentInsetStartWithNavigation="0dp"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Dark">
 
-        </android.support.v7.widget.Toolbar>
+        </androidx.appcompat.widget.Toolbar>
 
-    </android.support.design.widget.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <ProgressBar
         android:id="@+id/progress_loading"
@@ -50,7 +50,7 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/txt_input_full_name"
                     android:padding="3dp"
                     android:layout_width="match_parent"
@@ -64,9 +64,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
 
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/txt_input_email"
                     android:padding="3dp"
                     android:layout_width="match_parent"
@@ -80,9 +80,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
 
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/txt_input_phone"
                     android:padding="3dp"
                     android:layout_width="match_parent"
@@ -96,9 +96,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
 
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/txt_input_city"
                     android:padding="3dp"
                     android:layout_width="match_parent"
@@ -110,9 +110,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
 
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/txt_input_country"
                     android:padding="3dp"
                     android:layout_width="match_parent"
@@ -124,9 +124,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
 
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/txt_input_feedback"
                     android:padding="3dp"
                     android:layout_width="match_parent"
@@ -141,7 +141,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="120dp" />
 
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <LinearLayout
                     android:orientation="horizontal"
