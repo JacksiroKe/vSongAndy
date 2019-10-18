@@ -8,11 +8,11 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/nav_updates"
-            android:icon="@mipmap/ic_nav_person"
+            android:icon="@drawable/ic_nav_person"
             android:title="@string/my_updates" />
         <item
             android:id="@+id/nav_signout"
-            android:icon="@mipmap/ic_nav_person"
+            android:icon="@drawable/ic_nav_person"
             android:title="@string/my_session" />
     </group>
     <group

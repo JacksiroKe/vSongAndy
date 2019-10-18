@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/vsbbg"
+    android:background="@drawable/vsb"
     tools:context=".ui.AppStart">
 
 
@@ -13,9 +13,9 @@
         android:layout_height="fill_parent"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:layout_margin="20dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:layout_margin="20dp"
         android:src="@drawable/appicon" />
 
     <ImageView
