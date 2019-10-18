@@ -119,15 +119,19 @@ public class SearchFragment extends Fragment {
             public void onSearchTextChanged(String oldQuery, final String newQuery) {
                 if (!oldQuery.equals("") && newQuery.equals("")) mSearchView.clearSuggestions();
                 else {
-                    mSearchView.showProgress();
-                    SQLiteSearch.findSuggestions(getContext(), newQuery, 5, FIND_SUGGESTION_SIMULATED_DELAY,
-                            new SQLiteSearch.OnFindSuggestionsListener() {
-                                @Override
-                                public void onResults(List<SearchModel> results) {
-                                    mSearchView.swapSuggestions(results);
-                                    mSearchView.hideProgress();
-                                }
-                            });
+                    try
+                    {
+                        mSearchView.showProgress();
+                        SQLiteSearch.findSuggestions(getContext(), newQuery, 5, FIND_SUGGESTION_SIMULATED_DELAY,
+                                new SQLiteSearch.OnFindSuggestionsListener() {
+                                    @Override
+                                    public void onResults(List<SearchModel> results) {
+                                        mSearchView.swapSuggestions(results);
+                                        mSearchView.hideProgress();
+                                    }
+                                });
+                    }
+                    catch (Exception ex) { }
                 }
             }
         });

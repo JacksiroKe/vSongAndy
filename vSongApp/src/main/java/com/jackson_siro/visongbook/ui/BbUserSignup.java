@@ -178,13 +178,13 @@ public class BbUserSignup extends AppCompatActivity {
                     Appuser = cl.data;
                     if (cl.data.success == 1) handleUserData();
                     else apiResult(cl.data.success, cl.data.message);
-                } else apiResult(5, "null response");
+                } //else apiResult(5, "null response");
             }
 
             @Override
             public void onFailure(Call<CallbackUser> call, Throwable t) {
                 showDialog(false);
-                apiResult(5, t.getMessage());
+                //apiResult(5, t.getMessage());
             }
 
         });

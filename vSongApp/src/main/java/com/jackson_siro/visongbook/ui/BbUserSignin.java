@@ -169,13 +169,13 @@ public class BbUserSignin extends AppCompatActivity {
                     Appuser = cl.data;
                     if (cl.data.success == 1) handleUserData();
                     else apiResult(cl.data.success, cl.data.message);
-                } else apiResult(5, "null response");
+                }// else apiResult(5, "null response");
             }
 
             @Override
             public void onFailure(Call<CallbackUser> call, Throwable t) {
                 showDialog(false);
-                apiResult(5, t.getMessage());
+                //apiResult(5, t.getMessage());
             }
 
         });
@@ -247,10 +247,7 @@ public class BbUserSignin extends AppCompatActivity {
                 break;
 
             case 5:
-                showFeedback("Unfortunately you can not connect to our server at the moment due to the error of:\n\n" + errormsg +
-                        "\n\n Kindly take a screenshot of this error, a screenshot of your About Phone (Under Settings) and email " +
-                        "it the developers on: appsmatake@gmail.com with a simple report of what you were doing " +
-                        "before the error occurred", 0);
+                showFeedback("Unfortunately you can not connect to our server at the moment due to an error ", 0);
         }
 
     }

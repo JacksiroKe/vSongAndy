@@ -85,7 +85,11 @@ public class SQLiteSearch {
             @Override
             protected void publishResults(CharSequence constraint, FilterResults results) {
                 if (listener != null) {
-                    listener.onResults((List<SearchModel>) results.values);
+                    try
+                    {
+                        listener.onResults((List<SearchModel>) results.values);
+                    }
+                    catch (Exception ex) { }
                 }
             }
         }.filter(query);

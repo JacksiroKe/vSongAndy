@@ -190,11 +190,19 @@ public class EePostSlider extends AppCompatActivity {
             }
         } else {
             haschorus = false;
-            stanzanumbers = "VERSE 1 of " + songconts.length;
-            songcontents = songconts[0];
-            for (int i = 1; i < songconts.length; i++){
-                songcontents = songcontents + "#" + songconts[i];
-                stanzanumbers = stanzanumbers + "#VERSE " + (i + 1) + " of " + songconts.length;
+            try
+            {
+                stanzanumbers = "VERSE 1 of " + songconts.length;
+                songcontents = songconts[0];
+                for (int i = 1; i < songconts.length; i++){
+                    songcontents = songcontents + "#" + songconts[i];
+                    stanzanumbers = stanzanumbers + "#VERSE " + (i + 1) + " of " + songconts.length;
+                }
+            }
+            catch (Exception ex)
+            {
+                stanzanumbers = "VERSE 1";
+                songcontents = songconts[0];
             }
         }
         songcontent = TextUtils.split(songcontents, "#");
