@@ -24,9 +24,9 @@ Your Account Information. You provide your mobile phone number to create a vSong
 We use all the information we have to help us operate, provide, improve, understand, customize, support, and market our Services.
 
 **Our Services.** We operate and provide our Services, including providing customer support, and improving, fixing, and customizing our Services. We understand how people use our Services, and analyze and use the information we have to evaluate and improve our Services, research, develop, and test new services and features, and conduct troubleshooting activities. We also use your information to respond to you when you contact us. We use cookies to operate, provide, improve, understand, and customize our Services.
-Safety and Security. We verify accounts and activity, and promote safety and security on and off our Services, such as by investigating suspicious activity or violations of our Terms, and to ensure our Services are being used legally.
-Communications About Our Services and the Facebook Family of Companies. We communicate with you about our Services and features and let you know about our terms and policies and other important updates. We may provide you marketing for our Services and those of the Facebook family of companies, of which we are now a part.
+
 **No Third-Party Banner Ads.** We do not allow third-party banner ads on WhatsApp. We have no intention to introduce them, but if we ever do, we will update this policy.
+
 **Account Information.** Your phone number, profile name and photo, online status and status message, last seen status, and receipts may be available to anyone who uses our Services, although you can configure your Services settings to manage certain information available to other users.
 
 # vSongBook Terms Of Service
