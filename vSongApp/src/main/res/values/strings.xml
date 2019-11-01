@@ -336,5 +336,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dictum lorem 
 
     <string name="menu_reset">Reset Settings</string>
     <string name="title_activity_ff_settings_profile">User Profile</string>
+    <string name="title_activity_dd_post_song">Write a New Song</string>
 
 </resources>
