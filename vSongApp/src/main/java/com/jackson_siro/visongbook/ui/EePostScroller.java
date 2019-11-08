@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
+import androidx.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -140,7 +140,7 @@ public class EePostScroller extends AppCompatActivity {
 
     @SuppressLint("NewApi")
     private void showSongContent() {
-        if (Song.songid == 1) fab_lastsong.hide();
+        if (Song.songid == "1") fab_lastsong.hide();
         else fab_nosong.hide();
 
         actionBar.setTitle(Song.title);

@@ -3,7 +3,7 @@ package com.jackson_siro.visongbook.fragments;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
+import androidx.preference.PreferenceManager;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.MenuItem;

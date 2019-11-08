@@ -28,11 +28,11 @@ public class HomeFragmentAdapter extends FragmentPagerAdapter {
             case 0:
                 return mSearchFragment;
             case 1:
-                return mOnlineFragment;
-            case 2:
+                return mCollectionFragment;
+            /*case 2:
                 return mCollectionFragment;
             case 3:
-                return mPersonalFragment;
+                return mPersonalFragment;*/
             default:
                 return null;
         }
@@ -40,6 +40,6 @@ public class HomeFragmentAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 4;
+        return 2;
     }
 }

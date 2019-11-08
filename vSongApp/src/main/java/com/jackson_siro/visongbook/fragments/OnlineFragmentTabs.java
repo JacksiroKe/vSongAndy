@@ -1,9 +1,7 @@
 package com.jackson_siro.visongbook.fragments;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.jackson_siro.visongbook.R;
 import com.jackson_siro.visongbook.adapters.*;
 import com.jackson_siro.visongbook.models.*;
-import com.jackson_siro.visongbook.models.Callback.*;
+import com.jackson_siro.visongbook.models.callback.*;
 import com.jackson_siro.visongbook.retrofitconfig.*;
 import com.jackson_siro.visongbook.ui.*;
 

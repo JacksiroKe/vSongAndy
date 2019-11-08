@@ -1,7 +1,7 @@
 package com.jackson_siro.visongbook.ui;
 
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
+import androidx.preference.PreferenceManager;
 
 import android.os.Bundle;
 

@@ -1,7 +1,7 @@
 package com.jackson_siro.visongbook.retrofitconfig;
 
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
+import androidx.preference.PreferenceManager;
 import com.jackson_siro.visongbook.MyApplication;
 import java.util.concurrent.TimeUnit;
 import okhttp3.OkHttpClient;

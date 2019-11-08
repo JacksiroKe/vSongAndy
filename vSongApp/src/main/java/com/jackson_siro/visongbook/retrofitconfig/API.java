@@ -1,6 +1,6 @@
 package com.jackson_siro.visongbook.retrofitconfig;
 
-import com.jackson_siro.visongbook.models.Callback.*;
+import com.jackson_siro.visongbook.models.callback.*;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
