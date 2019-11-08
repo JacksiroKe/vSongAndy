@@ -12,7 +12,7 @@ public class vSongBook extends AppCompatActivity {
     private static final String EXT_OBJ_ID = "key.EXTRA_OBJ_ID";
     private static final String EXT_NOTIFICATION_ID = "key.NOTIFICATION.ID";
 
-    public static void passingIntent(Activity activity, Integer postid, String request){
+    public static void passingIntent(Activity activity, String postid, String request){
         if ("EePostSlider".equals(request)) {
             Intent intent = new Intent(activity, EePostSlider.class);
             intent.putExtra(EXT_OBJ_ID, postid);

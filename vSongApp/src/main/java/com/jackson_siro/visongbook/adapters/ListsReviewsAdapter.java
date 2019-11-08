@@ -62,7 +62,7 @@ public class ListsReviewsAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         final PostModel listItem = thisPost.get(position);
         MyViewHolder view = (MyViewHolder) holder;
-        String details = listItem.what  + " " + listItem.when + " " + listItem.who;
+        String details = listItem.p_what  + " " + listItem.p_when + " " + listItem.p_who;
 
         view.post_netthumbs.setText(listItem.netthumbs);
         view.post_details.setText(Html.fromHtml(details, Html.FROM_HTML_MODE_COMPACT));

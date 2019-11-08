@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.PreferenceManager;
+import androidx.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,7 +24,7 @@ import com.jackson_siro.visongbook.R;
 import com.jackson_siro.visongbook.adapters.*;
 import com.jackson_siro.visongbook.data.SQLiteHelper;
 import com.jackson_siro.visongbook.models.*;
-import com.jackson_siro.visongbook.models.Callback.*;
+import com.jackson_siro.visongbook.models.callback.*;
 import com.jackson_siro.visongbook.retrofitconfig.API;
 import com.jackson_siro.visongbook.retrofitconfig.CallJson;
 

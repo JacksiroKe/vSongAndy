@@ -6,7 +6,7 @@ public class Utils {
     public static final String DATABASE_NAME = "vSongDatabase";
     public static final int DATABASE_VERSION = 3;
 
-	//DATABASE STRINGS
+    //DATABASE STRINGS
     public static final String TBL_BOOKS = "as_books";
     public static final String TBL_SONGS = "as_songs";
     public static final String TBL_USERS = "as_users";
@@ -60,53 +60,53 @@ public class Utils {
     public static final String AVATARBLOBID = "avatarblobid";
     public static final String AVATARWIDTH = "avatarwidth";
     public static final String AVATARHEIGHT = "avatarheight";
-	
-	//CREATE CATEGORIES TABLE SQL
+
+    //CREATE CATEGORIES TABLE SQL
     public static final String CREATE_BOOKS_TABLE_SQL =
             "CREATE TABLE " + TBL_BOOKS + " ("
-            + BOOKID + " INTEGER PRIMARY KEY, "
-            + CATEGORYID + " INTEGER, "
-            + TITLE + " TEXT, "
-            + TAGS + " TEXT, "
-            + QCOUNT + " INTEGER, "
-            + POSITION + " INTEGER, "
-            + CONTENT + " TEXT, "
-            + BACKPATH + " TEXT);";
-			
+                    + BOOKID + " INTEGER PRIMARY KEY, "
+                    + CATEGORYID + " INTEGER, "
+                    + TITLE + " TEXT, "
+                    + TAGS + " TEXT, "
+                    + QCOUNT + " INTEGER, "
+                    + POSITION + " INTEGER, "
+                    + CONTENT + " TEXT, "
+                    + BACKPATH + " TEXT);";
+
     //CREATE POSTS TABLE SQL
     public static final String CREATE_SONGS_TABLE_SQL =
             "CREATE TABLE " + TBL_SONGS + " ("
-            + SONGID + " INTEGER PRIMARY KEY, "
-            + POSTID + " INTEGER, "
-            + BOOKID + " INTEGER, "
-            + CATEGORYID + " INTEGER, "
-            + BASETYPE + " TEXT, "
-            + NUMBER + " INTEGER, "
-            + ALIAS + " TEXT, "
-            + TITLE + " TEXT, "
-            + TAGS + " TEXT, "
-            + CONTENT + " TEXT, "
-            + CREATED + " TEXT, "
-            + WHAT + " TEXT, "
-            + WHEN + " TEXT, "
-            + WHERE + " TEXT, "
-            + WHO + " TEXT, "
-            + NETTHUMBS + " INTEGER, "
-            + VIEWS + " INTEGER, "
-            + ACOUNT + " INTEGER, "
-            + USERID + " INTEGER);";
-			
-	//CREATE USERS TABLE SQL
+                    + SONGID + " INTEGER PRIMARY KEY, "
+                    + POSTID + " INTEGER, "
+                    + BOOKID + " INTEGER, "
+                    + CATEGORYID + " INTEGER, "
+                    + BASETYPE + " TEXT, "
+                    + NUMBER + " INTEGER, "
+                    + ALIAS + " TEXT, "
+                    + TITLE + " TEXT, "
+                    + TAGS + " TEXT, "
+                    + CONTENT + " TEXT, "
+                    + CREATED + " TEXT, "
+                    + WHAT + " TEXT, "
+                    + WHEN + " TEXT, "
+                    + WHERE + " TEXT, "
+                    + WHO + " TEXT, "
+                    + NETTHUMBS + " INTEGER, "
+                    + VIEWS + " INTEGER, "
+                    + ACOUNT + " INTEGER, "
+                    + USERID + " INTEGER);";
+
+    //CREATE USERS TABLE SQL
     public static final String CREATE_USERS_TABLE_SQL =
             "CREATE TABLE " + TBL_USERS + " ("
-            + USERID + " INTEGER PRIMARY KEY, "
-            + HANDLE + " TEXT, "
-            + POINTS + " TEXT, "
-            + FLAGS + " TEXT, "
-            + EMAIL + " TEXT, "
-            + AVATARBLOBID + " INTEGER, "
-            + AVATARWIDTH + " INTEGER, "
-            + AVATARHEIGHT + " INTEGER);";
-		
-	
+                    + USERID + " INTEGER PRIMARY KEY, "
+                    + HANDLE + " TEXT, "
+                    + POINTS + " TEXT, "
+                    + FLAGS + " TEXT, "
+                    + EMAIL + " TEXT, "
+                    + AVATARBLOBID + " INTEGER, "
+                    + AVATARWIDTH + " INTEGER, "
+                    + AVATARHEIGHT + " INTEGER);";
+
+
 }

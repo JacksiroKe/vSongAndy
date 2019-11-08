@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceManager
 
 import com.jackson_siro.visongbook.R
-import com.jackson_siro.visongbook.models.Callback.CallbackApp
+import com.jackson_siro.visongbook.models.callback.CallbackApp
 import com.jackson_siro.visongbook.models.AppModel
 import com.jackson_siro.visongbook.setting.CheckNetwork
 import com.jackson_siro.visongbook.setting.CheckVersion

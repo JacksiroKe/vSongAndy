@@ -5,7 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
+import androidx.preference.PreferenceManager;
 
 import android.view.MenuItem;
 import android.view.View;
@@ -21,7 +21,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.jackson_siro.visongbook.models.Callback.FeedbackModal;
+import com.jackson_siro.visongbook.models.callback.FeedbackModal;
 import com.jackson_siro.visongbook.retrofitconfig.API;
 import com.jackson_siro.visongbook.retrofitconfig.CallJson;
 import retrofit2.Call;

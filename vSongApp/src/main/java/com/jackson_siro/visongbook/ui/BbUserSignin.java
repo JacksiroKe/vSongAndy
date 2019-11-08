@@ -8,7 +8,7 @@ import android.content.SharedPreferences;
 import android.graphics.Typeface;
 
 import android.os.Bundle;
-import android.preference.PreferenceManager;
+import androidx.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import com.google.android.material.snackbar.Snackbar;
 import com.jackson_siro.visongbook.components.SearchDialogCompat;
 import com.jackson_siro.visongbook.data.Countries;
-import com.jackson_siro.visongbook.models.Callback.*;
+import com.jackson_siro.visongbook.models.callback.*;
 import com.jackson_siro.visongbook.models.*;
 import com.jackson_siro.visongbook.retrofitconfig.API;
 import com.jackson_siro.visongbook.retrofitconfig.*;
@@ -53,12 +53,13 @@ public class BbUserSignin extends AppCompatActivity {
     private int cntry;
 
     private ArrayList<CountryModel> countries;
+    Countries ctrlist;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bb_user_signin);
-        countries = new ArrayList<CountryModel>(Countries.createSampleData());
+        countries = new ArrayList<CountryModel>(ctrlist.createSampleData());
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -167,7 +168,7 @@ public class BbUserSignin extends AppCompatActivity {
                 CallbackUser cl = response.body();
                 if (cl != null){
                     Appuser = cl.data;
-                    if (cl.data.success == 1) handleUserData();
+                    if (cl.data.success == "1") handleUserData();
                     else apiResult(cl.data.success, cl.data.message);
                 }// else apiResult(5, "null response");
             }
@@ -192,7 +193,7 @@ public class BbUserSignin extends AppCompatActivity {
         prefedit.putString("user_country_icode", countries.get(cntry).getIcode()).apply();
         prefedit.putString("user_country_ccode", Appuser.country).apply();
 
-        prefedit.putInt("user_userid", Appuser.userid).apply();
+        prefedit.putInt("user_userid", Integer.parseInt(Appuser.userid)).apply();
         //prefedit.putString("user_uniqueid", Appuser.uid).apply();
         prefedit.putString("user_firstname", Appuser.firstname).apply();
         prefedit.putString("user_lastname", Appuser.lastname);
@@ -205,8 +206,8 @@ public class BbUserSignin extends AppCompatActivity {
         prefedit.putString("user_handle", Appuser.handle).apply();
         prefedit.putString("user_created", Appuser.created).apply();
         prefedit.putString("user_signedin", Appuser.signedin).apply();
-        prefedit.putInt("user_points", Appuser.points).apply();
-        prefedit.putInt("user_wallposts", Appuser.wallposts).apply();
+        prefedit.putString("user_points", Appuser.points).apply();
+        prefedit.putString("user_wallposts", Appuser.wallposts).apply();
 
         prefedit.putBoolean("app_user_signedin", true).apply();
 
@@ -217,11 +218,12 @@ public class BbUserSignin extends AppCompatActivity {
         finish();
     }
 
-    private void apiResult(final int errorno, final String errormsg){
+    private void apiResult(final String errorno, final String errormsg){
         prefedit.putBoolean("app_user_signedin", false);
         prefedit.apply();
 
-        switch (errorno) {
+
+        switch (Integer.parseInt(errorno)) {
             case 1:
                 if (!prefget.getBoolean("app_books_loaded", false)) {
                     startActivity(new Intent(BbUserSignin.this, CcBooksLoad.class));

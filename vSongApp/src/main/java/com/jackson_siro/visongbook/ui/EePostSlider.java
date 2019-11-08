@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
+import androidx.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -52,7 +52,7 @@ public class EePostSlider extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ee_post_slider);
-        cur_song = getIntent().getIntExtra(EXT_OBJ_ID, 0);
+        cur_song = Integer.parseInt(getIntent().getStringExtra(EXT_OBJ_ID));
 
         prefget = PreferenceManager.getDefaultSharedPreferences(this);
         prefedit = prefget.edit();
@@ -71,94 +71,98 @@ public class EePostSlider extends AppCompatActivity {
 
         toolbarSet();
 
-        Song = db.viewSong(cur_song);
-        showSongContent();
+        //try {
+            Song = db.viewSong(cur_song);
+            showSongContent();
 
-        fab_last.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            try {
-                cur_stanza = cur_stanza - 1;
-                setSongContent(cur_stanza);
-            }
-            catch (Exception e) {
-                cur_stanza = cur_stanza + 1;
-                fab_last.hide();
-            }
-            }
-        });
+            fab_last.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    try {
+                        cur_stanza = cur_stanza - 1;
+                        setSongContent(cur_stanza);
+                    }
+                    catch (Exception e) {
+                        cur_stanza = cur_stanza + 1;
+                        fab_last.hide();
+                    }
+                }
+            });
 
-        fab_next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            try {
-                cur_stanza = cur_stanza + 1;
-                setSongContent(cur_stanza);
-            }
-            catch (Exception e) {
-                cur_stanza = cur_stanza - 1;
-                fab_next.hide();
-            }
-            }
-        });
+            fab_next.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    try {
+                        cur_stanza = cur_stanza + 1;
+                        setSongContent(cur_stanza);
+                    }
+                    catch (Exception e) {
+                        cur_stanza = cur_stanza - 1;
+                        fab_next.hide();
+                    }
+                }
+            });
 
-        fab_smaller.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            try {
-                cur_font = cur_font - 2;
-                post_content.setTextSize(cur_font);
-            }
-            catch (Exception e) {
-                cur_font = cur_font + 2;
-            }
-            }
-        });
+            fab_smaller.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    try {
+                        cur_font = cur_font - 2;
+                        post_content.setTextSize(cur_font);
+                    }
+                    catch (Exception e) {
+                        cur_font = cur_font + 2;
+                    }
+                }
+            });
 
-        fab_bigger.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            try {
-                cur_font = cur_font + 2;
-                post_content.setTextSize(cur_font);
-            }
-            catch (Exception e) {
-                cur_font = cur_font - 2;
-            }
-            }
-        });
+            fab_bigger.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    try {
+                        cur_font = cur_font + 2;
+                        post_content.setTextSize(cur_font);
+                    }
+                    catch (Exception e) {
+                        cur_font = cur_font - 2;
+                    }
+                }
+            });
 
-        fab_lastsong.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            try {
-                cur_song = cur_song - 1;
-                Song = db.viewSong(cur_song);
-                showSongContent();
-                cur_stanza = 0;
-            }
-            catch (Exception e) {
-                cur_song = cur_song + 1;
-                Toast.makeText(getApplicationContext(), "Invalid action!!!", Toast.LENGTH_LONG).show();
-            }
-            }
-        });
+            fab_lastsong.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    try {
+                        cur_song = cur_song - 1;
+                        Song = db.viewSong(cur_song);
+                        showSongContent();
+                        cur_stanza = 0;
+                    }
+                    catch (Exception e) {
+                        cur_song = cur_song + 1;
+                        Toast.makeText(getApplicationContext(), "Invalid action!!!", Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
 
-        fab_nextsong.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            try {
-                cur_song = cur_song + 1;
-                Song = db.viewSong(cur_song);
-                showSongContent();
-                cur_stanza = 0;
-            }
-            catch (Exception e) {
-                cur_song = cur_song - 1;
-                Toast.makeText(getApplicationContext(), "Invalid action!!!", Toast.LENGTH_LONG).show();
-            }
-            }
-        });
+            fab_nextsong.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    try {
+                        cur_song = cur_song + 1;
+                        Song = db.viewSong(cur_song);
+                        showSongContent();
+                        cur_stanza = 0;
+                    }
+                    catch (Exception e) {
+                        cur_song = cur_song - 1;
+                        Toast.makeText(getApplicationContext(), "Invalid action!!!", Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
+        //}
+        //catch (Exception e) {}
+
     }
 
     private void toolbarSet() {
@@ -172,7 +176,7 @@ public class EePostSlider extends AppCompatActivity {
 
     @SuppressLint("NewApi")
     private void showSongContent() {
-        if (Song.songid == 1) fab_lastsong.hide();
+        if (Song.songid == "1") fab_lastsong.hide();
         else fab_nosong.hide();
 
         actionBar.setTitle(Song.title);
