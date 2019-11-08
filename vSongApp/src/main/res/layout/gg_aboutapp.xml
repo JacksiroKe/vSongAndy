@@ -95,7 +95,7 @@
                         android:textColor="#000000"
                         android:paddingLeft="10dp"
                         android:paddingTop="5dp"
-                        android:textFontWeight="bold"
+                        android:textFontWeight="400"
                         android:textAlignment="center"
                         android:paddingRight="10dp"
                         android:paddingBottom="10dp"
