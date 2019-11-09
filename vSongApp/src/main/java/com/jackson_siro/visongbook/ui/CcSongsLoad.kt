@@ -103,7 +103,7 @@ class CcSongsLoad : AppCompatActivity() {
         AddtoDBTask().execute(songs)
     }
 
-    internal inner class AddtoDBTask : AsyncTask<List<PostModel>, Int, String>() {
+    inner class AddtoDBTask : AsyncTask<List<PostModel>, Int, String>() {
         override fun doInBackground(vararg lists: List<PostModel>): String {
             val songs = lists[0]
             for (count in songs.indices) {
