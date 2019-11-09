@@ -50,12 +50,12 @@ class BbUserSignin : AppCompatActivity() {
     private var cntry: Int = 0
 
     private var countries: ArrayList<CountryModel>? = null
-    var ctrlist: Countries? = null
+    var ctrlist: Countries = Countries()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.bb_user_signin)
-        countries = ArrayList(ctrlist!!.createSampleData())
+        countries = ArrayList(ctrlist.createSampleData())
 
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
