@@ -199,7 +199,7 @@ public class DdMainView extends AppCompatActivity implements TabLayout.OnTabSele
         if (prefget.getBoolean("app_books_reload", false))
             startActivity(new Intent(DdMainView.this, CcBooksLoad.class));
         else if (prefget.getBoolean("app_books_loaded", false) && !prefget.getBoolean("app_songs_loaded", false))
-            startActivity(new Intent(DdMainView.this, CcSongsLoad.class));
+            startActivity(new Intent(DdMainView.this, CcSongsLoadX.class));
     }
 
     @Override
@@ -217,7 +217,7 @@ public class DdMainView extends AppCompatActivity implements TabLayout.OnTabSele
             case R.id.nav_songbooks:
                 prefedit.putBoolean("app_books_reload", true);
                 prefedit.putBoolean("app_songs_reload", false);
-                startActivity(new Intent(DdMainView.this, CcSongsLoad.class));
+                startActivity(new Intent(DdMainView.this, CcSongsLoadX.class));
                 break;
 
             case R.id.nav_donate:

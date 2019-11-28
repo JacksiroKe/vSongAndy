@@ -18,15 +18,15 @@ import com.jackson_siro.visongbook.setting.CheckVersion
 import retrofit2.Call
 
 class AppStart : AppCompatActivity() {
-    private var imgicon: ImageView? = null
-    private var imgcopyright: ImageView? = null
+    var imgicon: ImageView? = null
+    var imgcopyright: ImageView? = null
 
-    private var ms: Long = 0
+    var ms: Long = 0
     private val splashTime: Long = 5000
     private val splashActive = true
     private val paused = false
-    private var prefget: SharedPreferences? = null
-    private var prefedit: SharedPreferences.Editor? = null
+    var prefget: SharedPreferences? = null
+    var prefedit: SharedPreferences.Editor? = null
 
     private val Appdata: AppModel? = null
     private val appCall: Call<CallbackApp>? = null
@@ -35,7 +35,7 @@ class AppStart : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.app_start)
 
-        prefget = PreferenceManager.getDefaultSharedPreferences(this)
+        prefget = this.getSharedPreferences("com.jackson_siro.visongbook", 0)
         prefedit = prefget!!.edit()
         imgicon = findViewById(R.id.imgicon)
         imgcopyright = findViewById(R.id.imgcopyright)
@@ -75,7 +75,7 @@ class AppStart : AppCompatActivity() {
             else if (prefget!!.getBoolean("app_books_reload", false))
                 startActivity(Intent(this, CcBooksLoad::class.java))
             else if (prefget!!.getBoolean("app_books_loaded", false) && !prefget!!.getBoolean("app_songs_loaded", false))
-                startActivity(Intent(this, CcSongsLoad::class.java))
+                startActivity(Intent(this, CcSongsLoadX::class.java))
             else
                 startActivity(Intent(this, DdMainView::class.java))
         }

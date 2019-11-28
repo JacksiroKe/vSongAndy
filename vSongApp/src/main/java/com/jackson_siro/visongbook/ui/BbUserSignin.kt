@@ -34,34 +34,34 @@ import retrofit2.Response
 
 class BbUserSignin : AppCompatActivity() {
 
-    private var progressDialog: ProgressDialog? = null
+    var prefget: SharedPreferences? = null
+    var prefedit: SharedPreferences.Editor? = null
 
-    private var prefget: SharedPreferences? = null
-    private var prefedit: SharedPreferences.Editor? = null
+    var progressDialog: ProgressDialog? = null
 
-    private var Appuser: UserModel? = null
+    var Appuser: UserModel? = null
     private var usersCall: Call<CallbackUser>? = null
 
-    private var toolbar: Toolbar? = null
-    private var btnProceed: Button? = null
-    private var inputCountry: EditText? = null
-    private var inputCode: EditText? = null
-    private var inputPhone: EditText? = null
-    private var cntry: Int = 0
+    var toolbar: Toolbar? = null
+    var btnProceed: Button? = null
+    var inputCountry: EditText? = null
+    var inputCode: EditText? = null
+    var inputPhone: EditText? = null
+    var cntry: Int = 0
 
-    private var countries: ArrayList<CountryModel>? = null
+    var countries: ArrayList<CountryModel>? = null
     var ctrlist: Countries = Countries()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.bb_user_signin)
+        prefget = this.getSharedPreferences("com.jackson_siro.visongbook", 0)
+        prefedit = prefget!!.edit()
+
         countries = ArrayList(ctrlist.createSampleData())
 
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-
-        prefget = PreferenceManager.getDefaultSharedPreferences(this)
-        prefedit = prefget!!.edit()
 
         inputCountry = findViewById(R.id.input_country)
         inputCode = findViewById(R.id.input_code)
@@ -100,8 +100,6 @@ class BbUserSignin : AppCompatActivity() {
             prefedit!!.putString("user_country_name", "Kenya").apply()
             prefedit!!.putString("user_country_icode", "254").apply()
             prefedit!!.putString("user_country_ccode", "KE").apply()
-            inputCountry!!.setText("Kenya")
-            inputCode!!.setText("254")
         } else {
             val icode = prefget!!.getString("user_country_icode", "")
             for (i in countries!!.indices) {
@@ -230,7 +228,7 @@ class BbUserSignin : AppCompatActivity() {
         if (!prefget!!.getBoolean("app_books_loaded", false))
             startActivity(Intent(this@BbUserSignin, CcBooksLoad::class.java))
         else if (prefget!!.getBoolean("app_books_loaded", false) && !prefget!!.getBoolean("app_songs_loaded", false))
-            startActivity(Intent(this@BbUserSignin, CcSongsLoad::class.java))
+            startActivity(Intent(this@BbUserSignin, CcSongsLoadX::class.java))
         else
             startActivity(Intent(this@BbUserSignin, DdMainView::class.java))
         finish()

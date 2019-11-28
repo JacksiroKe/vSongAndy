@@ -25,21 +25,21 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class CcSongsLoad : AppCompatActivity() {
-    private var callbackSongsCall: Call<CallbackPostsLists>? = null
+class CcSongsLoadX : AppCompatActivity() {
+    var callbackSongsCall: Call<CallbackPostsLists>? = null
     private val SQLiteHelper = SQLiteHelper(this)
 
-    private var prefget: SharedPreferences? = null
-    private var prefedit: SharedPreferences.Editor? = null
+    var prefget: SharedPreferences? = null
+    var prefedit: SharedPreferences.Editor? = null
 
-    private var swipeRefreshLayout: SwipeRefreshLayout? = null
-    private var imgShow: ImageView? = null
-    private var txtShow: TextView? = null
-    private var downloadTask: TextView? = null
-    private var downloadPercent: TextView? = null
-    private var downloadProgress: ProgressBar? = null
+    var swipeRefreshLayout: SwipeRefreshLayout? = null
+    var imgShow: ImageView? = null
+    var txtShow: TextView? = null
+    var downloadTask: TextView? = null
+    var downloadPercent: TextView? = null
+    var downloadProgress: ProgressBar? = null
 
-    private var songcount = 0
+    var songcount = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -159,7 +159,7 @@ class CcSongsLoad : AppCompatActivity() {
     }
 
     fun finishLoading() {
-        startActivity(Intent(this@CcSongsLoad, DdMainView::class.java))
+        startActivity(Intent(this@CcSongsLoadX, DdMainView::class.java))
         finish()
     }
 }

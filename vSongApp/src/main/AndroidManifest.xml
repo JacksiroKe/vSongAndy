@@ -64,10 +64,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jackson_siro.visongbook.ui.DdMainView" />
         </activity>
-        <activity android:name=".ui.CcSongsLoad" />
+        <activity android:name=".ui.CcSongsLoadX" />
         <activity
             android:name=".ui.CcBooksLoad"
             android:label="@string/title_activity_bb_books_load"
+            android:theme="@style/MyMaterialTheme.NoActionBar" />
+        <activity
+            android:name=".ui.CcSongsLoad"
             android:theme="@style/MyMaterialTheme.NoActionBar" />
         <activity
             android:name=".ui.PostNow"

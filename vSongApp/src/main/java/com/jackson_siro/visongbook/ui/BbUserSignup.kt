@@ -2,7 +2,6 @@ package com.jackson_siro.visongbook.ui
 
 import android.app.AlertDialog
 import android.app.ProgressDialog
-import android.content.DialogInterface
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -10,7 +9,6 @@ import androidx.preference.PreferenceManager
 
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
@@ -24,9 +22,7 @@ import retrofit2.Response
 import com.google.android.material.snackbar.Snackbar
 import com.jackson_siro.visongbook.data.Countries
 import com.jackson_siro.visongbook.models.callback.CallbackUser
-import com.jackson_siro.visongbook.models.CountryModel
 import com.jackson_siro.visongbook.models.UserModel
-import com.jackson_siro.visongbook.retrofitconfig.API
 import com.jackson_siro.visongbook.retrofitconfig.CallJson
 import com.jackson_siro.visongbook.R
 
@@ -34,25 +30,25 @@ import java.util.ArrayList
 
 class BbUserSignup : AppCompatActivity() {
 
-    private var inputFirstname: EditText? = null
-    private var inputLastname: EditText? = null
-    private var inputGender: EditText? = null
-    private var inputCity: EditText? = null
-    private var inputChurch: EditText? = null
-    private var btnProceed: Button? = null
-    private var progressDialog: ProgressDialog? = null
-    private var coordinator_layout: CoordinatorLayout? = null
-    private var alertDialog1: AlertDialog? = null
+    var inputFirstname: EditText? = null
+    var inputLastname: EditText? = null
+    var inputGender: EditText? = null
+    var inputCity: EditText? = null
+    var inputChurch: EditText? = null
+    var btnProceed: Button? = null
+    var progressDialog: ProgressDialog? = null
+    var coordinator_layout: CoordinatorLayout? = null
+    var alertDialog1: AlertDialog? = null
 
-    private var prefget: SharedPreferences? = null
-    private var prefedit: SharedPreferences.Editor? = null
+    var prefget: SharedPreferences? = null
+    var prefedit: SharedPreferences.Editor? = null
 
-    private var toolbar: Toolbar? = null
+    var toolbar: Toolbar? = null
     private val ctrlist: Countries? = null
 
-    private var Appuser: UserModel? = null
+    var Appuser: UserModel? = null
     private var usersCall: Call<CallbackUser>? = null
-    private var cntry: Int = 0
+    var cntry: Int = 0
 
     private val countries = ArrayList(ctrlist!!.createSampleData())
 
@@ -63,7 +59,7 @@ class BbUserSignup : AppCompatActivity() {
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        prefget = PreferenceManager.getDefaultSharedPreferences(this)
+        prefget = this.getSharedPreferences("com.jackson_siro.visongbook", 0)
         prefedit = prefget!!.edit()
 
         inputFirstname = findViewById(R.id.input_firstname)
@@ -291,7 +287,7 @@ class BbUserSignup : AppCompatActivity() {
         if (!prefget!!.getBoolean("app_books_loaded", false))
             startActivity(Intent(this@BbUserSignup, CcBooksLoad::class.java))
         else if (prefget!!.getBoolean("app_books_loaded", false) && !prefget!!.getBoolean("app_songs_loaded", false))
-            startActivity(Intent(this@BbUserSignup, CcSongsLoad::class.java))
+            startActivity(Intent(this@BbUserSignup, CcSongsLoadX::class.java))
         else
             startActivity(Intent(this@BbUserSignup, DdMainView::class.java))
         finish()

@@ -33,15 +33,15 @@ import retrofit2.Response
 
 class CcBooksLoad : AppCompatActivity(), SelectableViewHolder.OnItemSelectedListener {
     private val db = SQLiteHelper(this)
-    private var recyclerView: RecyclerView? = null
-    private var callbackBookCall: Call<CallbackCategory>? = null
-    private var booksAdapter: BooksListAdapter? = null
-    private var swipeRefreshLayout: SwipeRefreshLayout? = null
-    private var fabdone: FloatingActionButton? = null
-    private var selectedBooks: List<CategoryModel>? = null
-    private var prefget: SharedPreferences? = null
-    private var prefedit: SharedPreferences.Editor? = null
-    private var toolbar: Toolbar? = null
+    var recyclerView: RecyclerView? = null
+    var callbackBookCall: Call<CallbackCategory>? = null
+    var booksAdapter: BooksListAdapter? = null
+    var swipeRefreshLayout: SwipeRefreshLayout? = null
+    var fabdone: FloatingActionButton? = null
+    var selectedBooks: List<CategoryModel>? = null
+    var prefget: SharedPreferences? = null
+    var prefedit: SharedPreferences.Editor? = null
+    var toolbar: Toolbar? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,7 +50,7 @@ class CcBooksLoad : AppCompatActivity(), SelectableViewHolder.OnItemSelectedList
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        prefget = PreferenceManager.getDefaultSharedPreferences(this)
+        prefget = this.getSharedPreferences("com.jackson_siro.visongbook", 0)
         prefedit = prefget!!.edit()
         swipeRefreshLayout = findViewById(R.id.swipe_refresh_layout)
 
