@@ -83,10 +83,10 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         values.put(Utils.TAGS, song.tags);
         values.put(Utils.CONTENT, song.content);
         values.put(Utils.CREATED, song.created);
-        values.put(Utils.WHAT, song.p_what);
-        values.put(Utils.WHEN, song.p_what);
-        values.put(Utils.WHERE, song.p_what);
-        values.put(Utils.WHO, song.p_what);
+        values.put(Utils.WHAT, song.what);
+        values.put(Utils.WHEN, song.what);
+        values.put(Utils.WHERE, song.what);
+        values.put(Utils.WHO, song.what);
         values.put(Utils.NETTHUMBS, song.netthumbs);
         values.put(Utils.VIEWS, song.views);
         values.put(Utils.ACOUNT, song.acount);
@@ -171,9 +171,9 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 song = new PostModel();
-                song.songid = cursor.getString(0);
-                song.bookid = cursor.getInt(1) + "";
-                song.number = cursor.getInt(2) + "";
+                song.songid = Integer.parseInt(cursor.getString(0));
+                song.bookid = cursor.getInt(1);
+                song.number = cursor.getInt(2);
                 song.alias = cursor.getString(3);
                 song.title = cursor.getString(4);
                 song.tags = cursor.getString(5);
@@ -200,9 +200,9 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 song = new PostModel();
-                song.songid = cursor.getString(0);
-                song.bookid = cursor.getString(1);
-                song.number = cursor.getString(2);
+                song.songid = Integer.parseInt(cursor.getString(0));
+                song.bookid = cursor.getInt(1);
+                song.number = cursor.getInt(2);
                 song.alias = cursor.getString(3);
                 song.title = cursor.getString(4);
                 song.tags = cursor.getString(5);
@@ -225,9 +225,9 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         if (cursor != null) cursor.moveToFirst();
 
         PostModel song = new PostModel();
-        song.songid = cursor.getString(0);
-        song.bookid = cursor.getInt(1) + "";
-        song.number = cursor.getInt(2) + "";
+        song.songid = Integer.parseInt(cursor.getString(0));
+        song.bookid = cursor.getInt(1);
+        song.number = cursor.getInt(2);
         song.alias = cursor.getString(3);
         song.title = cursor.getString(4);
         song.tags = cursor.getString(5);
