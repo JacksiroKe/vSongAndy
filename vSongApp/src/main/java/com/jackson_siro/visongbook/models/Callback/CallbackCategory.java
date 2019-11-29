@@ -7,5 +7,5 @@ import java.util.List;
 import com.jackson_siro.visongbook.models.CategoryModel;
 
 public class CallbackCategory implements Serializable {
-    public List<CategoryModel> data = new ArrayList<>();
+    public List<CategoryModel> data = new ArrayList<CategoryModel>();
 }

@@ -24,7 +24,7 @@ import com.jackson_siro.visongbook.R;
 import com.jackson_siro.visongbook.adapters.*;
 import com.jackson_siro.visongbook.data.SQLiteHelper;
 import com.jackson_siro.visongbook.models.*;
-import com.jackson_siro.visongbook.models.callback.*;
+import com.jackson_siro.visongbook.models.Callback.CallbackCategory;
 import com.jackson_siro.visongbook.retrofitconfig.API;
 import com.jackson_siro.visongbook.retrofitconfig.CallJson;
 

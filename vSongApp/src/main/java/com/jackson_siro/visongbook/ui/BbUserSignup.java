@@ -25,7 +25,7 @@ import retrofit2.Response;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.jackson_siro.visongbook.data.Countries;
-import com.jackson_siro.visongbook.models.callback.CallbackUser;
+import com.jackson_siro.visongbook.models.Callback.CallbackUser;
 import com.jackson_siro.visongbook.models.CountryModel;
 import com.jackson_siro.visongbook.models.UserModel;
 import com.jackson_siro.visongbook.retrofitconfig.API;
@@ -177,7 +177,7 @@ public class BbUserSignup extends AppCompatActivity {
                 CallbackUser cl = response.body();
                 if (cl != null){
                     Appuser = cl.data;
-                    if (cl.data.success == "1") handleUserData();
+                    if (cl.data.success == 1) handleUserData();
                     else apiResult(cl.data.success, cl.data.message);
                 } //else apiResult(5, "null response");
             }
@@ -225,7 +225,7 @@ public class BbUserSignup extends AppCompatActivity {
         finish();
     }
 
-    private void apiResult(final String errorno, final String errormsg){
+    private void apiResult(final int errorno, final String errormsg){
         String firstname = inputFirstname.getText().toString().trim();
         String lastname = inputLastname.getText().toString().trim();
         String gender = inputGender.getText().toString().trim();
@@ -240,7 +240,7 @@ public class BbUserSignup extends AppCompatActivity {
         prefedit.putBoolean("app_user_signedin", false);
         prefedit.apply();
 
-        switch (Integer.parseInt(errorno)) {
+        switch (errorno) {
             case 0:
                 showFeedback(errormsg, 0);
                 break;

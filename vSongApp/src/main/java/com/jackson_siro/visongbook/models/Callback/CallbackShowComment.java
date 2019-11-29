@@ -7,5 +7,5 @@ import java.util.List;
 import com.jackson_siro.visongbook.models.Comment;
 
 public class CallbackShowComment implements Serializable {
-    public List<Comment> data = new ArrayList<>();
+    public List<Comment> data = new ArrayList<Comment>();
 }

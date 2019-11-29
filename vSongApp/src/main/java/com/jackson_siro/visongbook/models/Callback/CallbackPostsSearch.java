@@ -7,5 +7,5 @@ import java.util.List;
 import com.jackson_siro.visongbook.models.PostsSearch;
 
 public class CallbackPostsSearch implements Serializable {
-    public List<PostsSearch> data = new ArrayList<>();
+    public List<PostsSearch> data = new ArrayList<PostsSearch>();
 }
