@@ -65,7 +65,7 @@ public class OfflineFragmentTabs extends Fragment {
                 if (prefget.getString("app_song_presentation", "slides") == "scroll")
                     vSongBook.passingIntent(getActivity(), postModel.songid, "EePostScroller");
                 else vSongBook.passingIntent(getActivity(), postModel.songid, "EePostSlider");*/
-                vSongBook.passingIntent(getActivity(), postModel.songid, "EePostSlider");
+                vSongBook.passingIntent(getActivity(), postModel.songid.toString(), "EePostSlider");
             }
         });
     }
