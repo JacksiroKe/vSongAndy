@@ -1,18 +1,6 @@
 package com.jackson_siro.visongbook.retrofitconfig;
 
-import com.jackson_siro.visongbook.models.Callback.CallbackApp;
-import com.jackson_siro.visongbook.models.Callback.CallbackBackgroundDrawer;
-import com.jackson_siro.visongbook.models.Callback.CallbackCategory;
-import com.jackson_siro.visongbook.models.Callback.CallbackCountComment;
-import com.jackson_siro.visongbook.models.Callback.CallbackPostSingle;
-import com.jackson_siro.visongbook.models.Callback.CallbackPostsByCategory;
-import com.jackson_siro.visongbook.models.Callback.CallbackPostsLists;
-import com.jackson_siro.visongbook.models.Callback.CallbackPostsSearch;
-import com.jackson_siro.visongbook.models.Callback.CallbackPostsSlider;
-import com.jackson_siro.visongbook.models.Callback.CallbackShowComment;
-import com.jackson_siro.visongbook.models.Callback.CallbackUser;
-import com.jackson_siro.visongbook.models.Callback.FeedbackModal;
-
+import com.jackson_siro.visongbook.models.callback.*;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -28,8 +16,7 @@ public interface API {
     String AccessKeyString = "?accesskey=";
     String AccessKeyValue = "AppSmataKey"; // change accesskey with you want, this accesskey must same with your accesskey in admin panel
 
-    @Headers({CACHE, AGENT}) @GET(BaseUrlConfig.AppChecker)
-    Call<CallbackApp> AppChecker();
+    @Headers({CACHE, AGENT}) @GET(BaseUrlConfig.AppChecker) Call<CallbackApp> AppChecker();
 
     @Headers({CACHE, AGENT}) @GET(BaseUrlConfig.BooksSelect) Call<CallbackCategory> BooksSelect();
 

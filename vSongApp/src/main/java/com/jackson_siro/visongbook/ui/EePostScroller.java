@@ -140,7 +140,7 @@ public class EePostScroller extends AppCompatActivity {
 
     @SuppressLint("NewApi")
     private void showSongContent() {
-        if (Song.songid == 1) fab_lastsong.hide();
+        if (Song.songid == "1") fab_lastsong.hide();
         else fab_nosong.hide();
 
         actionBar.setTitle(Song.title);
