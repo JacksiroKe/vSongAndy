@@ -5,11 +5,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.preference.PreferenceManager;
+
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,15 +19,22 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.jackson_siro.visongbook.adapters.StanzaListAdapter;
 import com.jackson_siro.visongbook.data.SQLiteHelper;
+import com.jackson_siro.visongbook.models.CategoryModel;
 import com.jackson_siro.visongbook.models.PostModel;
 import com.jackson_siro.visongbook.R;
+import com.jackson_siro.visongbook.models.StanzaModel;
 
-public class EePostScroller extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
 
-    private static final String EXT_OBJ_ID = "key.EXTRA_OBJ_ID";
+public class EePostView extends AppCompatActivity {
+
+    private static final String SONG_ID = "key.EXTRA_OBJ_ID";
     private static final String EXT_NOTIFICATION_ID = "key.NOTIFICATION.ID";
 
     private boolean haschorus = false;
@@ -36,97 +45,53 @@ public class EePostScroller extends AppCompatActivity {
 
     private MenuItem wishlist, favourites;
 
-    private FloatingActionButton fab_smaller, fab_bigger, fab_lastsong, fab_nosong, fab_nextsong;
     private ImageView notice;
-    private TextView post_content, post_stanzano;
-    private String[] songconts, songcontent, stanzanos;
 
     PostModel Song;
     private SQLiteHelper db = new SQLiteHelper(this);
+    private RecyclerView recyclerView;
+    private RelativeLayout singleView;
 
     private SharedPreferences prefget;
     private SharedPreferences.Editor prefedit;
 
+    private TextView post_content, post_stanzano;
+    private String[] songconts, songcontent, stanzanos;
+    private String songcontents, stanzanumbers;
+    private StanzaListAdapter stanzasAdapter;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ee_post_scroller);
-        cur_song = getIntent().getIntExtra(EXT_OBJ_ID, 0);
+        setContentView(R.layout.app_universal_view);
+        cur_song = Integer.parseInt(getIntent().getStringExtra(SONG_ID));
 
         prefget = PreferenceManager.getDefaultSharedPreferences(this);
         prefedit = prefget.edit();
 
+        singleView = findViewById(R.id.single_view);
         post_content = findViewById(R.id.post_content);
         post_stanzano = findViewById(R.id.number);
-        fab_smaller = findViewById(R.id.fab_smaller);
-        fab_bigger = findViewById(R.id.fab_bigger);
-        fab_lastsong = findViewById(R.id.fab_lastsong);
-        fab_nosong = findViewById(R.id.fab_nosong);
-        fab_nextsong = findViewById(R.id.fab_nextsong);
-        //notice = findViewById(R.id.notice);
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        recyclerView = findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(layoutManager);
 
         toolbarSet();
 
+        if (prefget.getString("app_song_presentation", "") == "scroll")
+        {
+            recyclerView.setVisibility(View.VISIBLE);
+            singleView.setVisibility(View.GONE);
+        }
+        else
+        {
+            recyclerView.setVisibility(View.GONE);
+            singleView.setVisibility(View.VISIBLE);
+        }
+
         Song = db.viewSong(cur_song);
         showSongContent();
-
-        fab_smaller.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    cur_font = cur_font - 2;
-                    post_content.setTextSize(cur_font);
-                }
-                catch (Exception e) {
-                    cur_font = cur_font + 2;
-                }
-            }
-        });
-
-        fab_bigger.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    cur_font = cur_font + 2;
-                    post_content.setTextSize(cur_font);
-                }
-                catch (Exception e) {
-                    cur_font = cur_font - 2;
-                }
-            }
-        });
-
-        fab_lastsong.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    cur_song = cur_song - 1;
-                    Song = db.viewSong(cur_song);
-                    showSongContent();
-                    cur_stanza = 0;
-                }
-                catch (Exception e) {
-                    cur_song = cur_song + 1;
-                    Toast.makeText(getApplicationContext(), "Invalid action!!!", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-
-        fab_nextsong.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    cur_song = cur_song + 1;
-                    Song = db.viewSong(cur_song);
-                    showSongContent();
-                    cur_stanza = 0;
-                }
-                catch (Exception e) {
-                    cur_song = cur_song - 1;
-                    Toast.makeText(getApplicationContext(), "Invalid action!!!", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
     }
 
     private void toolbarSet() {
@@ -140,17 +105,64 @@ public class EePostScroller extends AppCompatActivity {
 
     @SuppressLint("NewApi")
     private void showSongContent() {
-        if (Song.songid == 1) fab_lastsong.hide();
-        else fab_nosong.hide();
-
         actionBar.setTitle(Song.title);
         actionBar.setSubtitle(Song.number + "# | " + Song.categoryname);
 
+        List<StanzaModel> stanzaItems = new ArrayList<StanzaModel>();
         songconts = TextUtils.split(Song.content, "\n\n");
 
+        String VerseInfo = "VERSE 1 of " + songconts.length;
+        stanzaItems.add( new StanzaModel(VerseInfo, songconts[0]) );
+
+        if (Song.content.contains("CHORUS")) {
+            haschorus = true;
+            String Chorus = songconts[1].replace("CHORUS\n", "");
+            songcontents = songconts[0] + "#" + Chorus;
+
+            stanzanumbers = VerseInfo + "#CHORUS";
+            stanzaItems.add( new StanzaModel("CHORUS", Chorus) );
+            for (int i = 2; i < songconts.length; i++){
+                VerseInfo = "VERSE " + (i + 1) + " of " + songconts.length;
+                songcontents = songcontents + "#" + songconts[i] + "#" + Chorus;
+                stanzanumbers = stanzanumbers + "#" + VerseInfo + "#CHORUS";
+
+                stanzaItems.add( new StanzaModel(VerseInfo, songconts[i]) );
+                stanzaItems.add( new StanzaModel("CHORUS", Chorus) );
+            }
+        } else {
+            haschorus = false;
+            try
+            {
+                stanzanumbers = VerseInfo;
+                songcontents = songconts[0];
+                for (int i = 1; i < songconts.length; i++){
+                    VerseInfo = "VERSE " + (i + 1) + " of " + songconts.length;
+                    songcontents = songcontents + "#" + songconts[i];
+                    stanzanumbers = stanzanumbers + "#" + VerseInfo;
+                    stanzaItems.add( new StanzaModel(VerseInfo, songconts[i]) );
+                }
+            }
+            catch (Exception ex)
+            {
+                stanzanumbers = "VERSE 1";
+                songcontents = songconts[0];
+            }
+        }
+
+        stanzasAdapter = new StanzaListAdapter(this, stanzaItems, true, cur_font);
+        recyclerView.setAdapter(stanzasAdapter);
+
+        songcontent = TextUtils.split(songcontents, "#");
+        stanzanos = TextUtils.split(stanzanumbers, "#");
+
+        setSongContent(cur_stanza);
+        post_content.setTextSize(cur_font);
     }
 
-    private void setSongContent (int stanzano){
+    private void setSongContent (int stanzano)
+    {
+        post_content.setText(songcontent[stanzano]);
+        post_stanzano.setText(stanzanos[stanzano]);
 
     }
 

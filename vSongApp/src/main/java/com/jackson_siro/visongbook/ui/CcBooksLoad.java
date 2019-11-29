@@ -49,7 +49,7 @@ public class CcBooksLoad extends AppCompatActivity implements SelectableViewHold
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.cc_books_load);
+        setContentView(R.layout.app_universal_view);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -58,10 +58,11 @@ public class CcBooksLoad extends AppCompatActivity implements SelectableViewHold
         swipeRefreshLayout = findViewById(R.id.swipe_refresh_layout);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        recyclerView = findViewById(R.id.slider_recycler_view);
+        recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(layoutManager);
 
-        fabdone = findViewById(R.id.fabdone);
+        fabdone = findViewById(R.id.fab_action);
+        fabdone.setImageResource(R.drawable.ic_done);
         fabdone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

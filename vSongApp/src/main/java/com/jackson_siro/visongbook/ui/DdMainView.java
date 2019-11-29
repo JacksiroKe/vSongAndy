@@ -165,11 +165,13 @@ public class DdMainView extends AppCompatActivity implements TabLayout.OnTabSele
             if (reminder_time > 18000) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle("vSongBook Needs Your Support");
-                builder.setMessage("Hello " + mGender + mFullname + "! vSongBook is proudly non-profit, non-corporate and non-compromised. " +
+                builder.setMessage("Hello " + mGender + mFullname + "! vSongBook is proudly non-profit, non-corporate and non-compromised. Would you like to know how you can support us Today?"
+                );
+                /*builder.setMessage("Hello " + mGender + mFullname + "! vSongBook is proudly non-profit, non-corporate and non-compromised. " +
                         "A lot of users like you help us stand up for a free vSongBook for all. We now rely on donations to carry out our " +
                         "mission to give everyone able to use our app the freedom to sing anywhere anytime. Any amount of money will be " +
                         "highly appreciated by our team of developers. Will you give today?"
-                );
+                );*/
                 builder.setNegativeButton("Remind me Later", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
@@ -182,7 +184,7 @@ public class DdMainView extends AppCompatActivity implements TabLayout.OnTabSele
                         prefedit.putBoolean("app_user_donated", true).apply();
                     }
                 });
-                builder.setPositiveButton("Yes am in", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("Oh Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
                         startActivity(new Intent(DdMainView.this, FfDonate.class));

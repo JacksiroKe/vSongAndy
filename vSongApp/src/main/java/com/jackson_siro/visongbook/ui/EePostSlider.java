@@ -25,8 +25,7 @@ import com.jackson_siro.visongbook.R;
 
 public class EePostSlider extends AppCompatActivity {
 
-    private static final String EXT_OBJ_ID = "key.EXTRA_OBJ_ID";
-    private static final String EXT_NOTIFICATION_ID = "key.NOTIFICATION.ID";
+    private static final String SONG_ID = "key.EXTRA_OBJ_ID";
 
     private boolean haschorus = false;
     private Toolbar toolbar;
@@ -52,7 +51,7 @@ public class EePostSlider extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ee_post_slider);
-        cur_song = Integer.parseInt(getIntent().getStringExtra(EXT_OBJ_ID));
+        cur_song = Integer.parseInt(getIntent().getStringExtra(SONG_ID));
 
         prefget = PreferenceManager.getDefaultSharedPreferences(this);
         prefedit = prefget.edit();
@@ -209,6 +208,9 @@ public class EePostSlider extends AppCompatActivity {
                 songcontents = songconts[0];
             }
         }
+        songcontent = TextUtils.split(songcontents, "#");
+        stanzanos = TextUtils.split(stanzanumbers, "#");
+
         songcontent = TextUtils.split(songcontents, "#");
         stanzanos = TextUtils.split(stanzanumbers, "#");
 

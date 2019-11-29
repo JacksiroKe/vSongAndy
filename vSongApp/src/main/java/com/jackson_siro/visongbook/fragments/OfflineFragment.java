@@ -28,7 +28,7 @@ public class OfflineFragment extends Fragment {
     private TabLayout subTabLayout;
     private List<CategoryModel> booksItems;
 
-    private SQLiteHelper db = new SQLiteHelper(MyApplication.getAppContext());
+    private static SQLiteHelper db = new SQLiteHelper(MyApplication.getAppContext());
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

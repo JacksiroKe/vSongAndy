@@ -42,7 +42,7 @@ public class SearchFragment extends Fragment {
     private ListsSongsAdapter listAdapter;
     private RecyclerView recyclerView;
 
-    private SQLiteHelper db = new SQLiteHelper(MyApplication.getAppContext());
+    private static SQLiteHelper db = new SQLiteHelper(MyApplication.getAppContext());
 
     private String mLastQuery = "";
     private final String TAG = "BlankFragment";
@@ -104,11 +104,7 @@ public class SearchFragment extends Fragment {
         listAdapter.setOnItemClickListener(new ListsSongsAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, PostModel postModel) {
-                /*SharedPreferences prefget = PreferenceManager.getDefaultSharedPreferences(getActivity());
-                if (prefget.getString("app_song_presentation", "slides") == "scroll")
-                    vSongBook.passingIntent(getActivity(), postModel.songid, "EePostScroller");
-                else vSongBook.passingIntent(getActivity(), postModel.songid, "EePostSlider");*/
-                vSongBook.passingIntent(getActivity(), postModel.songid.toString(), "EePostSlider");
+                vSongBook.passingIntent(getActivity(), postModel.songid.toString(), "ViewSong");
             }
         });
     }

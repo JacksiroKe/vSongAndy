@@ -39,7 +39,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.EePostScroller"
+            android:name=".ui.EePostView"
             android:label="@string/post_view"
             android:parentActivityName=".ui.DdMainView"
             android:theme="@style/MyMaterialTheme.NoActionBar">

@@ -68,11 +68,7 @@ public class OnlineFragmentTabs extends Fragment {
         recentAdapter.setOnItemClickListener(new ListsSongsAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, PostModel postModel) {
-                /*SharedPreferences prefget = PreferenceManager.getDefaultSharedPreferences(getActivity());
-                if (prefget.getString("app_song_presentation", "slides") == "scroll")
-                    vSongBook.passingIntent(getActivity(), postModel.songid, "EePostScroller");
-                else vSongBook.passingIntent(getActivity(), postModel.songid, "EePostSlider");*/
-                vSongBook.passingIntent(getActivity(), postModel.songid.toString(), "EePostSlider");
+                vSongBook.passingIntent(getActivity(), postModel.songid.toString(), "ViewSong");
             }
         });
 
