@@ -48,7 +48,8 @@
                     android:id="@+id/single_view"
                     android:layout_margin="10dp"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                    android:layout_height="match_parent"
+                    android:background="@drawable/border_ii" >
 
                     <RelativeLayout
                         android:id="@+id/header"
@@ -75,8 +76,7 @@
                         android:id="@+id/content"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_below="@id/header"
-                        android:background="@drawable/border_ii" >
+                        android:layout_below="@id/header" >
 
                         <TextView
                             android:id="@+id/post_content"

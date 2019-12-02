@@ -164,27 +164,22 @@ public class DdMainView extends AppCompatActivity implements TabLayout.OnTabSele
             Long reminder_time = System.currentTimeMillis() - prefget.getLong("app_donation_reminder", 0);
             if (reminder_time > 18000) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("vSongBook Needs Your Support");
+                builder.setTitle("Your Support vSongBook!");
                 builder.setMessage("Hello " + mGender + mFullname + "! vSongBook is proudly non-profit, non-corporate and non-compromised. Would you like to know how you can support us Today?"
                 );
-                /*builder.setMessage("Hello " + mGender + mFullname + "! vSongBook is proudly non-profit, non-corporate and non-compromised. " +
-                        "A lot of users like you help us stand up for a free vSongBook for all. We now rely on donations to carry out our " +
-                        "mission to give everyone able to use our app the freedom to sing anywhere anytime. Any amount of money will be " +
-                        "highly appreciated by our team of developers. Will you give today?"
-                );*/
-                builder.setNegativeButton("Remind me Later", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton("Later", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
                         prefedit.putLong("app_donation_reminder", System.currentTimeMillis()).apply();
                     }
                 });
-                builder.setNeutralButton("Leave me out", new DialogInterface.OnClickListener() {
+                builder.setNeutralButton("Not Today", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
                         prefedit.putBoolean("app_user_donated", true).apply();
                     }
                 });
-                builder.setPositiveButton("Oh Yes", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
                         startActivity(new Intent(DdMainView.this, FfDonate.class));

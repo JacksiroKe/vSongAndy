@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.jackson_siro.visongbook.data.SQLiteHelper;
@@ -46,6 +48,9 @@ public class EePostSlider extends AppCompatActivity {
 
     private SharedPreferences prefget;
     private SharedPreferences.Editor prefedit;
+
+    private RecyclerView recyclerView;
+    private RelativeLayout singleView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

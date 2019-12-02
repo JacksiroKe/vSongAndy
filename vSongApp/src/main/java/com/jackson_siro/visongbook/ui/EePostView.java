@@ -70,11 +70,12 @@ public class EePostView extends AppCompatActivity {
         prefedit = prefget.edit();
 
         singleView = findViewById(R.id.single_view);
+        recyclerView = findViewById(R.id.recycler_view);
+
         post_content = findViewById(R.id.post_content);
         post_stanzano = findViewById(R.id.number);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(layoutManager);
 
         toolbarSet();
