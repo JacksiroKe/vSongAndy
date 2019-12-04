@@ -38,59 +38,11 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_view"
-                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_below="@id/sub_tabs"
                     android:nestedScrollingEnabled="true" />
 
-                <RelativeLayout
-                    android:id="@+id/single_view"
-                    android:layout_margin="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/border_ii" >
-
-                    <RelativeLayout
-                        android:id="@+id/header"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true"
-                        android:gravity="center" >
-
-                        <TextView
-                            android:id="@+id/number"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/bg_rounded_rect"
-                            android:paddingLeft="20dp"
-                            android:paddingRight="20dp"
-                            android:layout_marginTop="10dp"
-                            android:text="VERSE 1 of 5"
-                            android:textStyle="bold"
-                            android:textColor="@color/white_color" />
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/content"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_below="@id/header" >
-
-                        <TextView
-                            android:id="@+id/post_content"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Song Content"
-                            android:padding="5dp"
-                            android:textColor="#000"
-                            android:layout_centerInParent="true"
-                            android:textSize="18sp" />
-
-                    </RelativeLayout>
-
-                </RelativeLayout>
             </LinearLayout>
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
@@ -103,6 +55,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@drawable/ic_add" />
+        app:srcCompat="@drawable/ic_done" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

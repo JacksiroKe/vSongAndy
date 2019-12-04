@@ -39,7 +39,6 @@ import retrofit2.Response;
 public class CcBooksLoad extends AppCompatActivity implements SelectableViewHolder.OnItemSelectedListener{
     private SQLiteHelper db = new SQLiteHelper(this);
     private RecyclerView recyclerView;
-    private RelativeLayout singleView;
     private Call<CallbackCategory> callbackBookCall;
     private BooksListAdapter booksAdapter;
     private SwipeRefreshLayout swipeRefreshLayout;
@@ -51,7 +50,7 @@ public class CcBooksLoad extends AppCompatActivity implements SelectableViewHold
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.app_universal_view);
+        setContentView(R.layout.cc_books_load);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -60,16 +59,11 @@ public class CcBooksLoad extends AppCompatActivity implements SelectableViewHold
 
         swipeRefreshLayout = findViewById(R.id.swipe_refresh_layout);
         recyclerView = findViewById(R.id.recycler_view);
-        singleView = findViewById(R.id.single_view);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
-        recyclerView.setVisibility(View.VISIBLE);
-        singleView.setVisibility(View.GONE);
-
         fabdone = findViewById(R.id.fab_action);
-        fabdone.setImageResource(R.drawable.ic_done);
         fabdone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -20,6 +20,9 @@
         android:supportsRtl="true"
         android:theme="@style/MyMaterialTheme">
         <activity
+            android:name=".ui.SettingsActivity"
+            android:label="@string/title_activity_settings"></activity>
+        <activity
             android:name=".ui.DdPostSong"
             android:label="@string/title_activity_dd_post_song"
             android:parentActivityName=".ui.DdMainView"

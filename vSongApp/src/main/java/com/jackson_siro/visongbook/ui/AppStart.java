@@ -87,6 +87,12 @@ public class AppStart extends AppCompatActivity {
             prefedit.putBoolean("app_user_signedin", false).apply();
             prefedit.putBoolean("app_user_donated", false).apply();
             prefedit.putLong("app_first_data", System.currentTimeMillis()).apply();
+
+            prefedit.putInt("app_song_fontsize", 25).apply();
+            prefedit.putString("app_song_presentation", "slides").apply();
+            prefedit.putBoolean("app_song_screenon", true).apply();
+            prefedit.putString("app_song_screenon_time", "unlimited").apply();
+            prefedit.putString("app_theme", "default").apply();
         }
     }
 }

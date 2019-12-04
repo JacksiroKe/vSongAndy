@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -22,9 +23,9 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.jackson_siro.visongbook.adapters.StanzaListAdapter;
 import com.jackson_siro.visongbook.data.SQLiteHelper;
-import com.jackson_siro.visongbook.models.CategoryModel;
 import com.jackson_siro.visongbook.models.PostModel;
 import com.jackson_siro.visongbook.R;
 import com.jackson_siro.visongbook.models.StanzaModel;
@@ -37,7 +38,7 @@ public class EePostView extends AppCompatActivity {
     private static final String SONG_ID = "key.EXTRA_OBJ_ID";
     private static final String EXT_NOTIFICATION_ID = "key.NOTIFICATION.ID";
 
-    private boolean haschorus = false;
+    private boolean haschorus = false, showMorefabs = false, isScrollable = false;
     private Toolbar toolbar;
     private ActionBar actionBar;
 
@@ -60,14 +61,21 @@ public class EePostView extends AppCompatActivity {
     private String songcontents, stanzanumbers;
     private StanzaListAdapter stanzasAdapter;
 
+    private FloatingActionButton fabmore, fabsmaller, fabbigger, fabview;
+    private FrameLayout action1, action2, action3;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.app_universal_view);
+        setContentView(R.layout.ee_post_view);
         cur_song = Integer.parseInt(getIntent().getStringExtra(SONG_ID));
 
         prefget = PreferenceManager.getDefaultSharedPreferences(this);
         prefedit = prefget.edit();
+
+        action1 = findViewById(R.id.frm_action1);
+        action2 = findViewById(R.id.frm_action2);
+        action3 = findViewById(R.id.frm_action3);
 
         singleView = findViewById(R.id.single_view);
         recyclerView = findViewById(R.id.recycler_view);
@@ -82,17 +90,99 @@ public class EePostView extends AppCompatActivity {
 
         if (prefget.getString("app_song_presentation", "") == "scroll")
         {
+            isScrollable = false;
             recyclerView.setVisibility(View.VISIBLE);
             singleView.setVisibility(View.GONE);
         }
         else
         {
+            isScrollable = true;
             recyclerView.setVisibility(View.GONE);
             singleView.setVisibility(View.VISIBLE);
         }
 
+        fabmore = findViewById(R.id.fab_action);
+        fabmore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                if (showMorefabs)
+                {
+                    showMorefabs = false;
+                    action1.setVisibility(View.GONE);
+                    action2.setVisibility(View.GONE);
+                    action3.setVisibility(View.GONE);
+                    fabmore.setImageResource(R.drawable.ic_add);
+                }
+                else
+                {
+                    showMorefabs = true;
+                    action1.setVisibility(View.VISIBLE);
+                    action2.setVisibility(View.VISIBLE);
+                    action3.setVisibility(View.VISIBLE);
+                    fabmore.setImageResource(R.drawable.ic_clear);
+                }
+            }
+        });
+
+
+        fabsmaller = findViewById(R.id.fab_action1);
+        fabsmaller.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    cur_font = cur_font - 2;
+                    post_content.setTextSize(cur_font);
+                }
+                catch (Exception e) {
+                    cur_font = cur_font + 2;
+                }
+            }
+        });
+
+
+        fabbigger = findViewById(R.id.fab_action2);
+        fabbigger.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    cur_font = cur_font + 2;
+                    post_content.setTextSize(cur_font);
+                }
+                catch (Exception e) {
+                    cur_font = cur_font - 2;
+                }
+            }
+        });
+
+        fabview = findViewById(R.id.fab_action3);
+        fabview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SetSongView();
+            }
+        });
+
         Song = db.viewSong(cur_song);
         showSongContent();
+    }
+
+    private void SetSongView()
+    {
+        if (isScrollable)
+        {
+            isScrollable = false;
+            recyclerView.setVisibility(View.VISIBLE);
+            singleView.setVisibility(View.GONE);
+            prefedit.putString("app_song_presentation", "slides").apply();
+        }
+        else
+        {
+            isScrollable = true;
+            recyclerView.setVisibility(View.GONE);
+            singleView.setVisibility(View.VISIBLE);
+            prefedit.putString("app_song_presentation", "slides").apply();
+        }
     }
 
     private void toolbarSet() {
