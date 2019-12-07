@@ -25,6 +25,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.jackson_siro.visongbook.adapters.StanzaListAdapter;
+import com.jackson_siro.visongbook.components.SwipeTouchListener;
 import com.jackson_siro.visongbook.data.SQLiteHelper;
 import com.jackson_siro.visongbook.models.PostModel;
 import com.jackson_siro.visongbook.R;
@@ -42,11 +43,11 @@ public class EePostView extends AppCompatActivity {
     private Toolbar toolbar;
     private ActionBar actionBar;
 
-    private int cur_song = 0, cur_stanza = 0, cur_font = 25;
+    private int cur_hint = 0, cur_song = 0, cur_stanza = 0, cur_font = 25;
 
     private MenuItem wishlist, favourites;
 
-    private ImageView notice;
+    private ImageView hintsView;
 
     PostModel Song;
     private SQLiteHelper db = new SQLiteHelper(this);
@@ -73,12 +74,44 @@ public class EePostView extends AppCompatActivity {
         prefget = PreferenceManager.getDefaultSharedPreferences(this);
         prefedit = prefget.edit();
 
+        hintsView = findViewById(R.id.hintView);
+        hintsView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                CheckForHints();
+            }
+        });
+
         action1 = findViewById(R.id.frm_action1);
         action2 = findViewById(R.id.frm_action2);
         action3 = findViewById(R.id.frm_action3);
 
         singleView = findViewById(R.id.single_view);
+        singleView.setOnTouchListener(new SwipeTouchListener(EePostView.this){
+            public void onSwipeTop() {
+                NextStanza();
+            }
+            public void onSwipeBottom() {
+                LastStanza();
+            }
+            public void onSwipeLeft() {
+                NextSong();
+            }
+            public void onSwipeRight() {
+                LastSong();
+            }
+        });
+
         recyclerView = findViewById(R.id.recycler_view);
+        recyclerView.setOnTouchListener(new SwipeTouchListener(EePostView.this){
+            public void onSwipeLeft() {
+                NextSong();
+            }
+            public void onSwipeRight() {
+                LastSong();
+            }
+        });
 
         post_content = findViewById(R.id.post_content);
         post_stanzano = findViewById(R.id.number);
@@ -87,19 +120,7 @@ public class EePostView extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         toolbarSet();
-
-        if (prefget.getString("app_song_presentation", "") == "scroll")
-        {
-            isScrollable = false;
-            recyclerView.setVisibility(View.VISIBLE);
-            singleView.setVisibility(View.GONE);
-        }
-        else
-        {
-            isScrollable = true;
-            recyclerView.setVisibility(View.GONE);
-            singleView.setVisibility(View.VISIBLE);
-        }
+        CheckForViewType();
 
         fabmore = findViewById(R.id.fab_action);
         fabmore.setOnClickListener(new View.OnClickListener() {
@@ -165,6 +186,102 @@ public class EePostView extends AppCompatActivity {
 
         Song = db.viewSong(cur_song);
         showSongContent();
+
+        if (!prefget.getBoolean("app_seen_swipe_hints", false)) {
+            recyclerView.setVisibility(View.GONE);
+            singleView.setVisibility(View.GONE);
+            hintsView.setVisibility(View.VISIBLE);
+        }
+    }
+
+    public void CheckForViewType(){
+        if (prefget.getString("app_song_presentation", "") == "scroll")
+        {
+            isScrollable = false;
+            recyclerView.setVisibility(View.VISIBLE);
+            singleView.setVisibility(View.GONE);
+        }
+        else
+        {
+            isScrollable = true;
+            recyclerView.setVisibility(View.GONE);
+            singleView.setVisibility(View.VISIBLE);
+        }
+    }
+
+    public void CheckForHints() {
+        switch (cur_hint)
+        {
+            case 0:
+                hintsView.setImageResource(R.drawable.swipe_1);
+                break;
+
+            case 1:
+                hintsView.setImageResource(R.drawable.swipe_2);
+                break;
+
+            case 2:
+                hintsView.setImageResource(R.drawable.swipe_3);
+                break;
+
+            case 3:
+                hintsView.setImageResource(R.drawable.swipe_4);
+                break;
+
+            case 4:
+                prefedit.putBoolean("app_seen_swipe_hints", true).apply();
+                CheckForViewType();
+                break;
+        }
+        cur_hint = cur_hint + 1;
+    }
+
+    public void LastStanza() {
+        try {
+            cur_stanza = cur_stanza - 1;
+            setSongContent(cur_stanza);
+        }
+        catch (Exception e) {
+            cur_stanza = cur_stanza + 1;
+        }
+    };
+
+    public void NextStanza() {
+        try {
+            cur_stanza = cur_stanza + 1;
+            setSongContent(cur_stanza);
+        }
+        catch (Exception e) {
+            cur_stanza = cur_stanza - 1;
+        }
+    }
+
+    private void LastSong()
+    {
+        try {
+            cur_song = cur_song - 1;
+            Song = db.viewSong(cur_song);
+            showSongContent();
+            cur_stanza = 0;
+        }
+        catch (Exception e) {
+            cur_song = cur_song + 1;
+            Toast.makeText(getApplicationContext(), "Invalid action!!!", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void NextSong()
+    {
+        try {
+            cur_song = cur_song + 1;
+            Song = db.viewSong(cur_song);
+            showSongContent();
+            cur_stanza = 0;
+        }
+        catch (Exception e) {
+            cur_song = cur_song - 1;
+            Toast.makeText(getApplicationContext(), "Invalid action!!!", Toast.LENGTH_LONG).show();
+        }
     }
 
     private void SetSongView()
