@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -49,6 +50,7 @@ public class DdMainView extends AppCompatActivity implements TabLayout.OnTabSele
     private FloatingActionButton fabButton;
 
     private String mGender = "", mFullname = "";
+    private TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +80,7 @@ public class DdMainView extends AppCompatActivity implements TabLayout.OnTabSele
         HomeFragmentAdapter fragmentAdapter = new HomeFragmentAdapter(getSupportFragmentManager());
         viewPager.setAdapter(fragmentAdapter);
 
-        final TabLayout tabLayout = findViewById(R.id.main_tab_layout);
+        tabLayout = findViewById(R.id.main_tab_layout);
         tabLayout.setupWithViewPager(viewPager);
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
@@ -269,6 +271,28 @@ public class DdMainView extends AppCompatActivity implements TabLayout.OnTabSele
         startActivity(intent);
         //startActivity(new Intent(DdMainView.this, AppStart.class));
         finish();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(final Menu menu) {
+        getMenuInflater().inflate(R.menu.dd_main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+
+            case R.id.action_search:
+                tabLayout.getTabAt(0).select();
+                return true;
+
+            default:
+                return false;
+        }
     }
 
 }

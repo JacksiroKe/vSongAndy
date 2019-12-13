@@ -74,6 +74,14 @@ public class EePostView extends AppCompatActivity {
         prefget = PreferenceManager.getDefaultSharedPreferences(this);
         prefedit = prefget.edit();
 
+        cur_font = Integer.parseInt(prefget.getString("app_song_fontsize", ""));
+
+        if (cur_font < 25)
+        {
+            cur_font = 25;
+            prefedit.putString("app_song_fontsize", cur_font + "");
+        }
+
         hintsView = findViewById(R.id.hintView);
         hintsView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -154,9 +162,11 @@ public class EePostView extends AppCompatActivity {
                 try {
                     cur_font = cur_font - 2;
                     post_content.setTextSize(cur_font);
+                    prefedit.putString("app_song_fontsize", cur_font + "");
                 }
                 catch (Exception e) {
                     cur_font = cur_font + 2;
+                    prefedit.putString("app_song_fontsize", cur_font + "");
                 }
             }
         });
@@ -169,9 +179,11 @@ public class EePostView extends AppCompatActivity {
                 try {
                     cur_font = cur_font + 2;
                     post_content.setTextSize(cur_font);
+                    prefedit.putString("app_song_fontsize", cur_font + "");
                 }
                 catch (Exception e) {
                     cur_font = cur_font - 2;
+                    prefedit.putString("app_song_fontsize", cur_font + "");
                 }
             }
         });
@@ -377,7 +389,7 @@ public class EePostView extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
         getMenuInflater().inflate(R.menu.ee_post_view, menu);
-        favourites = menu.findItem(R.id.action_wish);
+        favourites = menu.findItem(R.id.action_favour);
         wishlist = menu.findItem(R.id.user_comment);
 
         return true;
@@ -390,8 +402,7 @@ public class EePostView extends AppCompatActivity {
                 onBackPressed();
                 return true;
 
-            case R.id.action_wish:
-
+            case R.id.action_favour:
                 Toast.makeText(getApplicationContext(), "This feature will be implemented in subsequent updates", Toast.LENGTH_LONG).show();
                 return true;
 

@@ -24,7 +24,7 @@
     <!--Custom text-->
     <string name="failed_load">Failed Load Data</string>
     <string name="no_data_available">No Data Available</string>
-    <string name="no_data">Ooops, Post not found</string>
+    <string name="no_data">Oops, Post not found</string>
     <string name="finish_guide_posts">Finish Guide</string>
     <string name="next_guide_posts">Next</string>
     <item name="visible" type="id" />

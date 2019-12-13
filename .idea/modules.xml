@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/kotlin-vSongAndy.iml" filepath="$PROJECT_DIR$/kotlin-vSongAndy.iml" />
       <module fileurl="file://$PROJECT_DIR$/vSongAndy.iml" filepath="$PROJECT_DIR$/vSongAndy.iml" />
       <module fileurl="file://$PROJECT_DIR$/vSongApp/vSongApp.iml" filepath="$PROJECT_DIR$/vSongApp/vSongApp.iml" />
     </modules>
