@@ -39,30 +39,33 @@
                 android:fontFamily="sans-serif"
                 android:text="@string/no_result"
                 android:textAlignment="center"
-                android:textColor="@color/white_color"
-                android:textSize="@dimen/no_message_text_size"
+                android:textColor="@color/colorPrimary"
+                android:textSize="35sp"
                 android:textStyle="bold" />
 
             <Button
-                android:layout_width="wrap_content"
+                android:id="@+id/btn_learn_more"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
+                android:padding="10dp"
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/no_message_vertical_padding"
-                android:backgroundTint="@android:color/white"
+                android:textSize="30sp"
+                android:background="@drawable/custom_button1"
                 android:text="@string/no_result_button"
-                android:textColor="@color/colorAccent" />
+                android:textColor="@color/white_color" />
         </LinearLayout>
 
-        <com.arlib.floatingsearchview.FloatingSearchView
-            android:id="@+id/search_view"
+        <EditText
+            android:id="@+id/input_search"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/main_title"
             android:background="@drawable/custom_edit_text1"
-            app:floatingSearch_close_search_on_keyboard_dismiss="true"
-            app:floatingSearch_menu="@menu/main"
-            app:floatingSearch_searchHint="@string/main_title"
-            app:floatingSearch_showSearchKey="false"
-            app:floatingSearch_suggestionsListAnimDuration="250" />
+            android:maxLines="1"
+            android:textSize="30sp"
+            android:padding="10dp"
+            android:singleLine="true" />
 
     </FrameLayout>
 

@@ -86,7 +86,7 @@
                             android:padding="5dp"
                             android:textColor="#000"
                             android:layout_centerInParent="true"
-                            android:textSize="18sp" />
+                            android:textSize="30sp" />
 
 
                     </RelativeLayout>

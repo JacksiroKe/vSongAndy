@@ -43,7 +43,7 @@ public class EePostView extends AppCompatActivity {
     private Toolbar toolbar;
     private ActionBar actionBar;
 
-    private int cur_hint = 0, cur_song = 0, cur_stanza = 0, cur_font = 25;
+    private int cur_hint = 0, cur_song = 0, cur_stanza = 0, cur_font = 30;
 
     private MenuItem wishlist, favourites;
 
@@ -74,7 +74,7 @@ public class EePostView extends AppCompatActivity {
         prefget = PreferenceManager.getDefaultSharedPreferences(this);
         prefedit = prefget.edit();
 
-        cur_font = Integer.parseInt(prefget.getString("app_song_fontsize", ""));
+        //cur_font = Integer.parseInt(prefget.getString("app_song_fontsize", "25"));
 
         if (cur_font < 25)
         {
@@ -383,7 +383,6 @@ public class EePostView extends AppCompatActivity {
     {
         post_content.setText(songcontent[stanzano]);
         post_stanzano.setText(stanzanos[stanzano]);
-
     }
 
     @Override

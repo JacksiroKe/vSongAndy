@@ -157,8 +157,16 @@ public class DdMainView extends AppCompatActivity implements TabLayout.OnTabSele
 
     }
 
-    public void openDrawer(View view) {
+    public void OpenDrawer(View view) {
         mDrawerLayout.openDrawer(GravityCompat.START);
+    }
+
+    public void ShowSearch(View view) {
+        tabLayout.getTabAt(0).select();
+    }
+
+    public void ShowCollection(View view) {
+        tabLayout.getTabAt(1).select();
     }
 
     public void checkDonation(){

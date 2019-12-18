@@ -29,7 +29,7 @@
                     android:id="@+id/app_image"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:onClick="openDrawer"
+                    android:onClick="OpenDrawer"
                     android:layout_margin="5dp"
                     tools:src="@drawable/appicon" />
 
@@ -47,15 +47,32 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <ImageButton
-                        android:id="@+id/btn_search"
-                        android:layout_width="40dp"
+                    <LinearLayout
+                        android:layout_width="100dp"
                         android:layout_height="40dp"
                         android:layout_margin="5dp"
-                        android:scaleType="fitStart"
-                        android:layout_alignParentEnd="true"
-                        android:background="@color/transparent"
-                        app:srcCompat="@drawable/ic_search_black" />
+                        android:layout_alignParentEnd="true" >
+
+                        <ImageButton
+                            android:id="@+id/btn_search"
+                            android:onClick="ShowSearch"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_margin="5dp"
+                            android:scaleType="fitStart"
+                            android:background="@color/transparent"
+                            app:srcCompat="@drawable/ic_search_black" />
+
+                        <ImageButton
+                            android:id="@+id/btn_collection"
+                            android:onClick="ShowCollection"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_margin="5dp"
+                            android:scaleType="fitStart"
+                            android:background="@color/transparent"
+                            app:srcCompat="@drawable/ic_books" />
+                    </LinearLayout>
 
                 </RelativeLayout>
 
