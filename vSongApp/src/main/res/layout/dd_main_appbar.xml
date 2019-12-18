@@ -3,14 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/vsb"
     android:layout_height="match_parent"
     tools:context=".ui.DdMainView">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:background="@color/transparent"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
@@ -21,7 +19,6 @@
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
-                android:background="@drawable/vsb_bg"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 app:layout_collapseMode="pin"
@@ -32,7 +29,7 @@
                     android:id="@+id/app_image"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:onClick="openDrawer"
+                    android:onClick="OpenDrawer"
                     android:layout_margin="5dp"
                     tools:src="@drawable/appicon" />
 
@@ -43,8 +40,44 @@
                     android:layout_marginTop="10dp"
                     android:text="@string/app_name"
                     android:textColor="@color/white_color"
-                    android:textSize="20sp" />
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:layout_margin="5dp"
+                        android:layout_alignParentEnd="true" >
+
+                        <ImageButton
+                            android:id="@+id/btn_search"
+                            android:onClick="ShowSearch"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_margin="5dp"
+                            android:scaleType="fitStart"
+                            android:background="@color/transparent"
+                            app:srcCompat="@drawable/ic_search_black" />
+
+                        <ImageButton
+                            android:id="@+id/btn_collection"
+                            android:onClick="ShowCollection"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_margin="5dp"
+                            android:scaleType="fitStart"
+                            android:background="@color/transparent"
+                            app:srcCompat="@drawable/ic_books" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
             </androidx.appcompat.widget.Toolbar>
+
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 

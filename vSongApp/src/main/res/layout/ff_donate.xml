@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/vsb">
@@ -56,21 +55,93 @@
                         android:src="@drawable/donation_mpesa"
                         android:contentDescription="@string/donate_mpesa" />
 
-                    <TextView
-                        android:textSize="20sp"
-                        android:textColor="#000000"
-                        android:paddingLeft="10dp"
-                        android:paddingTop="5dp"
-                        android:paddingRight="10dp"
-                        android:paddingBottom="10dp"
-                        android:textAlignment="center"
-                        android:layout_width="fill_parent"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/donate_mpesa_desc" />
+                        android:background="@drawable/custom_edit_text1"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:padding="5dp" >
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" >
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="PAYBILL"
+                                android:maxLines="1"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="891300"
+                                android:singleLine="true" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/custom_edit_text1"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:padding="5dp" >
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" >
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="ACCOUNT"
+                                android:maxLines="1"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="33112"
+                                android:singleLine="true" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/custom_edit_text1"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:padding="5dp" >
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" >
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="OR SIMPLY DIAL"
+                                android:maxLines="1"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="*483*57*33112#"
+                                android:singleLine="true" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
-
 
             <androidx.cardview.widget.CardView
                 style="@style/CardView"
@@ -98,21 +169,64 @@
                         android:src="@drawable/donation_airtel"
                         android:contentDescription="@string/donate_airtel" />
 
-                    <TextView
-                        android:textSize="20sp"
-                        android:textColor="#000000"
-                        android:paddingLeft="10dp"
-                        android:paddingTop="5dp"
-                        android:paddingRight="10dp"
-                        android:paddingBottom="10dp"
-                        android:textAlignment="center"
-                        android:layout_width="fill_parent"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/donate_airtel_desc" />
+                        android:background="@drawable/custom_edit_text1"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:padding="5dp" >
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" >
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="BUSINESS NAME"
+                                android:maxLines="1"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="MCHANGA"
+                                android:singleLine="true" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/custom_edit_text1"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:padding="5dp" >
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" >
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="REFERENCE"
+                                android:maxLines="1"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="33112"
+                                android:singleLine="true" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
-
 
             <androidx.cardview.widget.CardView
                 style="@style/CardView"
@@ -140,17 +254,61 @@
                         android:src="@drawable/donation_equitel"
                         android:contentDescription="@string/donate_equitel" />
 
-                    <TextView
-                        android:textSize="20sp"
-                        android:textColor="#000000"
-                        android:paddingLeft="10dp"
-                        android:paddingTop="5dp"
-                        android:paddingRight="10dp"
-                        android:paddingBottom="10dp"
-                        android:textAlignment="center"
-                        android:layout_width="fill_parent"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/donate_equitel_desc" />
+                        android:background="@drawable/custom_edit_text1"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:padding="5dp" >
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" >
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="BUSINESS NAME"
+                                android:maxLines="1"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="MCHANGA"
+                                android:singleLine="true" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/custom_edit_text1"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:padding="5dp" >
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" >
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="ACCOUNT NUMBER"
+                                android:maxLines="1"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="33112"
+                                android:singleLine="true" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -181,17 +339,33 @@
                         android:src="@drawable/donation_paypal"
                         android:contentDescription="@string/donate_paypal" />
 
-                    <TextView
-                        android:textSize="20sp"
-                        android:textColor="#000000"
-                        android:paddingLeft="10dp"
-                        android:paddingTop="5dp"
-                        android:paddingRight="10dp"
-                        android:paddingBottom="10dp"
-                        android:textAlignment="center"
-                        android:layout_width="fill_parent"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/donate_paypal_desc" />
+                        android:background="@drawable/custom_edit_text1"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:padding="5dp" >
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" >
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="PAYPAL ADDRESS"
+                                android:maxLines="1"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="appsmatake@gmail.com"
+                                android:singleLine="true" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>

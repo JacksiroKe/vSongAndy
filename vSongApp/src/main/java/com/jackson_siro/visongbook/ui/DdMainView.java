@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -49,6 +50,7 @@ public class DdMainView extends AppCompatActivity implements TabLayout.OnTabSele
     private FloatingActionButton fabButton;
 
     private String mGender = "", mFullname = "";
+    private TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +80,7 @@ public class DdMainView extends AppCompatActivity implements TabLayout.OnTabSele
         HomeFragmentAdapter fragmentAdapter = new HomeFragmentAdapter(getSupportFragmentManager());
         viewPager.setAdapter(fragmentAdapter);
 
-        final TabLayout tabLayout = findViewById(R.id.main_tab_layout);
+        tabLayout = findViewById(R.id.main_tab_layout);
         tabLayout.setupWithViewPager(viewPager);
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
@@ -155,8 +157,16 @@ public class DdMainView extends AppCompatActivity implements TabLayout.OnTabSele
 
     }
 
-    public void openDrawer(View view) {
+    public void OpenDrawer(View view) {
         mDrawerLayout.openDrawer(GravityCompat.START);
+    }
+
+    public void ShowSearch(View view) {
+        tabLayout.getTabAt(0).select();
+    }
+
+    public void ShowCollection(View view) {
+        tabLayout.getTabAt(1).select();
     }
 
     public void checkDonation(){
@@ -164,25 +174,22 @@ public class DdMainView extends AppCompatActivity implements TabLayout.OnTabSele
             Long reminder_time = System.currentTimeMillis() - prefget.getLong("app_donation_reminder", 0);
             if (reminder_time > 18000) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("vSongBook Needs Your Support");
-                builder.setMessage("Hello " + mGender + mFullname + "! vSongBook is proudly non-profit, non-corporate and non-compromised. " +
-                        "A lot of users like you help us stand up for a free vSongBook for all. We now rely on donations to carry out our " +
-                        "mission to give everyone able to use our app the freedom to sing anywhere anytime. Any amount of money will be " +
-                        "highly appreciated by our team of developers. Will you give today?"
+                builder.setTitle("Your Support vSongBook!");
+                builder.setMessage("Hello " + mGender + mFullname + "! vSongBook is proudly non-profit, non-corporate and non-compromised. Would you like to know how you can support us Today?"
                 );
-                builder.setNegativeButton("Remind me Later", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton("Later", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
                         prefedit.putLong("app_donation_reminder", System.currentTimeMillis()).apply();
                     }
                 });
-                builder.setNeutralButton("Leave me out", new DialogInterface.OnClickListener() {
+                builder.setNeutralButton("Not Today", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
                         prefedit.putBoolean("app_user_donated", true).apply();
                     }
                 });
-                builder.setPositiveButton("Yes am in", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
                         startActivity(new Intent(DdMainView.this, FfDonate.class));
@@ -272,6 +279,28 @@ public class DdMainView extends AppCompatActivity implements TabLayout.OnTabSele
         startActivity(intent);
         //startActivity(new Intent(DdMainView.this, AppStart.class));
         finish();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(final Menu menu) {
+        getMenuInflater().inflate(R.menu.dd_main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+
+            case R.id.action_search:
+                tabLayout.getTabAt(0).select();
+                return true;
+
+            default:
+                return false;
+        }
     }
 
 }

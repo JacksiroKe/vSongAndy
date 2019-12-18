@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_wish"
+        android:id="@+id/action_favour"
         android:icon="@drawable/ic_favorite_border_black"
         android:title="@string/app_favorites"
         android:orderInCategory="100"

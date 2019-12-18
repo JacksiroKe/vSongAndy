@@ -24,7 +24,7 @@
     <!--Custom text-->
     <string name="failed_load">Failed Load Data</string>
     <string name="no_data_available">No Data Available</string>
-    <string name="no_data">Ooops, Post not found</string>
+    <string name="no_data">Oops, Post not found</string>
     <string name="finish_guide_posts">Finish Guide</string>
     <string name="next_guide_posts">Next</string>
     <item name="visible" type="id" />
@@ -337,5 +337,22 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dictum lorem 
     <string name="menu_reset">Reset Settings</string>
     <string name="title_activity_ff_settings_profile">User Profile</string>
     <string name="title_activity_dd_post_song">Write a New Song</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="title_activity_gg_tutorial">How It Works</string>
 
 </resources>

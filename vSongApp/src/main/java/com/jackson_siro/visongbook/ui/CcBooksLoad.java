@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -55,13 +56,14 @@ public class CcBooksLoad extends AppCompatActivity implements SelectableViewHold
 
         prefget = PreferenceManager.getDefaultSharedPreferences(this);
         prefedit = prefget.edit();
+
         swipeRefreshLayout = findViewById(R.id.swipe_refresh_layout);
+        recyclerView = findViewById(R.id.recycler_view);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        recyclerView = findViewById(R.id.slider_recycler_view);
         recyclerView.setLayoutManager(layoutManager);
 
-        fabdone = findViewById(R.id.fabdone);
+        fabdone = findViewById(R.id.fab_action);
         fabdone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
