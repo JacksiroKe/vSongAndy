@@ -25,6 +25,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
+import com.jackson_siro.visongbook.GgTutorial;
 import com.jackson_siro.visongbook.R;
 import com.jackson_siro.visongbook.adapters.HomeFragmentAdapter;
 import com.squareup.picasso.Picasso;
@@ -229,6 +230,10 @@ public class DdMainView extends AppCompatActivity implements TabLayout.OnTabSele
 
             case R.id.nav_donate:
                 startActivity(new Intent(DdMainView.this, FfDonate.class));
+                break;
+
+            case R.id.nav_tutorial:
+                startActivity(new Intent(DdMainView.this, GgTutorial.class));
                 break;
 
             case R.id.app_settings:

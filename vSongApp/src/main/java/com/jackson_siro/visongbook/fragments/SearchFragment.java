@@ -10,36 +10,24 @@ import android.text.Editable;
 import android.text.Html;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.arlib.floatingsearchview.FloatingSearchView;
-import com.arlib.floatingsearchview.suggestions.SearchSuggestionsAdapter;
-import com.arlib.floatingsearchview.suggestions.model.SearchSuggestion;
-import com.arlib.floatingsearchview.util.Util;
 import com.jackson_siro.visongbook.R;
 
 import com.jackson_siro.visongbook.adapters.ListsSongsAdapter;
 import com.jackson_siro.visongbook.data.SQLiteHelper;
-import com.jackson_siro.visongbook.data.SQLiteSearch;
 import com.jackson_siro.visongbook.models.PostModel;
 import com.jackson_siro.visongbook.MyApplication;
-import com.jackson_siro.visongbook.ui.GgTutorial;
+import com.jackson_siro.visongbook.GgTutorial;
 import com.jackson_siro.visongbook.ui.vSongBook;
-import com.jackson_siro.visongbook.models.SearchModel;
 
 import java.util.List;
 
@@ -91,7 +79,7 @@ public class SearchFragment extends Fragment {
         BtnLearnMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //startActivity(new Intent(getContext(), GgTutorial.class));
+                startActivity(new Intent(getContext(), GgTutorial.class));
             }
         });
 

@@ -13,8 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.jackson_siro.visongbook.R;
 import com.jackson_siro.visongbook.models.AppModel;
 import com.jackson_siro.visongbook.models.Callback.CallbackApp;
-import com.jackson_siro.visongbook.setting.CheckNetwork;
-import com.jackson_siro.visongbook.setting.CheckVersion;
 
 import retrofit2.Call;
 
@@ -65,24 +63,30 @@ public class AppStart extends AppCompatActivity {
     }
 
     public void checkSession() {
-        if (CheckNetwork.isConnectCheck(this)) CheckVersion.isOutdatedCheck(this);
-
-        if (!prefget.getBoolean("app_user_signedin", false)) {
+        if (!prefget.getBoolean("app_user_signedin", false))
+        {
             startActivity(new Intent(AppStart.this, BbUserSignin.class));
         }
         else {
-            if (!prefget.getBoolean("app_books_loaded", false)) startActivity(new Intent(AppStart.this, CcBooksLoad.class));
-            else if (prefget.getBoolean("app_books_reload", false)) startActivity(new Intent(AppStart.this, CcBooksLoad.class));
+            if (!prefget.getBoolean("app_books_loaded", false))
+                startActivity(new Intent(AppStart.this, CcBooksLoad.class));
+
+            else if (prefget.getBoolean("app_books_reload", false))
+                startActivity(new Intent(AppStart.this, CcBooksLoad.class));
+
             else if (prefget.getBoolean("app_books_loaded", false) && !prefget.getBoolean("app_songs_loaded", false))
                 startActivity(new Intent(AppStart.this, CcSongsLoad.class));
-            else startActivity(new Intent(AppStart.this, DdMainView.class));
+
+            else
+                startActivity(new Intent(AppStart.this, DdMainView.class));
         }
 
         finish();
     }
 
     public void setFirstUse() {
-        if (!prefget.getBoolean("app_first_use", false)) {
+        if (!prefget.getBoolean("app_first_use", false))
+        {
             prefedit.putBoolean("app_first_use", true).apply();
             prefedit.putBoolean("app_user_signedin", false).apply();
             prefedit.putBoolean("app_user_donated", false).apply();

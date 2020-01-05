@@ -25,6 +25,10 @@
             android:id="@+id/nav_donate"
             android:icon="@drawable/appicon"
             android:title="@string/app_donate" />
+        <item
+            android:id="@+id/nav_tutorial"
+            android:icon="@drawable/appicon"
+            android:title="@string/title_gg_tutorial" />
     </group>
     <group
         android:id="@+id/group3"

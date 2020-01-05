@@ -96,10 +96,6 @@
     <string name="about_app">About App</string>
     <string name="rating_text">If you like this app, please dont forget for rate my app on play store. Thanks</string>
     <string name="you_must_Signin">You Must Signin Earlier For Comment</string>
-    <string name="title_activity_bottom_navigation">BottomNavigation</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
 
     <string name="micsearch">MicSearch</string>
 
@@ -353,6 +349,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dictum lorem 
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
-    <string name="title_activity_gg_tutorial">How It Works</string>
+    <string name="title_gg_tutorial">How It Works</string>
+    <string name="title_gg_helpdesk">vSongBook Helpdesk</string>
+    <string name="title_activity_gg_tutorial">GgTutorial</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 
 </resources>
