@@ -3,7 +3,10 @@ package com.jackson_siro.visongbook.fragments;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
+
+import androidx.appcompat.widget.SearchView;
 import androidx.preference.PreferenceManager;
 
 import android.text.Editable;
@@ -13,7 +16,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -26,8 +28,7 @@ import com.jackson_siro.visongbook.adapters.ListsSongsAdapter;
 import com.jackson_siro.visongbook.data.SQLiteHelper;
 import com.jackson_siro.visongbook.models.PostModel;
 import com.jackson_siro.visongbook.MyApplication;
-import com.jackson_siro.visongbook.GgTutorial;
-import com.jackson_siro.visongbook.ui.vSongBook;
+import com.jackson_siro.visongbook.ui.*;
 
 import java.util.List;
 
@@ -46,7 +47,7 @@ public class SearchFragment extends Fragment {
 
     public static final long FIND_SUGGESTION_SIMULATED_DELAY = 250;
 
-    private EditText mSearchView;
+    private SearchView mSearchView;
     private List<PostModel> resultList;
     private LinearLayout noResultView;
     private Button BtnLearnMore;
@@ -83,7 +84,7 @@ public class SearchFragment extends Fragment {
             }
         });
 
-        mSearchView.addTextChangedListener(new TextWatcher() {
+        /*mSearchView.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -124,10 +125,36 @@ public class SearchFragment extends Fragment {
             public void afterTextChanged(Editable s) {
 
             }
+        });*/
+
+        mSearchView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mSearchView.onActionViewExpanded();
+            }
         });
 
-        recyclerView.setVisibility(View.GONE);
-        noResultView.setVisibility(View.VISIBLE);
+        mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                if (newText.length() > 1)
+                {
+                    recyclerView.setVisibility(View.VISIBLE);
+                    noResultView.setVisibility(View.GONE);
+
+                    new SearchList().execute(newText);
+                }
+                return false;
+            }
+        });
+
+        recyclerView.setVisibility(View.VISIBLE);
+        noResultView.setVisibility(View.GONE);
         return searchView;
     }
 
@@ -135,4 +162,43 @@ public class SearchFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
     }
+
+    private class SearchList extends AsyncTask<String, String, List<PostModel>> {
+
+        private List<PostModel> searchResult;
+
+
+        @Override
+        protected List<PostModel> doInBackground(String... params) {
+            searchResult = db.searchForSongs(params[0]);
+            return searchResult;
+        }
+
+        @Override
+        protected void onPostExecute(List<PostModel> searchResult) {
+            listAdapter = new ListsSongsAdapter(searchResult, getContext());
+            recyclerView.setAdapter(listAdapter);
+            recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
+
+            listAdapter.setOnItemClickListener(new ListsSongsAdapter.OnItemClickListener() {
+                @Override
+                public void onItemClick(View view, PostModel postModel) {
+                    vSongBook.passingIntent(getActivity(), postModel.songid.toString(), "ViewSong");
+                }
+            });
+        }
+
+
+        @Override
+        protected void onPreExecute() {
+
+        }
+
+
+        @Override
+        protected void onProgressUpdate(String... text) {
+
+        }
+    }
+
 }

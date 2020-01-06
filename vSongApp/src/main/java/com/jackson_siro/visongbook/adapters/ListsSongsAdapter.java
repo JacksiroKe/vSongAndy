@@ -168,26 +168,6 @@ public class ListsSongsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         }
     }
 
-    private void lastPostsView(RecyclerView recyclerView){
-        if (recyclerView.getLayoutManager() instanceof LinearLayoutManager){
-            final LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
-            recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-                @Override
-                public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                    super.onScrolled(recyclerView, dx, dy);
-                    int lastPosts = layoutManager.findLastVisibleItemPosition();
-                    if (!loading && lastPosts == getItemCount() - 1 && onLoadMoreListener != null){
-                        if (onLoadMoreListener != null){
-                            int get = getItemCount() / BaseUrlConfig.RequestLoadMore;
-                            onLoadMoreListener.onLoadMore(get);
-                        }
-                        loading = true;
-                    }
-                }
-            });
-        }
-    }
-
     public interface OnLoadMoreListener{
         void onLoadMore(int page);
     }

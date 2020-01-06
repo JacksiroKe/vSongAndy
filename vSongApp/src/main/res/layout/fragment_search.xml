@@ -54,18 +54,19 @@
                 android:background="@drawable/custom_button1"
                 android:text="@string/no_result_button"
                 android:textColor="@color/white_color" />
+
         </LinearLayout>
 
-        <EditText
+        <androidx.appcompat.widget.SearchView
             android:id="@+id/input_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/main_title"
-            android:background="@drawable/custom_edit_text1"
             android:maxLines="1"
-            android:textSize="30sp"
-            android:padding="10dp"
-            android:singleLine="true" />
+            android:padding="3dp"
+            android:singleLine="true"
+            android:textSize="25sp"
+            app:queryHint="@string/main_title"
+            android:background="@drawable/custom_edit_text1" />
 
     </FrameLayout>
 

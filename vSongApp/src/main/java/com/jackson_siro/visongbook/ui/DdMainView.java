@@ -25,7 +25,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
-import com.jackson_siro.visongbook.GgTutorial;
 import com.jackson_siro.visongbook.R;
 import com.jackson_siro.visongbook.adapters.HomeFragmentAdapter;
 import com.squareup.picasso.Picasso;

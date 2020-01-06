@@ -20,9 +20,10 @@
         android:supportsRtl="true"
         android:theme="@style/MyMaterialTheme">
         <activity
-            android:name=".GgTutorial"
-            android:label="@string/title_activity_gg_tutorial"
-            android:parentActivityName=".ui.DdMainView">
+            android:name=".ui.GgTutorial"
+            android:label="@string/title_gg_tutorial"
+            android:parentActivityName=".ui.DdMainView"
+            android:theme="@style/MyMaterialTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jackson_siro.visongbook.ui.DdMainView" />
@@ -37,7 +38,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jackson_siro.visongbook.ui.DdMainView" />
         </activity>
-        
         <activity
             android:name=".ui.DdPostSong"
             android:label="@string/title_activity_dd_post_song"
