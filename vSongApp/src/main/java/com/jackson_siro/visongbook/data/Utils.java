@@ -28,33 +28,16 @@ public class Utils {
 
     public static final String SONGID = "songid";
     public static final String POSTID = "postid";
-    public static final String TYPE = "type";
     public static final String BASETYPE = "basetype";
-    public static final String HIDDEN = "hidden";
-    public static final String QUEUED = "queued";
     public static final String ACOUNT = "acount";
-    public static final String SELCHILDID = "selchildid";
-    public static final String CLOSEDBYID = "closedbyid";
-    public static final String UPTHUMBS = "upthumbs";
-    public static final String DOWNTHUMBS = "downthumbs";
+    public static final String ISFAV = "isfav";
     public static final String NETTHUMBS = "netthumbs";
     public static final String VIEWS = "views";
-    public static final String HOTNESS = "hotness";
-    public static final String FLAGCOUNT = "flagcount";
     public static final String CREATED = "created";
-    public static final String NAME = "name";
-    public static final String CATEGORYNAME = "categoryname";
-    public static final String CATEGORYBACKPATH = "categorybackpath";
-    public static final String CATEGORYIDS = "categoryids";
-    public static final String USERTHUMB = "userthumb";
-    public static final String USERFLAG = "userflag";
-    public static final String USERFAVORITEQ = "userfavoriteq";
+    public static final String UPDATED = "updated";
     public static final String USERID = "userid";
-    public static final String COOKIEID = "cookieid";
-    public static final String CREATEIP = "createip";
     public static final String POINTS = "points";
     public static final String FLAGS = "flags";
-    public static final String LEVEL = "level";
     public static final String EMAIL = "email";
     public static final String HANDLE = "handle";
     public static final String AVATARBLOBID = "avatarblobid";
@@ -87,11 +70,13 @@ public class Utils {
                     + TAGS + " TEXT, "
                     + CONTENT + " TEXT, "
                     + CREATED + " TEXT, "
+                    + UPDATED + " TEXT, "
                     + WHAT + " TEXT, "
                     + WHEN + " TEXT, "
                     + WHERE + " TEXT, "
                     + WHO + " TEXT, "
                     + NETTHUMBS + " INTEGER, "
+                    + ISFAV + " INTEGER, "
                     + VIEWS + " INTEGER, "
                     + ACOUNT + " INTEGER, "
                     + USERID + " INTEGER);";
@@ -108,5 +93,13 @@ public class Utils {
                     + AVATARWIDTH + " INTEGER, "
                     + AVATARHEIGHT + " INTEGER);";
 
+    public static final String SONG_SELECT_SQL =
+            "SELECT " + SONGID + ", " + TBL_SONGS + "." + BOOKID + ", " + NUMBER + ", " + ALIAS + ", " + TBL_SONGS + "." + TITLE + ", "
+                    + TBL_SONGS + "." + TAGS + ", " + TBL_SONGS + "." + CONTENT + ", " + TBL_BOOKS + "." + TITLE + ", " + ISFAV + ", "
+                    + CREATED + ", " + UPDATED + " FROM " + TBL_SONGS
+                    + " INNER JOIN " + TBL_BOOKS + " ON " + TBL_BOOKS + "." + CATEGORYID + "=" + TBL_SONGS + "." + CATEGORYID;
 
+    public static final String NOTE_SELECT_SQL =
+            "SELECT " + SONGID + ", " + BOOKID + ", " + NUMBER + ", " + ALIAS + ", " + TITLE + ", " + TAGS + ", " + CONTENT + ", "
+                    + ISFAV + ", " + CREATED + ", " + UPDATED + " FROM " + TBL_SONGS;
 }

@@ -9,18 +9,17 @@
     tools:openDrawer="start">
 
     <include
-        layout="@layout/app_bar_main"
+        layout="@layout/dd_home_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
-        android:layout_width="320dp"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        android:theme="@style/NavigationView"
-        app:headerLayout="@layout/nav_header_mains"
-        app:menu="@menu/menu_nav_drawer" />
+        app:headerLayout="@layout/dd_main_nav_header"
+        app:menu="@menu/dd_main_view" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

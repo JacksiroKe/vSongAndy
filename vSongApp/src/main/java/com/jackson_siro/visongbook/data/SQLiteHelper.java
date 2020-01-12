@@ -3,19 +3,14 @@ package com.jackson_siro.visongbook.data;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.DatabaseUtils;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -41,12 +36,16 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+    public void onUpgrade(SQLiteDatabase SQLiteDB, int i, int i1) {
+        SQLiteDB.execSQL("DROP TABLE IF EXISTS " + Utils.TBL_BOOKS);
+        SQLiteDB.execSQL("DROP TABLE IF EXISTS " + Utils.TBL_SONGS);
+        SQLiteDB.execSQL("DROP TABLE IF EXISTS " + Utils.TBL_USERS);
+        onCreate(SQLiteDB);
+    }
 
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Utils.TBL_BOOKS);
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Utils.TBL_SONGS);
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Utils.TBL_USERS);
-        onCreate(sqLiteDatabase);
+    public int isIntNull(String myint)
+    {
+        return myint.isEmpty() ? Integer.parseInt(myint) : 0;
     }
 
     public void addBook(CategoryModel book){
@@ -83,6 +82,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         values.put(Utils.TAGS, song.tags);
         values.put(Utils.CONTENT, song.content);
         values.put(Utils.CREATED, song.created);
+        values.put(Utils.UPDATED, song.updated);
         values.put(Utils.WHAT, song.what);
         values.put(Utils.WHEN, song.what);
         values.put(Utils.WHERE, song.what);
@@ -91,6 +91,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         values.put(Utils.VIEWS, song.views);
         values.put(Utils.ACOUNT, song.acount);
         values.put(Utils.USERID, song.userid);
+        values.put(Utils.ISFAV, song.isfav);
 
         try{
             db.insert(Utils.TBL_SONGS, null, values);
@@ -124,15 +125,15 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         return SongBooks;
     }
 
-    public List<SearchModel> searchSongs(String searchthis){
+    public List<SearchModel> searchSongs(String searchThis){
         List<SearchModel> SearchLists = new ArrayList<SearchModel>();
         String whereQuery = "";
 
-        if (searchthis.length() > 1) {
-            if (TextUtils.isDigitsOnly(searchthis))
-                whereQuery = " WHERE " + Utils.NUMBER + "=" + searchthis;
+        if (searchThis.length() > 1) {
+            if (TextUtils.isDigitsOnly(searchThis))
+                whereQuery = " WHERE " + Utils.NUMBER + "=" + searchThis;
             else
-                whereQuery = " WHERE " + Utils.TITLE + " LIKE '%" + searchthis + "%' OR " + Utils.CONTENT + " LIKE '%" + searchthis + "%'";
+                whereQuery = " WHERE " + Utils.TITLE + " LIKE '%" + searchThis + "%' OR " + Utils.CONTENT + " LIKE '%" + searchThis + "%'";
         }
 
         String fullQuery = "SELECT  * FROM " + Utils.TBL_SONGS + whereQuery + " ORDER BY " + Utils.NUMBER + " LIMIT 30";
@@ -155,70 +156,181 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         String whereQuery = "";
 
         if (searchthis.length() > 1) {
-            if (TextUtils.isDigitsOnly(searchthis)) whereQuery = " WHERE as_songs." + Utils.NUMBER + "=" + searchthis;
+            if (TextUtils.isDigitsOnly(searchthis)) 
+                whereQuery = " WHERE " + Utils.TBL_SONGS + "." + Utils.NUMBER + "=" + searchthis;
             else
-                whereQuery = " WHERE as_songs." + Utils.TITLE + " LIKE '%" + searchthis +
-                        "%' OR as_songs." + Utils.CONTENT + " LIKE '%" + searchthis + "%'";
+                whereQuery = " WHERE " + Utils.TBL_SONGS + "." + Utils.TITLE + " LIKE '%" + searchthis +
+                        "%' OR " + Utils.TBL_SONGS + "." + Utils.CONTENT + " LIKE '%" + searchthis + "%'";
         }
 
-        String fullQuery = "SELECT songid, as_songs.bookid, number, alias, as_songs.title, as_songs.tags, as_songs.content, as_books.title " +
-                "FROM " + Utils.TBL_SONGS + " INNER JOIN as_books ON as_books.categoryid = as_songs.categoryid" +
-                whereQuery + " ORDER BY as_songs." + Utils.NUMBER;
+        String fullQuery = Utils.SONG_SELECT_SQL + whereQuery + " ORDER BY " + Utils.TBL_SONGS + "." + Utils.NUMBER;
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(fullQuery, null);
         PostModel song;
-        if (cursor.moveToFirst()) {
-            do {
-                song = new PostModel();
-                song.songid = Integer.parseInt(cursor.getString(0));
-                song.bookid = cursor.getInt(1);
-                song.number = cursor.getInt(2);
-                song.alias = cursor.getString(3);
-                song.title = cursor.getString(4);
-                song.tags = cursor.getString(5);
-                song.content = cursor.getString(6);
-                song.categoryname = cursor.getString(7);
+        try {
+            if (cursor.moveToFirst()) {
+                do {
+                    song = new PostModel();
+                    song.songid = Integer.parseInt(cursor.getString(0));
+                    song.bookid = cursor.getInt(1);
+                    song.number = cursor.getInt(2);
+                    song.alias = cursor.getString(3);
+                    song.title = cursor.getString(4);
+                    song.tags = cursor.getString(5);
+                    song.content = cursor.getString(6);
+                    song.categoryname = cursor.getString(7);
+                    song.isfav = isIntNull(cursor.getString(8) + "");
+                    song.created = cursor.getString(9);
+                    song.updated = cursor.getString(10);
 
-                SongsList.add(song);
-            } while (cursor.moveToNext());
+                    SongsList.add(song);
+                } while (cursor.moveToNext());
+            }
         }
+        catch (Exception ex) { CheckDatabase(); }
         return SongsList;
+    }
+
+    public void CheckDatabase()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        try { db.execSQL("ALTER TABLE " + Utils.TBL_SONGS + " ADD " + Utils.ISFAV + " INTEGER;"); }
+        catch (Exception ex) {}
+
+        try { db.execSQL("ALTER TABLE " + Utils.TBL_SONGS + " ADD " + Utils.UPDATED + " TEXT;"); }
+        catch (Exception ex) {}
+        db.close();
     }
 
     public List<PostModel> getSongList(int songbook) {
         List<PostModel> SongsList = new LinkedList<PostModel>();
-        String whereQuery = (songbook == 0) ? "" : " WHERE as_songs." + Utils.CATEGORYID + "=" + songbook;
-        String fullQuery = "SELECT songid, as_songs.bookid, number, alias, as_songs.title, as_songs.tags, as_songs.content, as_books.title " +
-                "FROM " + Utils.TBL_SONGS +
-                " INNER JOIN as_books ON as_books.categoryid = as_songs.categoryid" +
-                whereQuery + " ORDER BY as_songs." + Utils.NUMBER;
+        String whereQuery = (songbook == 0) ? "" : " WHERE " + Utils.TBL_SONGS + "." + Utils.CATEGORYID + "=" + songbook;
+
+        String fullQuery = Utils.SONG_SELECT_SQL + whereQuery + " ORDER BY " + Utils.TBL_SONGS + "." + Utils.NUMBER;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        try {
+            Cursor cursor = db.rawQuery(fullQuery, null);
+            PostModel song;
+            if (cursor.moveToFirst()) {
+                do {
+                    song = new PostModel();
+                    song.songid = Integer.parseInt(cursor.getString(0));
+                    song.bookid = cursor.getInt(1);
+                    song.number = cursor.getInt(2);
+                    song.alias = cursor.getString(3);
+                    song.title = cursor.getString(4);
+                    song.tags = cursor.getString(5);
+                    song.content = cursor.getString(6);
+                    song.categoryname = cursor.getString(7);
+                    song.isfav = isIntNull(cursor.getString(8) + "");
+                    song.created = cursor.getString(9);
+                    song.updated = cursor.getString(10);
+
+                    SongsList.add(song);
+                } while (cursor.moveToNext());
+            }
+        }
+        catch (Exception ex) { CheckDatabase(); }
+        return SongsList;
+    }
+
+    public String GetDate()
+    {
+        long msTime = System.currentTimeMillis();
+        Date curDateTime = new Date(msTime);
+
+        SimpleDateFormat formatter = new SimpleDateFormat("dd'/'MM'/'yyyy");
+        return formatter.format(curDateTime);
+    }
+
+    public List<PostModel> GetFavourites(String searchthis) {
+        List<PostModel> SongsList = new LinkedList<PostModel>();
+        String whereQry = Utils.TBL_SONGS + "." + Utils.ISFAV + "='1'";
+        String whereQuery = " WHERE " + whereQry;
+
+        if (searchthis.length() > 1) {
+            if (TextUtils.isDigitsOnly(searchthis))
+                whereQuery = whereQuery + " AND " + Utils.TBL_SONGS + "." + Utils.NUMBER + "=" + searchthis;
+            else
+                whereQuery = whereQuery + " AND " + Utils.TBL_SONGS + "." + Utils.TITLE + " LIKE '%" + searchthis +
+                        "%' OR " + whereQry + " AND " + Utils.TBL_SONGS + "." + Utils.CONTENT + " LIKE '%" + searchthis + "%'";
+        }
+
+        String fullQuery = Utils.SONG_SELECT_SQL + whereQuery + " ORDER BY " + Utils.TBL_SONGS + "." + Utils.UPDATED + " ASC";
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(fullQuery, null);
         PostModel song;
-        if (cursor.moveToFirst()) {
-            do {
-                song = new PostModel();
-                song.songid = Integer.parseInt(cursor.getString(0));
-                song.bookid = cursor.getInt(1);
-                song.number = cursor.getInt(2);
-                song.alias = cursor.getString(3);
-                song.title = cursor.getString(4);
-                song.tags = cursor.getString(5);
-                song.content = cursor.getString(6);
-                song.categoryname = cursor.getString(7);
+        try {
+            if (cursor.moveToFirst()) {
+                do {
+                    song = new PostModel();
+                    song.songid = Integer.parseInt(cursor.getString(0));
+                    song.bookid = cursor.getInt(1);
+                    song.number = cursor.getInt(2);
+                    song.alias = cursor.getString(3);
+                    song.title = cursor.getString(4);
+                    song.tags = cursor.getString(5);
+                    song.content = cursor.getString(6);
+                    song.categoryname = cursor.getString(7);
+                    song.isfav = isIntNull(cursor.getString(8) + "");
+                    song.created = cursor.getString(9);
+                    song.updated = cursor.getString(10);
 
-                SongsList.add(song);
-            } while (cursor.moveToNext());
+                    SongsList.add(song);
+                } while (cursor.moveToNext());
+            }
         }
+        catch (Exception ex) { CheckDatabase(); }
+        return SongsList;
+    }
+
+    public List<PostModel> GetNotes(String searchthis) {
+        List<PostModel> SongsList = new LinkedList<PostModel>();
+        String whereQry = Utils.BOOKID + "='0'";
+        String whereQuery = " WHERE " + whereQry;
+
+        if (searchthis.length() > 1) {
+            if (TextUtils.isDigitsOnly(searchthis))
+                whereQuery = whereQuery + " AND " + Utils.NUMBER + "=" + searchthis;
+            else
+                whereQuery = whereQuery + " AND " + Utils.TITLE + " LIKE '%" + searchthis +
+                        "%' OR " + whereQry + " AND " + Utils.CONTENT + " LIKE '%" + searchthis + "%'";
+        }
+
+        String fullQuery = Utils.NOTE_SELECT_SQL + whereQuery + " ORDER BY " + Utils.CREATED;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(fullQuery, null);
+        PostModel song;
+        try {
+            if (cursor.moveToFirst()) {
+                do {
+                    song = new PostModel();
+                    song.songid = Integer.parseInt(cursor.getString(0));
+                    song.bookid = cursor.getInt(1);
+                    song.number = cursor.getInt(2);
+                    song.alias = cursor.getString(3);
+                    song.title = cursor.getString(4);
+                    song.tags = cursor.getString(5);
+                    song.content = cursor.getString(6);
+                    song.isfav = isIntNull(cursor.getString(7) + "");
+                    song.created = cursor.getString(8);
+                    song.updated = cursor.getString(9);
+
+                    SongsList.add(song);
+                } while (cursor.moveToNext());
+            }
+        }
+        catch (Exception ex) { CheckDatabase(); }
         return SongsList;
     }
 
     public PostModel viewSong(int songid) {
-        String query = "SELECT songid, as_songs.bookid, number, alias, as_songs.title, as_songs.tags, as_songs.content, as_books.title " +
-                "FROM " + Utils.TBL_SONGS +
-                " INNER JOIN as_books ON as_books.categoryid = as_songs.categoryid WHERE " + Utils.SONGID + "=" + songid;
+        String query = Utils.SONG_SELECT_SQL + " WHERE " + Utils.SONGID + "=" + songid;
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
 
@@ -233,88 +345,29 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         song.tags = cursor.getString(5);
         song.content = cursor.getString(6);
         song.categoryname = cursor.getString(7);
+        song.isfav = isIntNull(cursor.getString(8) + "");
+        song.created = cursor.getString(9);
+        song.updated = cursor.getString(10);
 
         return song;
     }
 
-    public String getBookName(int bookid) {
-        String query = "SELECT " + Utils.TITLE + " FROM " + Utils.TBL_BOOKS + " WHERE " + Utils.BOOKID + "=" + bookid;
+    public void FavouriteX(int songid, int favor) {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(query, null);
-        if (cursor != null) cursor.moveToFirst();
-        return cursor.getString(0);
+        db.execSQL("UPDATE " + Utils.TBL_SONGS + " SET " + Utils.ISFAV + "=" + favor + " WHERE " + Utils.SONGID + "=" + songid + ";");
+                //+ Utils.UPDATED + "=" + GetDate() + " WHERE " + Utils.SONGID + "=" + songid + ";");
+        //UPDATE `as_businesses` SET `username` = 'diamondco', `icon` = 'businex.jpg' WHERE `as_businesses`.`businessid` = 2;
     }
 
-    public ArrayList<ArrayList<Object>> getSongsAll(){
-        ArrayList<ArrayList<Object>> dataArray = new ArrayList<ArrayList<Object>>();
-        db = this.getReadableDatabase();
-        try{
-            Cursor cursor = db.query(
-                    Utils.TBL_SONGS, new String[]{Utils.SONGID, Utils.POSTID, Utils.BOOKID, Utils.CATEGORYID, Utils.BASETYPE,
-                            Utils.TITLE, Utils.TAGS, Utils.CONTENT, Utils.CREATED, Utils.WHAT, Utils.WHEN,
-                            Utils.WHERE, Utils.NETTHUMBS, Utils.VIEWS, Utils.ACOUNT, Utils.USERID }
-                    , null, null, null, null, Utils.SONGID + " ASC"
-            );
-           
-            if (cursor.moveToFirst()){
-                do {
-                    ArrayList<Object> dataList = new ArrayList<Object>();
-                    dataList.add(cursor.getLong(0));
-					dataList.add(cursor.getString(1));
-					dataList.add(cursor.getString(2));
-					dataList.add(cursor.getString(3));
-					dataList.add(cursor.getString(4));
-					dataList.add(cursor.getString(5));
-					dataList.add(cursor.getString(6));
-					dataList.add(cursor.getString(7));
-					dataList.add(cursor.getString(8));
-					dataList.add(cursor.getString(9));
-					dataList.add(cursor.getString(10));
-					dataList.add(cursor.getString(11));
-					dataList.add(cursor.getString(12));
-					dataList.add(cursor.getString(13));
-					dataList.add(cursor.getString(14));
-					dataList.add(cursor.getString(15));
-					dataList.add(cursor.getString(16));
-                    dataArray.add(dataList);
-                }while (cursor.moveToNext());
-            }
+    public int Favourite(PostModel song) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
 
-            cursor.close();
-        }catch (SQLiteException ex){
-            ex.printStackTrace();
-        }
+        values.put(Utils.ISFAV, song.isfav);
 
-        return dataArray;
-    }
-
-    public ArrayList<ArrayList<Object>> getAllDataOne(int id){
-        ArrayList<ArrayList<Object>> dataArray = new ArrayList<ArrayList<Object>>();
-        db = this.getReadableDatabase();
-
-        try{
-            Cursor cursor = db.query(
-                    Utils.TBL_SONGS, new String[]{Utils.POSTID, Utils.TITLE, Utils.CATEGORYID}
-                    , Utils.POSTID+"=?"+id, null, null, null, Utils.POSTID + " ASC"
-            );
-
-            if (cursor.moveToFirst()){
-                do {
-                    ArrayList<Object> dataList = new ArrayList<Object>();
-                    dataList.add(cursor.getLong(0));
-                    dataList.add(cursor.getString(1));
-                    dataList.add(cursor.getString(2));
-
-                    dataArray.add(dataList);
-                }while (cursor.moveToNext());
-            }
-
-            cursor.close();
-        }catch (SQLiteException ex){
-            ex.printStackTrace();
-        }
-
-        return dataArray;
+        int i = db.update(Utils.TBL_SONGS, values, Utils.SONGID + " = ?", new String[] { String.valueOf(song.songid) });
+        db.close();
+        return i;
     }
 
     public boolean isDataExist(long id){
@@ -323,8 +376,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
         try{
             Cursor cursor = db.query(Utils.TBL_SONGS, new String[]
-                    {Utils.POSTID}, Utils.POSTID +"="+id
-            ,null, null, null, null, null);
+                    {Utils.POSTID}, Utils.POSTID +"="+id, null, null, null, null, null);
             if (cursor.getCount() > 0){
                 existDatabase = true;
             }
@@ -335,22 +387,6 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         }
 
         return existDatabase;
-    }
-
-    public boolean isPreviousDataExist(){
-        boolean exist = false;
-        try{
-            Cursor cursor = db.query(Utils.TBL_SONGS,
-                    new String[]{Utils.POSTID}, null, null, null, null, null);
-
-            if (cursor.getCount() > 0){
-                exist = true;
-            }
-        }catch (SQLException ex){
-            ex.printStackTrace();
-        }
-
-        return exist;
     }
 
     public void deleteData(long id){
@@ -373,10 +409,4 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    public long getUpdateCountWish(){
-        db = this.getReadableDatabase();
-        long count = DatabaseUtils.queryNumEntries(db, Utils.TBL_SONGS);
-        db.close();
-        return count;
-    }
 }

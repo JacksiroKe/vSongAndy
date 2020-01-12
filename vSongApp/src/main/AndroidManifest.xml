@@ -19,33 +19,44 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/MyMaterialTheme">
+
         <activity
-            android:name=".ui.GgTutorial"
-            android:label="@string/title_gg_tutorial"
-            android:parentActivityName=".ui.DdMainView"
+            android:name=".ui.EeBooksView"
+            android:label="@string/songs_per_books"
+            android:parentActivityName=".ui.DdHomeView"
             android:theme="@style/MyMaterialTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jackson_siro.visongbook.ui.DdMainView" />
+                android:value="com.jackson_siro.visongbook.ui.DdHomeView" />
+        </activity>
+
+        <activity
+            android:name=".ui.GgTutorial"
+            android:label="@string/title_gg_tutorial"
+            android:parentActivityName=".ui.DdHomeView"
+            android:theme="@style/MyMaterialTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jackson_siro.visongbook.ui.DdHomeView" />
         </activity>
 
         <activity
             android:name=".ui.GgHelpdesk"
             android:label="@string/title_gg_helpdesk"
-            android:parentActivityName=".ui.DdMainView"
+            android:parentActivityName=".ui.DdHomeView"
             android:theme="@style/MyMaterialTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jackson_siro.visongbook.ui.DdMainView" />
+                android:value="com.jackson_siro.visongbook.ui.DdHomeView" />
         </activity>
         <activity
-            android:name=".ui.DdPostSong"
+            android:name=".ui.DdPostNow"
             android:label="@string/title_activity_dd_post_song"
-            android:parentActivityName=".ui.DdMainView"
+            android:parentActivityName=".ui.DdHomeView"
             android:theme="@style/MyMaterialTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jackson_siro.visongbook.ui.DdMainView" />
+                android:value="com.jackson_siro.visongbook.ui.DdHomeView" />
         </activity>
         <activity
             android:name=".ui.AppStart"
@@ -60,40 +71,35 @@
         <activity
             android:name=".ui.EePostView"
             android:label="@string/post_view"
-            android:parentActivityName=".ui.DdMainView"
+            android:parentActivityName=".ui.DdHomeView"
             android:theme="@style/MyMaterialTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jackson_siro.visongbook.ui.DdMainView" />
+                android:value="com.jackson_siro.visongbook.ui.DdHomeView" />
+        </activity>
+        <activity
+            android:name=".ui.FfSettingx"
+            android:label="@string/title_activity_ff_settings"
+            android:parentActivityName=".ui.DdHomeView"
+            android:theme="@style/MyMaterialTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jackson_siro.visongbook.ui.DdHomeView" />
         </activity>
         <activity
             android:name=".ui.FfSettingsProfile"
             android:label="@string/title_activity_ff_settings_profile"
-            android:parentActivityName=".ui.FfSettings">
+            android:parentActivityName=".ui.FfSettingx">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jackson_siro.visongbook.ui.FfSettings" />
+                android:value="com.jackson_siro.visongbook.ui.FfSettingx" />
         </activity>
-        <activity
-            android:name=".ui.FfSettings"
-            android:label="@string/title_activity_ff_settings"
-            android:parentActivityName=".ui.DdMainView"
-            android:theme="@style/MyMaterialTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jackson_siro.visongbook.ui.DdMainView" />
-        </activity>
-        <activity android:name=".ui.CcSongsLoadX" />
         <activity
             android:name=".ui.CcBooksLoad"
             android:label="@string/title_activity_bb_books_load"
             android:theme="@style/MyMaterialTheme.NoActionBar" />
         <activity
             android:name=".ui.CcSongsLoad"
-            android:theme="@style/MyMaterialTheme.NoActionBar" />
-        <activity
-            android:name=".ui.PostNow"
-            android:label="@string/title_activity_basic"
             android:theme="@style/MyMaterialTheme.NoActionBar" />
         <activity
             android:name=".ui.BbUserSignin"
@@ -107,7 +113,7 @@
             android:noHistory="true"
             android:theme="@style/MyMaterialTheme.NoActionBar" />
         <activity
-            android:name=".ui.DdMainView"
+            android:name=".ui.DdHomeView"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -120,40 +126,29 @@
                 android:resource="@xml/searchable" />
         </activity>
         <activity
-            android:name=".ui.EePostSlider"
-            android:label="@string/post_view"
-            android:parentActivityName=".ui.DdMainView"
-            android:theme="@style/MyMaterialTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jackson_siro.visongbook.ui.DdMainView" />
-        </activity>
-        <activity
             android:name=".ui.GgAboutapp"
-            android:parentActivityName=".ui.DdMainView"
+            android:parentActivityName=".ui.DdHomeView"
             android:theme="@style/MyMaterialTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jackson_siro.visongbook.ui.DdMainView" />
+                android:value="com.jackson_siro.visongbook.ui.DdHomeView" />
         </activity>
         <activity
             android:name=".ui.FfDonate"
-            android:parentActivityName=".ui.DdMainView"
+            android:parentActivityName=".ui.DdHomeView"
             android:theme="@style/MyMaterialTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jackson_siro.visongbook.ui.DdMainView" />
+                android:value="com.jackson_siro.visongbook.ui.DdHomeView" />
         </activity>
         <activity
             android:name=".ui.FfUpdates"
-            android:parentActivityName=".ui.DdMainView"
+            android:parentActivityName=".ui.DdHomeView"
             android:theme="@style/MyMaterialTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jackson_siro.visongbook.ui.DdMainView" />
+                android:value="com.jackson_siro.visongbook.ui.DdHomeView" />
         </activity>
-        <activity android:name=".ui.Favorited" />
-        <activity android:name=".ui.Feedback" />
     </application>
 
 </manifest>

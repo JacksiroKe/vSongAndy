@@ -30,7 +30,7 @@ import retrofit2.Response;
 
 public class CcSongsLoad extends AppCompatActivity {
     private Call<CallbackPostsLists> callbackSongsCall;
-    private SQLiteHelper SQLiteHelper = new SQLiteHelper(this);
+    private SQLiteHelper sqlDB = new SQLiteHelper(this);
 
     private SharedPreferences prefget;
     private SharedPreferences.Editor prefedit;
@@ -145,7 +145,8 @@ public class CcSongsLoad extends AppCompatActivity {
                 song.views = songs.get(count).views;
                 song.acount = songs.get(count).acount;
                 song.userid = songs.get(count).userid;
-                SQLiteHelper.addSong(song);
+                song.isfav = 0;
+                sqlDB.addSong(song);
                 Log.d("MyAdapter", song.title + " added");
             }
             return "Task Completed.";
@@ -172,7 +173,7 @@ public class CcSongsLoad extends AppCompatActivity {
     }
 
     public void finishLoading(){
-        startActivity(new Intent(CcSongsLoad.this, DdMainView.class));
+        startActivity(new Intent(CcSongsLoad.this, DdHomeView.class));
         finish();
     }
 }

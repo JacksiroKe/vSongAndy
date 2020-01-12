@@ -25,22 +25,6 @@
             app:title="@string/presentation_title"
             app:useSimpleSummaryProvider="true" />
 
-        <SwitchPreferenceCompat
-            app:key="app_song_screenon"
-            app:title="@string/keep_screenon"
-            app:summary="@string/keep_screenon_desc" />-->
-
-        <ListPreference
-            android:defaultValue="unlimited"
-            app:dependency="app_song_screenon"
-            app:key="app_song_screenon_time"
-            app:dialogTitle="@string/choose_time"
-            app:entries="@array/screenon_entries"
-            app:entryValues="@array/screenon_values"
-            app:title="@string/keep_screenon_time"
-            app:summary="@string/keep_screenon_time_desc"
-            app:useSimpleSummaryProvider="true" />
-
     </PreferenceCategory>
 
     <PreferenceCategory

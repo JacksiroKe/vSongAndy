@@ -27,6 +27,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.jackson_siro.visongbook.adapters.StanzaListAdapter;
 import com.jackson_siro.visongbook.components.SwipeTouchListener;
 import com.jackson_siro.visongbook.data.SQLiteHelper;
+import com.jackson_siro.visongbook.data.Utils;
 import com.jackson_siro.visongbook.models.PostModel;
 import com.jackson_siro.visongbook.R;
 import com.jackson_siro.visongbook.models.StanzaModel;
@@ -45,7 +46,7 @@ public class EePostView extends AppCompatActivity {
 
     private int cur_hint = 0, cur_song = 0, cur_stanza = 0, cur_font = 30;
 
-    private MenuItem wishlist, favourites;
+    private MenuItem favourites;
 
     private ImageView hintsView;
 
@@ -389,7 +390,9 @@ public class EePostView extends AppCompatActivity {
     public boolean onCreateOptionsMenu(final Menu menu) {
         getMenuInflater().inflate(R.menu.ee_post_view, menu);
         favourites = menu.findItem(R.id.action_favour);
-        wishlist = menu.findItem(R.id.user_comment);
+
+        if (Song.isfav == 1)
+            favourites.setIcon(R.drawable.ic_favorite_black);
 
         return true;
     }
@@ -402,7 +405,24 @@ public class EePostView extends AppCompatActivity {
                 return true;
 
             case R.id.action_favour:
-                Toast.makeText(getApplicationContext(), "This feature will be implemented in subsequent updates", Toast.LENGTH_LONG).show();
+                Song.updated = db.GetDate();
+                try{
+                    if (Song.isfav == 1)
+                    {
+                        Song.isfav = 0;
+                        favourites.setIcon(R.drawable.ic_favorite_border_black);
+                        Toast.makeText(getApplicationContext(), Song.number + "# " + Song.title + " removed from favourites", Toast.LENGTH_LONG).show();
+                    }
+                    else
+                    {
+                        Song.isfav = 1;
+                        favourites.setIcon(R.drawable.ic_favorite_black);
+                        Toast.makeText(getApplicationContext(), Song.number + "# " + Song.title + " added to favourites", Toast.LENGTH_LONG).show();
+                    }
+                    Song.updated = db.GetDate();
+                    db.Favourite(Song);
+                }
+                catch (Exception e){}
                 return true;
 
             case R.id.action_share:

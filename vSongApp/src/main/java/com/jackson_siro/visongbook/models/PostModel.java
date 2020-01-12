@@ -13,6 +13,7 @@ public class PostModel {
     public String tags;
     public String content;
     public String created;
+    public String updated;
     public String what;
     public String when;
     public String where;
@@ -21,5 +22,5 @@ public class PostModel {
     public Integer views;
     public Integer acount;
     public Integer userid;
+    public Integer isfav;
 }
-//created, categoryid, meta_order, what, when, who,  netthumbs, views, hotness, acount, userid, level, avatar, thumb_state,

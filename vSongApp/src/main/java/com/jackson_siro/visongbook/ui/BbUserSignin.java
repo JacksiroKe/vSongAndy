@@ -214,7 +214,7 @@ public class BbUserSignin extends AppCompatActivity {
         if (!prefget.getBoolean("app_books_loaded", false)) {
             startActivity(new Intent(BbUserSignin.this, CcBooksLoad.class));
         }
-        else startActivity(new Intent(BbUserSignin.this, DdMainView.class));
+        else startActivity(new Intent(BbUserSignin.this, DdHomeView.class));
         finish();
     }
 
@@ -231,7 +231,7 @@ public class BbUserSignin extends AppCompatActivity {
                 else if (prefget.getBoolean("app_books_reload", false)) {
                     startActivity(new Intent(BbUserSignin.this, CcBooksLoad.class));
                 }
-                else startActivity(new Intent(BbUserSignin.this, DdMainView.class));
+                else startActivity(new Intent(BbUserSignin.this, DdHomeView.class));
                 finish();
                 break;
 
@@ -258,7 +258,7 @@ public class BbUserSignin extends AppCompatActivity {
         if (!prefget.getBoolean("app_books_loaded", false)) startActivity(new Intent(BbUserSignin.this, CcBooksLoad.class));
         else if (prefget.getBoolean("app_books_loaded", false) && !prefget.getBoolean("app_songs_loaded", false))
             startActivity(new Intent(BbUserSignin.this, CcSongsLoad.class));
-        else startActivity(new Intent(BbUserSignin.this, DdMainView.class));
+        else startActivity(new Intent(BbUserSignin.this, DdHomeView.class));
         finish();
     }
 

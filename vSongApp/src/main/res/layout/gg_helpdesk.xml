@@ -106,6 +106,7 @@
                         android:textAlignment="center"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
+                        android:autoLink="email"
                         android:text="@string/helpdesk_2_desc" />
                 </LinearLayout>
 
@@ -147,6 +148,7 @@
                         android:textAlignment="center"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
+                        android:autoLink="web"
                         android:text="@string/helpdesk_3_desc" />
                 </LinearLayout>
 
@@ -188,6 +190,7 @@
                         android:textAlignment="center"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
+                        android:autoLink="web"
                         android:text="@string/helpdesk_4_desc" />
                 </LinearLayout>
 

@@ -18,6 +18,10 @@
         android:id="@+id/group2"
         android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_songsperbook"
+            android:icon="@drawable/appicon"
+            android:title="@string/app_songperbook" />
+        <item
             android:id="@+id/nav_songbooks"
             android:icon="@drawable/appicon"
             android:title="@string/app_songbooks" />

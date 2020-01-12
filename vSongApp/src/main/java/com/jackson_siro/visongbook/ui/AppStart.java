@@ -19,7 +19,7 @@ import retrofit2.Call;
 public class AppStart extends AppCompatActivity {
     private ImageView imgicon, imgcopyright;
 
-    private long ms=0, splashTime=5000;
+    private long ms=0, splashTime=2500;
     private boolean splashActive = true, paused=false;
     private SharedPreferences prefget;
     private SharedPreferences.Editor prefedit;
@@ -78,7 +78,7 @@ public class AppStart extends AppCompatActivity {
                 startActivity(new Intent(AppStart.this, CcSongsLoad.class));
 
             else
-                startActivity(new Intent(AppStart.this, DdMainView.class));
+                startActivity(new Intent(AppStart.this, DdHomeView.class));
         }
 
         finish();
@@ -93,6 +93,7 @@ public class AppStart extends AppCompatActivity {
             prefedit.putLong("app_first_data", System.currentTimeMillis()).apply();
 
             prefedit.putInt("app_song_fontsize", 25).apply();
+            prefedit.putInt("app_last_mysong_no", 0).apply();
             prefedit.putString("app_song_presentation", "slides").apply();
             prefedit.putBoolean("app_song_screenon", true).apply();
             prefedit.putString("app_song_screenon_time", "unlimited").apply();

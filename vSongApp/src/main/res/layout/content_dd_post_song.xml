@@ -6,6 +6,6 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".ui.DdPostSong"
-    tools:showIn="@layout/dd_post_song">
+    tools:showIn="@layout/dd_post_now">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

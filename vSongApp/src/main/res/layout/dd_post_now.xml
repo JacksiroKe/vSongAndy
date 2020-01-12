@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_bg" >
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/MyMaterialTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/MyMaterialTheme.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/splash_i"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/border_ii"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/lastname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_edit_text1"
+                android:layout_margin="5dp"
+                android:padding="10dp" >
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/text_input_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <EditText
+                        android:id="@+id/input_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="TITLE"
+                        android:maxLines="1"
+                        android:padding="10dp"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/custom_edit_text1"
+                android:layout_margin="5dp"
+                android:textSize="25sp"
+                android:padding="10dp" >
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/text_input_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <EditText
+                        android:id="@+id/input_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="CONTENT"
+                        android:padding="10dp"
+                        android:ems="10"
+                        android:textSize="25sp"
+                        android:gravity="start|top"
+                        android:inputType="textMultiLine" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@drawable/ic_done" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

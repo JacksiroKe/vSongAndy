@@ -17,7 +17,6 @@ import android.widget.EditText;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,7 +38,6 @@ public class BbUserSignup extends AppCompatActivity {
     private EditText inputFirstname, inputLastname, inputGender, inputCity, inputChurch;
     private Button btnProceed;
     private ProgressDialog progressDialog;
-    private CoordinatorLayout coordinator_layout;
     private AlertDialog alertDialog1;
 
     private SharedPreferences prefget;
@@ -70,7 +68,6 @@ public class BbUserSignup extends AppCompatActivity {
         inputGender = findViewById(R.id.input_gender);
         inputCity = findViewById(R.id.input_city);
         inputChurch = findViewById(R.id.input_church);
-        coordinator_layout = findViewById(R.id.coordinator_layout);
         btnProceed = findViewById(R.id.btn_proceed);
 
         progressDialog = new ProgressDialog(this);
@@ -221,7 +218,7 @@ public class BbUserSignup extends AppCompatActivity {
         prefedit.putBoolean("app_user_signedin", true).apply();
 
         prefedit.putBoolean("app_user_signedin", true);
-        startActivity(new Intent(BbUserSignup.this, DdMainView.class));
+        startActivity(new Intent(BbUserSignup.this, DdHomeView.class));
         finish();
     }
 
@@ -271,7 +268,7 @@ public class BbUserSignup extends AppCompatActivity {
         if (!prefget.getBoolean("app_books_loaded", false)) startActivity(new Intent(BbUserSignup.this, CcBooksLoad.class));
         else if (prefget.getBoolean("app_books_loaded", false) && !prefget.getBoolean("app_songs_loaded", false))
             startActivity(new Intent(BbUserSignup.this, CcSongsLoad.class));
-        else startActivity(new Intent(BbUserSignup.this, DdMainView.class));
+        else startActivity(new Intent(BbUserSignup.this, DdHomeView.class));
         finish();
     }
 
