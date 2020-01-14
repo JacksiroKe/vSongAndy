@@ -85,6 +85,7 @@
     <string name="app_updates">App Updates</string>
 
     <string name="nav_proceed">Proceed</string>
+    <string name="nav_details">Toggle Extra</string>
     <string name="my_updates">My Updates</string>
     <string name="my_session">Logout</string>
     <string name="my_profile">User jacksiro</string>
@@ -246,8 +247,6 @@
     <string name="action_voice_rec">action voice rec</string>
     <string name="action_location">action location</string>
     <string name="action_change_colors">change style</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
 
     <string name="songs_per_books">Songs Per Books</string>
 

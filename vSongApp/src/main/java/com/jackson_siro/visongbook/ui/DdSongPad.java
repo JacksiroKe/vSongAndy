@@ -1,11 +1,17 @@
 package com.jackson_siro.visongbook.ui;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
@@ -19,8 +25,9 @@ import com.jackson_siro.visongbook.R;
 import com.jackson_siro.visongbook.data.SQLiteHelper;
 import com.jackson_siro.visongbook.models.PostModel;
 
-public class DdPostNow extends AppCompatActivity {
+public class DdSongPad extends AppCompatActivity {
 
+    private boolean showExtra = true;
     private EditText inputTitle, inputContent;
     String noteTitle, noteContent;
     private SQLiteHelper sqlDB = new SQLiteHelper(this);
@@ -28,13 +35,19 @@ public class DdPostNow extends AppCompatActivity {
     private SharedPreferences prefget;
     private SharedPreferences.Editor prefedit;
 
+    private LinearLayout mTitle, mContent;
+
     private Toolbar toolbar;
     private ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dd_post_now);
+        setContentView(R.layout.dd_songpad);
+        showExtra = true;
+        mTitle = findViewById(R.id.title);
+        mContent = findViewById(R.id.content);
+
         inputTitle = findViewById(R.id.input_title);
         inputContent = findViewById(R.id.input_content);
 
@@ -43,24 +56,26 @@ public class DdPostNow extends AppCompatActivity {
 
         toolbarSet();
 
-        FloatingActionButton fab = findViewById(R.id.fab_action);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                noteTitle = inputTitle.getText().toString().trim();
-                noteContent = inputContent.getText().toString().trim();
+        inputTitle.addTextChangedListener(new TextWatcher() {
+            public void afterTextChanged(Editable s) { }
 
-                if (noteTitle.isEmpty())
-                    Snackbar.make(view, "Please type something into the Title", Snackbar.LENGTH_SHORT).show();
-                else if (noteTitle.length() < 5)
-                    Snackbar.make(view, "Please type something into the Title", Snackbar.LENGTH_SHORT).show();
-                else if (noteContent.isEmpty())
-                    Snackbar.make(view, "Please type something into the Content", Snackbar.LENGTH_SHORT).show();
-                else if (noteContent.length() < 10)
-                    Snackbar.make(view, "Please type something into the Content", Snackbar.LENGTH_SHORT).show();
-                else SaveNewSong();
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+            public void onTextChanged(CharSequence newTitle, int start, int before, int count) {
+                actionBar.setTitle(newTitle);
             }
         });
+
+        inputContent.addTextChangedListener(new TextWatcher() {
+            public void afterTextChanged(Editable s) { }
+
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+            public void onTextChanged(CharSequence newTitle, int start, int before, int count) {
+                showExtraInput();
+            }
+        });
+
     }
 
     private void toolbarSet() {
@@ -69,8 +84,21 @@ public class DdPostNow extends AppCompatActivity {
         actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeButtonEnabled(true);
-        actionBar.setTitle("Save a New Note");
-        actionBar.setSubtitle("You may publish it later as a Song");
+        actionBar.setTitle("Save a New Song");
+    }
+
+    private void showExtraInput()
+    {
+        if (showExtra)
+        {
+            showExtra = false;
+            mTitle.setVisibility(View.GONE);
+        }
+        else
+        {
+            showExtra = true;
+            mTitle.setVisibility(View.VISIBLE);
+        }
     }
 
     public void SaveNewSong()
@@ -95,12 +123,12 @@ public class DdPostNow extends AppCompatActivity {
         song.isfav = 0;
         sqlDB.addSong(song);
 
-        Toast.makeText(getApplicationContext(), "New Song " + noteTitle + " saved!", Toast.LENGTH_LONG).show();
-        finish();
+        prefedit.putInt("app_last_mysong_no", song.number).apply();
     }
+
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
-        getMenuInflater().inflate(R.menu.bb_proceed, menu);
+        getMenuInflater().inflate(R.menu.ee_editor, menu);
 
         return true;
     }
@@ -113,15 +141,29 @@ public class DdPostNow extends AppCompatActivity {
                 noteContent = inputContent.getText().toString().trim();
 
                 if (noteTitle.isEmpty())
-                    Toast.makeText(this, "Please type something into the Title", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Please type something into the Title of the Song", Toast.LENGTH_LONG).show();
                 else if (noteTitle.length() < 5)
-                    Toast.makeText(this, "Please type something into the Title", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Please type something into the Title of the Song", Toast.LENGTH_LONG).show();
                 else if (noteContent.isEmpty())
-                    Toast.makeText(this, "Please type something into the Content", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Please type something into the Content of the Song", Toast.LENGTH_LONG).show();
                 else if (noteContent.length() < 10)
-                    Toast.makeText(this, "Please type something into the Content", Toast.LENGTH_LONG).show();
-                else SaveNewSong();
+                    Toast.makeText(this, "Please type something into the Content of the Song", Toast.LENGTH_LONG).show();
+                else {
+                    SaveNewSong();
+                    finish();
+                }
                 return true;
+
+            case R.id.action_extra:
+                showExtraInput();
+                return true;
+
+            /*case R.id.action_cancel:
+                if (!noteTitle.isEmpty() && noteTitle.length() < 5) {
+                    SaveNewSong();
+                    finish();
+                }
+                return true;*/
 
             default:
                 return false;

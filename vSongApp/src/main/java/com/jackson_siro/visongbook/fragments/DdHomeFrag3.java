@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -68,7 +67,7 @@ public class DdHomeFrag3 extends Fragment {
         mContentView.setVisibility(View.VISIBLE);
         noContentView.setVisibility(View.GONE);
 
-        getSongList();
+        GetSongsList();
         BtnLearnMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -121,12 +120,11 @@ public class DdHomeFrag3 extends Fragment {
             }
         }, 2000);
     }
-    private void getSongList()
+    private void GetSongsList()
     {
         favourites = db.GetFavourites("");
         listAdapter = new ListsSongsAdapter(favourites, getContext());
         recyclerView.setAdapter(listAdapter);
-        recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
 
         listAdapter.setOnItemClickListener(new ListsSongsAdapter.OnItemClickListener() {
             @Override
@@ -155,7 +153,6 @@ public class DdHomeFrag3 extends Fragment {
         protected void onPostExecute(List<PostModel> searchResult) {
             listAdapter = new ListsSongsAdapter(searchResult, getContext());
             recyclerView.setAdapter(listAdapter);
-            recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
 
             listAdapter.setOnItemClickListener(new ListsSongsAdapter.OnItemClickListener() {
                 @Override

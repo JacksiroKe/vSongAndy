@@ -3,7 +3,6 @@ package com.jackson_siro.visongbook.data;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
@@ -32,6 +31,8 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(Utils.CREATE_BOOKS_TABLE_SQL);
         sqLiteDatabase.execSQL(Utils.CREATE_SONGS_TABLE_SQL);
+        sqLiteDatabase.execSQL(Utils.CREATE_SERMON_TABLE_SQL);
+        sqLiteDatabase.execSQL(Utils.CREATE_TITHES_TABLE_SQL);
         sqLiteDatabase.execSQL(Utils.CREATE_USERS_TABLE_SQL);
     }
 
@@ -39,6 +40,8 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase SQLiteDB, int i, int i1) {
         SQLiteDB.execSQL("DROP TABLE IF EXISTS " + Utils.TBL_BOOKS);
         SQLiteDB.execSQL("DROP TABLE IF EXISTS " + Utils.TBL_SONGS);
+        SQLiteDB.execSQL("DROP TABLE IF EXISTS " + Utils.TBL_SERMONS);
+        SQLiteDB.execSQL("DROP TABLE IF EXISTS " + Utils.TBL_TITHES);
         SQLiteDB.execSQL("DROP TABLE IF EXISTS " + Utils.TBL_USERS);
         onCreate(SQLiteDB);
     }
@@ -46,6 +49,34 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     public int isIntNull(String myint)
     {
         return myint.isEmpty() ? Integer.parseInt(myint) : 0;
+    }
+
+    public void CheckDatabase()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        try { db.execSQL("ALTER TABLE " + Utils.TBL_SONGS + " ADD " + Utils.ISFAV + " INTEGER;"); }
+        catch (Exception ex) {}
+
+        try { db.execSQL("ALTER TABLE " + Utils.TBL_SONGS + " ADD " + Utils.UPDATED + " TEXT;"); }
+        catch (Exception ex) {}
+        db.close();
+    }
+
+    public void CheckSermonTable()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        try{ db.execSQL(Utils.CREATE_SERMON_TABLE_SQL); }
+        catch (Exception ex) {}
+        db.close();
+    }
+
+    public void CheckTithingTable()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        try{ db.execSQL(Utils.CREATE_TITHES_TABLE_SQL); }
+        catch (Exception ex) {}
+        db.close();
     }
 
     public void addBook(CategoryModel book){
@@ -136,7 +167,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                 whereQuery = " WHERE " + Utils.TITLE + " LIKE '%" + searchThis + "%' OR " + Utils.CONTENT + " LIKE '%" + searchThis + "%'";
         }
 
-        String fullQuery = "SELECT  * FROM " + Utils.TBL_SONGS + whereQuery + " ORDER BY " + Utils.NUMBER + " LIMIT 30";
+        String fullQuery = "SELECT  * FROM " + Utils.TBL_SONGS + whereQuery + " ORDER BY " + Utils.BOOKID + " LIMIT 12";
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(fullQuery, null);
@@ -163,12 +194,12 @@ public class SQLiteHelper extends SQLiteOpenHelper {
                         "%' OR " + Utils.TBL_SONGS + "." + Utils.CONTENT + " LIKE '%" + searchthis + "%'";
         }
 
-        String fullQuery = Utils.SONG_SELECT_SQL + whereQuery + " ORDER BY " + Utils.TBL_SONGS + "." + Utils.NUMBER;
+        String fullQuery = Utils.SONG_SELECT_SQL + whereQuery + " ORDER BY " + Utils.TBL_SONGS + "." + Utils.BOOKID + " LIMIT 12";
 
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(fullQuery, null);
         PostModel song;
         try {
+            Cursor cursor = db.rawQuery(fullQuery, null);
             if (cursor.moveToFirst()) {
                 do {
                     song = new PostModel();
@@ -192,19 +223,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         return SongsList;
     }
 
-    public void CheckDatabase()
-    {
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        try { db.execSQL("ALTER TABLE " + Utils.TBL_SONGS + " ADD " + Utils.ISFAV + " INTEGER;"); }
-        catch (Exception ex) {}
-
-        try { db.execSQL("ALTER TABLE " + Utils.TBL_SONGS + " ADD " + Utils.UPDATED + " TEXT;"); }
-        catch (Exception ex) {}
-        db.close();
-    }
-
-    public List<PostModel> getSongList(int songbook) {
+    public List<PostModel> GetSongsList(int songbook) {
         List<PostModel> SongsList = new LinkedList<PostModel>();
         String whereQuery = (songbook == 0) ? "" : " WHERE " + Utils.TBL_SONGS + "." + Utils.CATEGORYID + "=" + songbook;
 
@@ -303,10 +322,10 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
         String fullQuery = Utils.NOTE_SELECT_SQL + whereQuery + " ORDER BY " + Utils.CREATED;
 
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(fullQuery, null);
         PostModel song;
+        SQLiteDatabase db = this.getWritableDatabase();
         try {
+            Cursor cursor = db.rawQuery(fullQuery, null);
             if (cursor.moveToFirst()) {
                 do {
                     song = new PostModel();
@@ -327,6 +346,31 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         }
         catch (Exception ex) { CheckDatabase(); }
         return SongsList;
+    }
+
+    public List<TitheModel> GetThithing() {
+        List<TitheModel> TithingList = new LinkedList<TitheModel>();
+
+        TitheModel tithes;
+        SQLiteDatabase db = this.getWritableDatabase();
+        try {
+            Cursor cursor = db.rawQuery(Utils.TITHES_SELECT_SQL, null);
+            if (cursor.moveToFirst()) {
+                do {
+                    tithes = new TitheModel();
+                    tithes.titheid = Integer.parseInt(cursor.getString(0));
+                    tithes.source = cursor.getString(1);
+                    tithes.mode = cursor.getString(2);
+                    tithes.amount = cursor.getInt(3);
+                    tithes.extra = cursor.getString(4);
+                    tithes.created = cursor.getString(5);
+
+                    TithingList.add(tithes);
+                } while (cursor.moveToNext());
+            }
+        }
+        catch (Exception ex) { CheckTithingTable(); }
+        return TithingList;
     }
 
     public PostModel viewSong(int songid) {
@@ -352,13 +396,6 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         return song;
     }
 
-    public void FavouriteX(int songid, int favor) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("UPDATE " + Utils.TBL_SONGS + " SET " + Utils.ISFAV + "=" + favor + " WHERE " + Utils.SONGID + "=" + songid + ";");
-                //+ Utils.UPDATED + "=" + GetDate() + " WHERE " + Utils.SONGID + "=" + songid + ";");
-        //UPDATE `as_businesses` SET `username` = 'diamondco', `icon` = 'businex.jpg' WHERE `as_businesses`.`businessid` = 2;
-    }
-
     public int Favourite(PostModel song) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -370,23 +407,97 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         return i;
     }
 
-    public boolean isDataExist(long id){
-        db = this.getReadableDatabase();
-        boolean existDatabase = false;
+    public void addSermon(SermonModel sermon) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(Utils.SERMONID, sermon.sermonid);
+        values.put(Utils.CATEGORYID, sermon.categoryid);
+        values.put(Utils.TITLE, sermon.title);
+        values.put(Utils.SUBTITLE, sermon.subtitle);
+        values.put(Utils.PREACHER, sermon.preacher);
+        values.put(Utils.PLACE, sermon.place);
+        values.put(Utils.EXTRA, sermon.extra);
+        values.put(Utils.TAGS, sermon.tags);
+        values.put(Utils.CONTENT, sermon.content);
+        values.put(Utils.CREATED, sermon.created);
+        values.put(Utils.UPDATED, sermon.updated);
+        values.put(Utils.STATE, sermon.state);
+        values.put(Utils.ISFAV, sermon.isfav);
 
         try{
-            Cursor cursor = db.query(Utils.TBL_SONGS, new String[]
-                    {Utils.POSTID}, Utils.POSTID +"="+id, null, null, null, null, null);
-            if (cursor.getCount() > 0){
-                existDatabase = true;
-            }
-
-            cursor.close();
-        }catch (SQLException ex){
+            db.insert(Utils.TBL_SONGS, null, values);
+        }catch (Exception ex){
             ex.printStackTrace();
         }
+        db.close();
+    }
 
-        return existDatabase;
+    public List<SermonModel> GetSermons(String searchthis) {
+        List<SermonModel> SermonList = new LinkedList<SermonModel>();
+        String whereQuery = "";
+
+        if (searchthis.length() > 1) {
+            whereQuery = " WHERE " +
+                    Utils.TITLE + " LIKE '%" + searchthis + "%' OR " +
+                    Utils.SUBTITLE + " LIKE '%" + searchthis + "%' OR " +
+                    Utils.PREACHER + " LIKE '%" + searchthis + "%' OR " +
+                    Utils.PLACE + " LIKE '%" + searchthis + "%' OR " +
+                   Utils.CONTENT + " LIKE '%" + searchthis + "%'";
+        }
+
+        String fullQuery = Utils.SERMON_SELECT_SQL + whereQuery + " ORDER BY " + Utils.CREATED;
+
+        SermonModel sermon;
+        try {
+            SQLiteDatabase db = this.getWritableDatabase();
+            Cursor cursor = db.rawQuery(fullQuery, null);
+            if (cursor.moveToFirst()) {
+                do {
+                    sermon = new SermonModel();
+                    sermon.sermonid = Integer.parseInt(cursor.getString(0));
+                    sermon.categoryid = cursor.getInt(1);
+                    sermon.title = cursor.getString(2);
+                    sermon.subtitle = cursor.getString(3);
+                    sermon.preacher = cursor.getString(4);
+                    sermon.place = cursor.getString(5);
+                    sermon.extra = cursor.getString(6);
+                    sermon.content = cursor.getString(7);
+                    sermon.created = cursor.getString(8);
+                    sermon.updated = cursor.getString(9);
+                    sermon.isfav = isIntNull(cursor.getString(10) + "");
+                    sermon.updated = cursor.getString(11);
+
+                    SermonList.add(sermon);
+                } while (cursor.moveToNext());
+            }
+        }
+        catch (Exception ex) { CheckSermonTable(); }
+        return SermonList;
+    }
+
+    public SermonModel viewSermon(int sermonid) {
+        String query = Utils.SERMON_SELECT_SQL + " WHERE " + Utils.SERMONID + "=" + sermonid;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+
+        if (cursor != null) cursor.moveToFirst();
+
+        SermonModel sermon = new SermonModel();
+        sermon.sermonid = Integer.parseInt(cursor.getString(0));
+        sermon.categoryid = cursor.getInt(1);
+        sermon.title = cursor.getString(2);
+        sermon.subtitle = cursor.getString(3);
+        sermon.preacher = cursor.getString(4);
+        sermon.place = cursor.getString(5);
+        sermon.extra = cursor.getString(6);
+        sermon.content = cursor.getString(7);
+        sermon.created = cursor.getString(8);
+        sermon.updated = cursor.getString(9);
+        sermon.isfav = isIntNull(cursor.getString(10) + "");
+        sermon.updated = cursor.getString(11);
+
+        return sermon;
     }
 
     public void deleteData(long id){

@@ -1,5 +1,6 @@
 package com.jackson_siro.visongbook.adapters;
 
+import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.jackson_siro.visongbook.R;
 import com.jackson_siro.visongbook.models.SelectableStanza;
 import com.jackson_siro.visongbook.models.StanzaModel;
-import com.jackson_siro.visongbook.ui.EePostView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,11 +19,10 @@ public class StanzaListAdapter extends RecyclerView.Adapter implements Selectabl
     private final List<SelectableStanza> mValues;
     private boolean isMultiSelectionEnabled = false;
     private final int myfont;
-    EePostView listener;
+    Activity listener;
 
 
-    public StanzaListAdapter(EePostView listener,
-                             List<StanzaModel> stanzaModels, boolean isMultiSelectionEnabled, int myfont) {
+    public StanzaListAdapter(Activity listener, List<StanzaModel> stanzaModels, boolean isMultiSelectionEnabled, int myfont) {
         this.listener = listener;
         this.myfont = myfont;
         this.isMultiSelectionEnabled = isMultiSelectionEnabled;

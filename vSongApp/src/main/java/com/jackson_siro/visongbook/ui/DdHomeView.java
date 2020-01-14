@@ -44,7 +44,7 @@ public class DdHomeView extends AppCompatActivity implements TabLayout.OnTabSele
 
     private DrawerLayout mDrawerLayout;
     private TextView mTabTitle;
-    private FloatingActionButton fabButton;
+    private FloatingActionButton fabButton1, fabButton2;
 
     private String mGender = "", mFullname = "";
     private TabLayout tabLayout;
@@ -66,7 +66,8 @@ public class DdHomeView extends AppCompatActivity implements TabLayout.OnTabSele
         }
         mFullname = prefget.getString("user_firstname", "") + " " + prefget.getString("user_lastname", "");
 
-        fabButton = findViewById(R.id.fabaction);
+        fabButton1 = findViewById(R.id.fabaction1);
+        fabButton2 = findViewById(R.id.fabaction2);
         drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
 
@@ -108,10 +109,17 @@ public class DdHomeView extends AppCompatActivity implements TabLayout.OnTabSele
         checkDonation();
         displayProfile();
 
-        fabButton.setOnClickListener(new View.OnClickListener() {
+        fabButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(DdHomeView.this, DdPostNow.class));
+                startActivity(new Intent(DdHomeView.this, DdSongPad.class));
+            }
+        });
+
+        fabButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(DdHomeView.this, DdSermonPad.class));
             }
         });
     }
@@ -167,6 +175,10 @@ public class DdHomeView extends AppCompatActivity implements TabLayout.OnTabSele
 
     public void ShowNotes(View view) {
         tabLayout.getTabAt(4).select();
+    }
+
+    public void ShowBooks(View view) {
+        startActivity(new Intent(DdHomeView.this, EeBooksView.class));
     }
 
     public void checkDonation(){

@@ -11,6 +11,7 @@ import android.content.SharedPreferences;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.jackson_siro.visongbook.R;
+import com.jackson_siro.visongbook.data.SQLiteHelper;
 import com.jackson_siro.visongbook.models.AppModel;
 import com.jackson_siro.visongbook.models.Callback.CallbackApp;
 
@@ -98,6 +99,13 @@ public class AppStart extends AppCompatActivity {
             prefedit.putBoolean("app_song_screenon", true).apply();
             prefedit.putString("app_song_screenon_time", "unlimited").apply();
             prefedit.putString("app_theme", "default").apply();
+        }
+        else
+        {
+            SQLiteHelper sqlDB = new SQLiteHelper(this);
+            sqlDB.GetSongsList(1);
+            sqlDB.GetSermons("");
+            sqlDB.GetThithing();
         }
     }
 }

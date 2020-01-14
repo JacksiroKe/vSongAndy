@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -68,7 +67,7 @@ public class DdHomeFrag4 extends Fragment {
         mContentView.setVisibility(View.VISIBLE);
         noContentView.setVisibility(View.GONE);
 
-        getSongList();
+        GetSongsList();
         BtnLearnMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -121,20 +120,18 @@ public class DdHomeFrag4 extends Fragment {
             }
         }, 2000);
     }
-    private void getSongList()
+    private void GetSongsList()
     {
         favourites = db.GetNotes("");
         listAdapter = new ListsSongsAdapter(favourites, getContext());
         recyclerView.setAdapter(listAdapter);
-        recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
 
         listAdapter.setOnItemClickListener(new ListsSongsAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, PostModel postModel) {
-                //vSongBook.passingIntent(getActivity(), postModel.songid.toString(), "ViewSong");
+                vSongBook.passingIntent(getActivity(), postModel.songid.toString(), "ViewNote");
             }
         });
-
     }
     @Override
     public void onDetach() {
@@ -147,7 +144,7 @@ public class DdHomeFrag4 extends Fragment {
 
         @Override
         protected List<PostModel> doInBackground(String... params) {
-            searchResult = db.GetNotes(params[0]);
+            //searchResult = db.GetNotes(params[0]);
             return searchResult;
         }
 
@@ -155,12 +152,11 @@ public class DdHomeFrag4 extends Fragment {
         protected void onPostExecute(List<PostModel> searchResult) {
             listAdapter = new ListsSongsAdapter(searchResult, getContext());
             recyclerView.setAdapter(listAdapter);
-            recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
 
             listAdapter.setOnItemClickListener(new ListsSongsAdapter.OnItemClickListener() {
                 @Override
                 public void onItemClick(View view, PostModel postModel) {
-                    //vSongBook.passingIntent(getActivity(), postModel.songid.toString(), "ViewSong");
+                    vSongBook.passingIntent(getActivity(), postModel.songid.toString(), "ViewNote");
                 }
             });
         }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".ui.DdPostSong"
-    tools:showIn="@layout/dd_post_now">
+    tools:context=".ui.DdSongPad"
+    tools:showIn="@layout/dd_songpad">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

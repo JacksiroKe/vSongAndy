@@ -13,16 +13,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.jackson_siro.visongbook.R;
 
-import com.jackson_siro.visongbook.adapters.ListsSongsAdapter;
 import com.jackson_siro.visongbook.data.SQLiteHelper;
-import com.jackson_siro.visongbook.models.PostModel;
+import com.jackson_siro.visongbook.adapters.*;
+import com.jackson_siro.visongbook.models.*;
 import com.jackson_siro.visongbook.MyApplication;
 import com.jackson_siro.visongbook.ui.*;
 
@@ -31,13 +30,13 @@ import java.util.List;
 public class DdHomeFrag5 extends Fragment {
 
     private View searchView;
-    private ListsSongsAdapter listAdapter;
+    private ListsSermonAdapter listAdapter;
     private RecyclerView recyclerView;
     private SwipeRefreshLayout swipeRefreshLayout;
 
     private static SQLiteHelper db = new SQLiteHelper(MyApplication.getAppContext());
 
-    private List<PostModel> favourites;
+    private List<SermonModel> sermonlist;
     private SearchView mSearchView;
     private LinearLayout mContentView, noContentView;
     private Button BtnLearnMore;
@@ -58,7 +57,7 @@ public class DdHomeFrag5 extends Fragment {
         mSearchView = searchView.findViewById(R.id.input_search);
         BtnLearnMore = searchView.findViewById(R.id.btn_learn_more);
 
-        mSearchView.setQueryHint("Search Sermon");
+        mSearchView.setQueryHint("Search Sermons");
         swipeRefreshLayout = searchView.findViewById(R.id.swipe_refresh_layout);
 
         recyclerView.setHasFixedSize(true);
@@ -68,7 +67,7 @@ public class DdHomeFrag5 extends Fragment {
         mContentView.setVisibility(View.VISIBLE);
         noContentView.setVisibility(View.GONE);
 
-        getSongList();
+        GetSongsList();
         BtnLearnMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -121,46 +120,43 @@ public class DdHomeFrag5 extends Fragment {
             }
         }, 2000);
     }
-    private void getSongList()
+    private void GetSongsList()
     {
-        favourites = db.GetNotes("");
-        listAdapter = new ListsSongsAdapter(favourites, getContext());
+        sermonlist = db.GetSermons("");
+        listAdapter = new ListsSermonAdapter(sermonlist, getContext());
         recyclerView.setAdapter(listAdapter);
-        recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
 
-        listAdapter.setOnItemClickListener(new ListsSongsAdapter.OnItemClickListener() {
+        listAdapter.setOnItemClickListener(new ListsSermonAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(View view, PostModel postModel) {
-                //vSongBook.passingIntent(getActivity(), postModel.songid.toString(), "ViewSong");
+            public void onItemClick(View view, SermonModel SermonModel) {
+                //vSongBook.passingIntent(getActivity(), SermonModel.songid.toString(), "ViewSermon");
             }
         });
-
     }
+    
     @Override
     public void onDetach() {
         super.onDetach();
     }
 
-    private class LoadList extends AsyncTask<String, String, List<PostModel>> {
-
-        private List<PostModel> searchResult;
+    private class LoadList extends AsyncTask<String, String, List<SermonModel>> {
+        private List<SermonModel> searchResult;
 
         @Override
-        protected List<PostModel> doInBackground(String... params) {
-            searchResult = db.GetNotes(params[0]);
+        protected List<SermonModel> doInBackground(String... params) {
+            searchResult = db.GetSermons(params[0]);
             return searchResult;
         }
 
         @Override
-        protected void onPostExecute(List<PostModel> searchResult) {
-            listAdapter = new ListsSongsAdapter(searchResult, getContext());
+        protected void onPostExecute(List<SermonModel> searchResult) {
+            listAdapter = new ListsSermonAdapter(searchResult, getContext());
             recyclerView.setAdapter(listAdapter);
-            recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
 
-            listAdapter.setOnItemClickListener(new ListsSongsAdapter.OnItemClickListener() {
+            listAdapter.setOnItemClickListener(new ListsSermonAdapter.OnItemClickListener() {
                 @Override
-                public void onItemClick(View view, PostModel postModel) {
-                    //vSongBook.passingIntent(getActivity(), postModel.songid.toString(), "ViewSong");
+                public void onItemClick(View view, SermonModel SermonModel) {
+                    //vSongBook.passingIntent(getActivity(), SermonModel.songid.toString(), "ViewSermon");
                 }
             });
         }

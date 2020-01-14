@@ -7,8 +7,11 @@
     <com.balysv.materialripple.MaterialRippleLayout
         android:id="@+id/material_ripple"
         style="@style/MaterialEffects"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_gradient">
 
         <LinearLayout
             android:clickable="true"
@@ -19,40 +22,47 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/song_title"
+                    android:id="@+id/sermon_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:text="Mungu Mtukufu aliye Bwana"
+                    android:text="The Former and Latter Rain"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/song_content"
+                    android:id="@+id/sermon_content"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:textSize="18sp"
                     android:singleLine="true"
                     android:maxLines="1"
-                    android:text="Mungu Mtukufu aliye Bwana, Akamtoa Yesu" />
+                    android:text="So in the later rain, the former and later rain " />
 
                 <TextView
-                    android:id="@+id/song_details"
+                    android:id="@+id/sermon_details"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:maxLines="1"
                     android:singleLine="true"
-                    android:text="Key E; Has Chorus, 4 Verses"
-                    android:textSize="15sp"
-                    android:textStyle="italic" />
+                    android:text="Pst. Wakhanu, Kikuyu MOTHA"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/sermon_preached"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="13/01/2020 9.00AM"
+                    android:textSize="15sp" />
 
                 <View
                     android:layout_marginTop="5dp"

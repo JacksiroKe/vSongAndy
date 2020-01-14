@@ -15,7 +15,7 @@
             android:layout_marginTop="60dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:nestedScrollingEnabled="true"
+            android:scrollbars="vertical"
             android:background="#eee"
             app:elevation="0dp"/>
 
@@ -62,7 +62,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="1"
-            android:padding="3dp"
+            android:padding="5dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:singleLine="true"
             android:textSize="25sp"
             app:queryHint="@string/main_title"
