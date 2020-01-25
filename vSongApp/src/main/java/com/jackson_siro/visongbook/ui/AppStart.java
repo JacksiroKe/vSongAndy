@@ -97,6 +97,7 @@ public class AppStart extends AppCompatActivity {
             prefedit.putInt("app_last_mysong_no", 0).apply();
             prefedit.putString("app_song_presentation", "slides").apply();
             prefedit.putBoolean("app_song_screenon", true).apply();
+            prefedit.putBoolean("app_seen_swipe_hints", true).apply();
             prefedit.putString("app_song_screenon_time", "unlimited").apply();
             prefedit.putString("app_theme", "default").apply();
         }

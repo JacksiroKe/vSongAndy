@@ -106,7 +106,7 @@ public class DdHomeView extends AppCompatActivity implements TabLayout.OnTabSele
         navigationView.setNavigationItemSelectedListener(this);
 
         checkDatabase();
-        checkDonation();
+        //checkDonation();
         displayProfile();
 
         fabButton1.setOnClickListener(new View.OnClickListener() {

@@ -83,12 +83,13 @@ public class EePostView extends AppCompatActivity {
             prefedit.putString("app_song_fontsize", cur_font + "");
         }
 
+        CheckForViewType();
         hintsView = findViewById(R.id.hintView);
         hintsView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
-                CheckForHints();
+                //CheckForHints();
             }
         });
 

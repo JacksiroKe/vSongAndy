@@ -148,7 +148,7 @@
     <string name="no_direct_message">Talk privately with anyone who follows you. Start by adding your number and uploading your contacts.</string>
     <string name="no_direct_message_button">Find friends</string>
 
-    <string name="no_result">Get things started. Search for a song or simply swipe from right to discover more.</string>
+    <string name="no_result">Type in the search box above to find your song quickly.</string>
     <string name="no_result_button">Learn More</string>
 
     <string name="profile">Profile</string>
@@ -167,14 +167,17 @@
     <string name="helpdesk_1">CONTACT US</string>
     <string name="helpdesk_1_desc">"CONTACT US\nIf you have got a complain or issue you would wish to be addressed then contact us soon via the following:"</string>
 
-    <string name="helpdesk_2">Email</string>
-    <string name="helpdesk_2_desc">"Email us\nappsmatake@gmail.com\nvsongbookapp@gmail.com"</string>
+    <string name="helpdesk_2">Phone</string>
+    <string name="helpdesk_2_desc">"Call | Text | WhatsApp\n+254777874748"</string>
 
-    <string name="helpdesk_3">Google Groups Forum</string>
-    <string name="helpdesk_3_desc">"Check us on Google Groups Forum\nhttps://groups.google.com/forum/m/#forum/vsongbook</string>
+    <string name="helpdesk_3">Email</string>
+    <string name="helpdesk_3_desc">"Email us\nappsmatake@gmail.com\nvsongbookapp@gmail.com"</string>
 
-    <string name="helpdesk_4">Website</string>
-    <string name="helpdesk_4_desc">"Log Onto our Website\nhttps://appsmata.com/vsongbook</string>
+    <string name="helpdesk_4">Google Groups Forum</string>
+    <string name="helpdesk_4_desc">"Check us on Google Groups Forum\nhttps://groups.google.com/forum/m/#forum/vsongbook</string>
+
+    <string name="helpdesk_5">Website</string>
+    <string name="helpdesk_5_desc">"Log Onto our Website\nhttps://appsmata.com/vsongbook</string>
 
     <string name="about_1">ABOUT THE VSONGBOOK APP</string>
     <string name="title_activity_ff_settings">App Prefrences</string>

@@ -93,7 +93,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="50dp"
                         android:layout_margin="5dp"
-                        android:src="@android:drawable/ic_dialog_email"
+                        android:src="@android:drawable/ic_menu_call"
                         android:contentDescription="@string/helpdesk_2" />
 
                     <TextView
@@ -106,7 +106,7 @@
                         android:textAlignment="center"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:autoLink="email"
+                        android:autoLink="phone"
                         android:text="@string/helpdesk_2_desc" />
                 </LinearLayout>
 
@@ -135,7 +135,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="50dp"
                         android:layout_margin="5dp"
-                        android:src="@android:drawable/ic_dialog_info"
+                        android:src="@android:drawable/ic_dialog_email"
                         android:contentDescription="@string/helpdesk_3" />
 
                     <TextView
@@ -148,7 +148,7 @@
                         android:textAlignment="center"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:autoLink="web"
+                        android:autoLink="email"
                         android:text="@string/helpdesk_3_desc" />
                 </LinearLayout>
 
@@ -177,7 +177,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="50dp"
                         android:layout_margin="5dp"
-                        android:src="@android:drawable/ic_dialog_map"
+                        android:src="@android:drawable/ic_dialog_info"
                         android:contentDescription="@string/helpdesk_4" />
 
                     <TextView
@@ -192,6 +192,48 @@
                         android:layout_height="wrap_content"
                         android:autoLink="web"
                         android:text="@string/helpdesk_4_desc" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                style="@style/CardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="4dp"
+                app:cardCornerRadius="2dp"
+                app:cardElevation="2dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp">
+
+                    <ImageView
+                        android:layout_width="fill_parent"
+                        android:layout_height="50dp"
+                        android:layout_margin="5dp"
+                        android:src="@android:drawable/ic_dialog_map"
+                        android:contentDescription="@string/helpdesk_5" />
+
+                    <TextView
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="5dp"
+                        android:paddingRight="10dp"
+                        android:paddingBottom="10dp"
+                        android:textAlignment="center"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:autoLink="web"
+                        android:text="@string/helpdesk_5_desc" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
