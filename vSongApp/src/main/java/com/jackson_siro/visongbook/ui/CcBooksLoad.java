@@ -155,7 +155,6 @@ public class CcBooksLoad extends AppCompatActivity implements SelectableViewHold
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Just a minute!");
         builder.setMessage("Take time to select a songbook at a time so as to setup your vSongBook Collection.\n\n" +
-                "Having selected a songbook swipe to the right to select another till you are done.\n\n" +
                 "Once done that, proceed to press the 'TICK' button at the bottom right for next stage");
         builder.setNegativeButton("Okay Got it", new DialogInterface.OnClickListener() {
             @Override

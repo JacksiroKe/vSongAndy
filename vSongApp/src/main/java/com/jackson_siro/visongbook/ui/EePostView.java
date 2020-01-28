@@ -83,7 +83,6 @@ public class EePostView extends AppCompatActivity {
             prefedit.putString("app_song_fontsize", cur_font + "");
         }
 
-        CheckForViewType();
         hintsView = findViewById(R.id.hintView);
         hintsView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,6 +97,12 @@ public class EePostView extends AppCompatActivity {
         action3 = findViewById(R.id.frm_action3);
 
         singleView = findViewById(R.id.single_view);
+        recyclerView = findViewById(R.id.recycler_view);
+        post_content = findViewById(R.id.post_content);
+        post_stanzano = findViewById(R.id.number);
+        fabmore = findViewById(R.id.fab_action);
+
+        CheckForViewType();
         singleView.setOnTouchListener(new SwipeTouchListener(EePostView.this){
             public void onSwipeTop() {
                 NextStanza();
@@ -113,7 +118,6 @@ public class EePostView extends AppCompatActivity {
             }
         });
 
-        recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setOnTouchListener(new SwipeTouchListener(EePostView.this){
             public void onSwipeLeft() {
                 NextSong();
@@ -123,16 +127,12 @@ public class EePostView extends AppCompatActivity {
             }
         });
 
-        post_content = findViewById(R.id.post_content);
-        post_stanzano = findViewById(R.id.number);
-
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
         toolbarSet();
         CheckForViewType();
 
-        fabmore = findViewById(R.id.fab_action);
         fabmore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
