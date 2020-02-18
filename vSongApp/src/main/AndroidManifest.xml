@@ -19,7 +19,7 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/MyMaterialTheme">
-
+        <activity android:name=".ui.DdStartPage"></activity>
         <activity
             android:name=".ui.EeBooksView"
             android:label="@string/songs_per_books"
@@ -29,20 +29,18 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jackson_siro.visongbook.ui.DdHomeView" />
         </activity>
-
         <activity
             android:name=".ui.GgTutorial"
-            android:label="@string/title_gg_tutorial"
+            android:label="@string/how_it_works"
             android:parentActivityName=".ui.DdHomeView"
             android:theme="@style/MyMaterialTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jackson_siro.visongbook.ui.DdHomeView" />
         </activity>
-
         <activity
             android:name=".ui.GgHelpdesk"
-            android:label="@string/title_gg_helpdesk"
+            android:label="@string/help_desk"
             android:parentActivityName=".ui.DdHomeView"
             android:theme="@style/MyMaterialTheme.NoActionBar">
             <meta-data
@@ -87,7 +85,7 @@
                 android:value="com.jackson_siro.visongbook.ui.DdHomeView" />
         </activity>
         <activity
-            android:name=".ui.FfSettingx"
+            android:name=".ui.FfSettings"
             android:label="@string/title_activity_ff_settings"
             android:parentActivityName=".ui.DdHomeView"
             android:theme="@style/MyMaterialTheme.NoActionBar">
@@ -98,10 +96,10 @@
         <activity
             android:name=".ui.FfSettingsProfile"
             android:label="@string/title_activity_ff_settings_profile"
-            android:parentActivityName=".ui.FfSettingx">
+            android:parentActivityName=".ui.FfSettings">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jackson_siro.visongbook.ui.FfSettingx" />
+                android:value="com.jackson_siro.visongbook.ui.FfSettings" />
         </activity>
         <activity
             android:name=".ui.CcBooksLoad"
@@ -124,7 +122,7 @@
         <activity
             android:name=".ui.DdHomeView"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.GgAboutapp"
             android:parentActivityName=".ui.DdHomeView"

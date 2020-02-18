@@ -231,7 +231,7 @@ public class BbUserSignin extends AppCompatActivity {
                 else if (prefget.getBoolean("app_books_reload", false)) {
                     startActivity(new Intent(BbUserSignin.this, CcBooksLoad.class));
                 }
-                else startActivity(new Intent(BbUserSignin.this, DdHomeView.class));
+                else startActivity(new Intent(BbUserSignin.this, DdStartPage.class));
                 finish();
                 break;
 

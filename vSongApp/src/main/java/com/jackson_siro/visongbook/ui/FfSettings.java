@@ -17,7 +17,7 @@ import androidx.preference.PreferenceFragmentCompat;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.jackson_siro.visongbook.R;
 
-public class FfSettingx extends AppCompatActivity  {
+public class FfSettings extends AppCompatActivity  {
 
     private Toolbar toolbar;
     private ActionBar actionBar;
@@ -45,7 +45,7 @@ public class FfSettingx extends AppCompatActivity  {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(FfSettingx.this, FfSettingsProfile.class));
+                startActivity(new Intent(FfSettings.this, FfSettingsProfile.class));
             }
         });
     }

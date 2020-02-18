@@ -9,15 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.balysv.materialripple.MaterialRippleLayout;
 import com.jackson_siro.visongbook.models.PostModel;
 
 import java.util.List;
-
-import com.jackson_siro.visongbook.retrofitconfig.BaseUrlConfig;
 import com.jackson_siro.visongbook.R;
 
 public class ListsSongsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {

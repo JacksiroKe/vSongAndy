@@ -32,7 +32,7 @@ public class DdHomeView extends AppCompatActivity implements TabLayout.OnTabSele
 
     private int tabUnselectedIcon[] = { R.drawable.ic_fab_search, R.drawable.ic_fab_online, R.drawable.ic_favorite_black, R.drawable.ic_edit, R.drawable.ic_notes };
     private int tabSelectedIcon[] = { R.drawable.ic_fab_search, R.drawable.ic_fab_online, R.drawable.ic_favorite_black, R.drawable.ic_edit, R.drawable.ic_notes };
-    private int tabTitles[] = { R.string.tab1, R.string.tab2, R.string.tab3, R.string.tab4, R.string.tab5 };
+    private int tabTitles[] = { R.string.search, R.string.online, R.string.favorites, R.string.songs_pad, R.string.sermon_pad };
 
     Intent intent;
 
@@ -252,7 +252,7 @@ public class DdHomeView extends AppCompatActivity implements TabLayout.OnTabSele
                 break;
 
             case R.id.app_settings:
-                startActivity(new Intent(DdHomeView.this, FfSettingx.class));
+                startActivity(new Intent(DdHomeView.this, FfSettings.class));
                 break;
 
             case R.id.app_updates:
