@@ -1,7 +1,7 @@
 # vSongBook for Android
 ### FREEDOM TO SING ANYWHERE ANYTIME
 
-![vSongBook Screenshot](https://github.com/Appsmata/vSongAndy/raw/master/images/screenshot1.png "vSongBook Screenshot 1") [vSongBook Screenshot](https://github.com/Appsmata/vSongAndy/raw/master/images/screenshot2.png "vSongBook Screenshot 2") [vSongBook Screenshot](https://github.com/Appsmata/vSongAndy/raw/master/images/screenshot3.png "vSongBook Screenshot 3")
+(https://github.com/Appsmata/vSongAndy/raw/master/images/screenshot1.png "vSongBook Screenshot 1")(https://github.com/Appsmata/vSongAndy/raw/master/images/screenshot2.png "vSongBook Screenshot 2")(https://github.com/Appsmata/vSongAndy/raw/master/images/screenshot3.png "vSongBook Screenshot 3")
 ![vSongBook Screenshot](https://github.com/Appsmata/vSongAndy/raw/master/images/screenshot4.png "vSongBook Screenshot 4") [vSongBook Screenshot](https://github.com/Appsmata/vSongAndy/raw/master/images/screenshot5.png "vSongBook Screenshot 5") [vSongBook Screenshot](https://github.com/Appsmata/vSongAndy/raw/master/images/screenshot6.png "vSongBook Screenshot 6")
 ![vSongBook Screenshot](https://github.com/Appsmata/vSongAndy/raw/master/images/screenshot7.png "vSongBook Screenshot 7") [vSongBook Screenshot](https://github.com/Appsmata/vSongAndy/raw/master/images/screenshot8.png "vSongBook Screenshot 8")
 
