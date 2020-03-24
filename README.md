@@ -1,9 +1,14 @@
 # vSongBook for Android
 ### FREEDOM TO SING ANYWHERE ANYTIME
 
-(https://github.com/Appsmata/vSongAndy/raw/master/images/screenshot1.png "vSongBook Screenshot 1")(https://github.com/Appsmata/vSongAndy/raw/master/images/screenshot2.png "vSongBook Screenshot 2")(https://github.com/Appsmata/vSongAndy/raw/master/images/screenshot3.png "vSongBook Screenshot 3")
-![vSongBook Screenshot](https://github.com/Appsmata/vSongAndy/raw/master/images/screenshot4.png "vSongBook Screenshot 4") [vSongBook Screenshot](https://github.com/Appsmata/vSongAndy/raw/master/images/screenshot5.png "vSongBook Screenshot 5") [vSongBook Screenshot](https://github.com/Appsmata/vSongAndy/raw/master/images/screenshot6.png "vSongBook Screenshot 6")
-![vSongBook Screenshot](https://github.com/Appsmata/vSongAndy/raw/master/images/screenshot7.png "vSongBook Screenshot 7") [vSongBook Screenshot](https://github.com/Appsmata/vSongAndy/raw/master/images/screenshot8.png "vSongBook Screenshot 8")
+![vSongBook Screenshot](https://github.com/Appsmata/vSongAndy/raw/master/images/screenshot1.png "vSongBook Screenshot 1")
+![vSongBook Screenshot](https://github.com/Appsmata/vSongAndy/raw/master/images/screenshot2.png "vSongBook Screenshot 2")
+![vSongBook Screenshot](https://github.com/Appsmata/vSongAndy/raw/master/images/screenshot3.png "vSongBook Screenshot 3")
+![vSongBook Screenshot](https://github.com/Appsmata/vSongAndy/raw/master/images/screenshot4.png "vSongBook Screenshot 4")
+![vSongBook Screenshot](https://github.com/Appsmata/vSongAndy/raw/master/images/screenshot5.png "vSongBook Screenshot 5")
+![vSongBook Screenshot](https://github.com/Appsmata/vSongAndy/raw/master/images/screenshot6.png "vSongBook Screenshot 6")
+![vSongBook Screenshot](https://github.com/Appsmata/vSongAndy/raw/master/images/screenshot7.png "vSongBook Screenshot 7")
+![vSongBook Screenshot](https://github.com/Appsmata/vSongAndy/raw/master/images/screenshot8.png "vSongBook Screenshot 8")
 
 ## What is vSongBook?
  ... it's an application that gives users access to songs sung in church services among other places where praise and worship is carried out. Major songbooks include Songs of Worship, Nyimbo za Injili, Believers Songs, Redemption Songs and Tenzi za Rohoni. Other songbooks in various local dialects have been added over time and more are under way to be added.
