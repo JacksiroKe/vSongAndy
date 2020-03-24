@@ -1,0 +1,45 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        app:title="@string/viewer_header"
+        app:icon="@drawable/ic_settings">
+
+        <SeekBarPreference
+            android:defaultValue="25"
+            android:max="100"
+            android:min="25"
+            app:key="app_song_fontsize"
+            app:seekBarIncrement="2"
+            app:summary="@string/fontsize_desc"
+            app:title="@string/fontsize_title"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            android:defaultValue="slides"
+            app:dialogTitle="@string/choose_theme"
+            app:entries="@array/presentation_entries"
+            app:entryValues="@array/presentation_values"
+            app:key="app_song_presentation"
+            app:summary="@string/presentation_desc"
+            app:title="@string/presentation_title"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:title="@string/theme_header"
+        app:icon="@drawable/ic_settings">
+
+        <ListPreference
+            android:defaultValue="default"
+            app:key="app_theme"
+            app:title="@string/app_theme"
+            app:dialogTitle="@string/choose_theme"
+            app:entries="@array/theme_entries"
+            app:entryValues="@array/theme_values"
+            app:useSimpleSummaryProvider="true"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

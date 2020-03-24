@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group
+        android:id="@+id/group1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_updates"
+            android:icon="@drawable/ic_nav_person"
+            android:title="@string/my_updates" />
+        <item
+            android:id="@+id/nav_signout"
+            android:icon="@drawable/ic_nav_person"
+            android:title="@string/my_session" />
+    </group>
+    <group
+        android:id="@+id/group2"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_songsperbook"
+            android:icon="@drawable/appicon"
+            android:title="@string/app_songperbook" />
+        <item
+            android:id="@+id/nav_songbooks"
+            android:icon="@drawable/appicon"
+            android:title="@string/app_songbooks" />
+        <item
+            android:id="@+id/nav_donate"
+            android:icon="@drawable/appicon"
+            android:title="@string/app_donate" />
+        <item
+            android:id="@+id/nav_tutorial"
+            android:icon="@drawable/appicon"
+            android:title="@string/how_it_works" />
+    </group>
+    <group
+        android:id="@+id/group3"
+        android:checkableBehavior="single">
+        <item android:id="@+id/app_settings" android:title="@string/my_settings" />
+        <item android:id="@+id/app_updates" android:title="@string/app_updates" />
+        <item android:id="@+id/app_feedback" android:title="@string/help_and_feedback" />
+        <item android:id="@+id/app_about" android:title="@string/about_this_app" />
+    </group>
+</menu>

@@ -1,0 +1,258 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">vSongBook</string>
+    <string name="main_title">Search vSongBook</string>
+    <string name="sub_title">Search or type a song number</string>
+
+    <string name="item_name">What is the best shot we have so far?</string>
+    <string name="item_description">asked Mar 11 in General by jacksiro (260 points)</string>
+    <string name="item_tags">common, general, php, code,</string>
+
+    <string name="recent_questions_and_answers">Recent questions and answers</string>
+    <string name="feedback">FEEDBACK</string>
+
+    <!--ABOUT AND LINK-->
+    <string name="google_play_store">https://play.google.com/store/apps/details?id=</string>
+    <string name="please_wait_loading_data">Please wait . . .</string>
+
+    <!--FIREBASE NOTIFICATION -->
+    <string name="FCM_PREF">com.jackson_siro.vsongbook.ui.notification</string>
+    <string name="FCM_TOKEN">com.jackson_siro.vsongbook.ui.notification</string>
+    <string name="exit">Are you sure want to exit now?</string>
+    <string name="Signin">Signin</string>
+    <string name="your_firstname">Your First Name</string>
+    <string name="your_lastname">Your Last Name</string>
+    <string name="your_gender">You are a</string>
+    <string name="your_city">Your City</string>
+    <string name="your_church">Your Church</string>
+    <string name="your_country">Select Your Country</string>
+    <string name="your_mobile">Mobile</string>
+    <string name="your_email">Email Address</string>
+    <string name="your_username">Username</string>
+    <string name="your_password">Password</string>
+    <string name="dont_have">Don\'t have account?</string>
+    <string name="signup_now">Signup</string>
+    <string name="have_acount">Do you have account?</string>
+    <string name="your_name">Name</string>
+    <string name="your_passkey">Email or Username</string>
+    <string name="name">Please input</string>
+    <string name="already_exists">Username or Email Already Exists</string>
+    <string name="hello">"Hello "</string>
+    <string name="points">" points"</string>
+    <string name="choose_photo">Choose Photo</string>
+    <string name="about">vSongBook : V.1.2.6</string>
+    <string name="edit_process">EDIT PROFILE</string>
+    <string name="rating_me">Rating us on Google Play Store</string>
+    <string name="failed_upload_image">Failed to Upload Image. Try Again</string>
+    <string name="success_upload_image">Your Profile Successfully Updated</string>
+    <string name="loading_upload_image">Uploading image. . .</string>
+    <string name="upload_image_error">Oops. Something error</string>
+    <string name="validate_input">Please input email, username and password</string>
+    <string name="image_upload">Success upload image</string>
+    <string name="adding_comment">Adding comment . . .</string>
+    <string name="success_adding_comment">New comment successfully added</string>
+    <string name="about_app">About vSongBook</string>
+    <string name="you_must_Signin">You Must Signin Earlier For Comment</string>
+
+    <string name="micsearch">MicSearch</string>
+
+    <string name="post_view">Post View</string>
+    <string name="post_title">Post Title</string>
+    <string name="post_what">asked</string>
+    <string name="post_when">Mar 10</string>
+    <string name="post_in">in General</string>
+    <string name="post_who">by jacksiro (150 points)</string>
+    <string name="post_acount">0 Answers</string>
+    <string name="post_color">Color:</string>
+    <string name="post_texture">Texture:</string>
+    <string name="post_count">120 available</string>
+    <string name="post_volume">Volume:</string>
+    <string name="post_volume_weight">Volume: 32x15x50 cm, Weight: 20 kg</string>
+    <string name="post_weight">Weight:</string>
+    <string name="post_details">asked 30 minutes ago in General by thisuser (120 points)</string>
+    <string name="post_description">Description:</string>
+    <string name="post_descriptions">The this item has many intresting things that you may like here when you look at it. I encourage you to take a second look of it if you dont mind abbout it.</string>
+    <string name="post_manufacturer">Manufacturer:</string>
+    <string name="post_tags">Tag1, Tag2, Tag3</string>
+
+    <string name="your_answer">Your Answer</string>
+    <string name="btn_answer">answer</string>
+    <string name="btn_addanswer">Add answer</string>
+    <string name="btn_cancel">Cancel</string>
+
+    <string name="app_donate">Support Us</string>
+    <string name="app_songperbook">Songs per Books</string>
+    <string name="app_songbooks">Manage Songbooks</string>
+    <string name="app_updates">App Updates</string>
+
+    <string name="nav_proceed">Proceed</string>
+    <string name="nav_details">Toggle Extra</string>
+    <string name="my_updates">My Updates</string>
+    <string name="my_session">Logout</string>
+    <string name="my_profile">User jacksiro</string>
+    <string name="my_account">My Account</string>
+    <string name="my_favorites">My Favorites</string>
+    <string name="my_wall">My Wall</string>
+    <string name="my_messages">Private Messages</string>
+    <string name="my_activity">Recent Activity</string>
+    <string name="my_questions">All Questions</string>
+    <string name="my_answers">All Answers</string>
+    <string name="my_settings">App Settings</string>
+    <string name="help_and_feedback">Help and feedback</string>
+    <string name="parent_guide">Parent Guide</string>
+    <string name="about_this_app">About vSongBook</string>
+    <string name="demo_download_size">2.96MB/5.26MB</string>
+    <string name="demo_download_percent">56%</string>
+    <string name="button_proceed">PROCEED</string>
+    <string name="button_uninstall">UNINSTALL</string>
+    <string name="top_categories">Top categories</string>
+    <string name="all_categories">All categories</string>
+    <string name="title_activity_basic">BasicActivity</string>
+
+    <string name="donate_mpesa">Donate via Mpesa</string>
+    <string name="donate_mpesa_desc">"Donate via Mpesa\n\nPayBill: 891300 \nAccount: 33112\n\nOr Simply DIAL:\n\n*483*57*33112#"</string>
+
+    <string name="donate_airtel">Donate via Airtel</string>
+    <string name="donate_airtel_desc">"Donate via Airtel \n\nBusiness Name: MCHANGA\nReference: 33112"</string>
+
+    <string name="donate_equitel">Donate via Equitel</string>
+    <string name="donate_equitel_desc">"Donate via Equitel \n\nBusiness Name: MCHANGA\nAccount Number: 33112"</string>
+
+    <string name="donate_paypal">Donate via PayPal</string>
+    <string name="donate_paypal_desc">"Donate via PayPal to the address:\n\nappsmatake@gmail.com"</string>
+
+    <string name="user_Signin">Signin to your Account</string>
+    <string name="user_signup">Signup your Account</string>
+    <string name="title_activity_Signin">Sign in</string>
+    <!-- Strings related to Signin -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or signup</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="developer">© AppSmata</string>
+    <string name="title_activity_signin">Welcome to vSongBook</string>
+    <string name="title_activity_signup">Just a minute to know you</string>
+    <string name="title_activity_bb_books_load">Set up your vSongBook</string>
+
+    <string name="no_search_results">Nothing to search. Yet.</string>
+
+    <string name="nothing_here">Nothing to see here. Yet.</string>
+    <string name="no_online_info">This should be available in the coming updates</string>
+
+    <string name="no_direct_message">Talk privately with anyone who follows you. Start by adding your number and uploading your contacts.</string>
+    <string name="no_direct_message_button">Find friends</string>
+
+    <string name="no_result">Type in the search box above to find your song quickly.</string>
+    <string name="no_result_button">Learn More</string>
+
+    <string name="profile">Profile</string>
+    <string name="lists">Lists</string>
+    <string name="moments">Moments</string>
+    <string name="settings_and_privacy">Settings and Privacy</string>
+    <string name="help_center">Help Center</string>
+
+    <string name="new_song">New Song</string>
+    <string name="new_sermon">New Sermon</string>
+    <string name="search">Search</string>
+    <string name="online">Online</string>
+    <string name="my_songbooks">My Songbooks</string>
+    <string name="manage_songbooks">Manage Songbooks</string>
+    <string name="favorites">Favourites</string>
+    <string name="songs_pad">SongsPad</string>
+    <string name="sermon_pad">SermonPad</string>
+
+    <string name="helpdesk_1">CONTACT US</string>
+    <string name="helpdesk_1_desc">"CONTACT US\nIf you have got a complain or issue you would wish to be addressed then contact us soon via the following:"</string>
+
+    <string name="helpdesk_2">Phone</string>
+    <string name="helpdesk_2_desc">"Call | Text | WhatsApp\n+254777874748"</string>
+
+    <string name="helpdesk_3">Email</string>
+    <string name="helpdesk_3_desc">"Email us\nappsmatake@gmail.com\nvsongbookapp@gmail.com"</string>
+
+    <string name="helpdesk_4">Google Groups Forum</string>
+    <string name="helpdesk_4_desc">"Check us on Google Groups Forum\nhttps://groups.google.com/forum/m/#forum/vsongbook</string>
+
+    <string name="helpdesk_5">Website</string>
+    <string name="helpdesk_5_desc">"Log Onto our Website\nhttps://appsmata.com/vsongbook</string>
+
+    <string name="about_1">About vSongBook</string>
+    <string name="title_activity_ff_settings">App Prefrences</string>
+
+    <!-- Preference Titles -->
+    <string name="viewer_header">SONG VIEWER SETTINGS</string>
+    <string name="theme_header">THEME SETTINGS</string>
+    <string name="user_header">WHAT WE KNOW ABOUT YOU</string>
+    <string name="online_header">ONLINE SETTINGS (OPTIONAL)</string>
+
+    <string name="app_theme">App Overall Theme</string>
+    <string name="choose_theme">Choose Theme</string>
+
+    <!-- Presentation Preferences -->
+    <string name="presentation_title">Song Presentation Mode</string>
+    <string name="presentation_desc">How the song should be presented to you</string>
+
+    <!-- Keep Screen On Preferences -->
+    <string name="keep_screenon">Keep Screen ON</string>
+    <string name="keep_screenon_desc">Keep screen ON when viewing a song</string>
+
+    <!-- Keep Screen On Time Preferences -->
+    <string name="keep_screenon_time">Screen ON Time</string>
+    <string name="keep_screenon_time_desc">How long to keep Screen ON</string>
+
+    <!-- Font Preferences -->choose_time
+    <string name="fontsize_title">Song Font Size</string>
+    <string name="fontsize_desc">Size of text on the song viewer</string>
+
+    <!-- Screen Preferences -->
+    <string name="choose_time">How long to keep screen ON</string>
+
+    <string name="menu_reset">Reset Settings</string>
+    <string name="title_activity_ff_settings_profile">User Profile</string>
+    <string name="title_activity_dd_post_song">Write a New Song</string>
+    <string name="app_settings">Settings</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="how_it_works">How It Works</string>
+    <string name="help_desk">Our Helpdesk</string>
+    <string name="tutorial_1">Tutorial 1</string>
+    <string name="tutorial_2">Tutorial 2</string>
+    <string name="tutorial_3">Tutorial 3</string>
+
+    <string name="following_number">32</string>
+    <string name="followers_number">7</string>
+    <string name="following">Following</string>
+    <string name="followers">Followers</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="app_favorites">Favorites Song</string>
+    <string name="app_share">Share Song</string>
+    <string name="action_voice_rec">action voice rec</string>
+    <string name="action_location">action location</string>
+    <string name="action_change_colors">change style</string>
+
+    <string name="songs_per_books">Songs Per Books</string>
+
+</resources>
