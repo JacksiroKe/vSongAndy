@@ -79,7 +79,7 @@ public class AppStart extends AppCompatActivity {
                 startActivity(new Intent(AppStart.this, CcSongsLoad.class));
 
             else
-                startActivity(new Intent(AppStart.this, DdStartPage.class));
+                startActivity(new Intent(AppStart.this, DdHomeView.class));
         }
 
         finish();

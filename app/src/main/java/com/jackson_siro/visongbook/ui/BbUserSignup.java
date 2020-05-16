@@ -218,8 +218,7 @@ public class BbUserSignup extends AppCompatActivity {
         prefedit.putBoolean("app_user_signedin", true).apply();
 
         prefedit.putBoolean("app_user_signedin", true);
-        startActivity(new Intent(BbUserSignup.this, DdStartPage.class));
-        finish();
+        checkDatabase();
     }
 
     private void apiResult(final int errorno, final String errormsg){
@@ -268,7 +267,7 @@ public class BbUserSignup extends AppCompatActivity {
         if (!prefget.getBoolean("app_books_loaded", false)) startActivity(new Intent(BbUserSignup.this, CcBooksLoad.class));
         else if (prefget.getBoolean("app_books_loaded", false) && !prefget.getBoolean("app_songs_loaded", false))
             startActivity(new Intent(BbUserSignup.this, CcSongsLoad.class));
-        else startActivity(new Intent(BbUserSignup.this, DdStartPage.class));
+        else startActivity(new Intent(BbUserSignup.this, DdHomeView.class));
         finish();
     }
 

@@ -120,6 +120,7 @@ public class DdHomeFrag3 extends Fragment {
             }
         }, 2000);
     }
+
     private void GetSongsList()
     {
         favourites = db.GetFavourites("");

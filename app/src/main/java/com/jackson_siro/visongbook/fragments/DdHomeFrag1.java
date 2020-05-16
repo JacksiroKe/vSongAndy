@@ -30,6 +30,7 @@ public class DdHomeFrag1 extends Fragment {
     private ListsSongsAdapter listAdapter;
     private RecyclerView recyclerView;
 
+    private List<PostModel> songlist;
     private static SQLiteHelper db = new SQLiteHelper(MyApplication.getAppContext());
 
     private SearchView mSearchView;
@@ -51,6 +52,7 @@ public class DdHomeFrag1 extends Fragment {
         mSearchView = searchView.findViewById(R.id.input_search);
         BtnLearnMore = searchView.findViewById(R.id.btn_learn_more);
 
+        GetSongsList();
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
@@ -91,6 +93,20 @@ public class DdHomeFrag1 extends Fragment {
         return searchView;
     }
 
+    private void GetSongsList()
+    {
+        songlist = db.GetSongsList(1);
+        listAdapter = new ListsSongsAdapter(songlist, getContext());
+        recyclerView.setAdapter(listAdapter);
+
+        listAdapter.setOnItemClickListener(new ListsSongsAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, PostModel postModel) {
+                vSongBook.passingIntent(getActivity(), postModel.songid.toString(), "ViewSong");
+            }
+        });
+
+    }
     @Override
     public void onDetach() {
         super.onDetach();

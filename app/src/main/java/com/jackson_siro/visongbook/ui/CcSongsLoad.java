@@ -131,19 +131,12 @@ public class CcSongsLoad extends AppCompatActivity {
                 song.postid = songs.get(count).postid;
                 song.bookid = songs.get(count).bookid;
                 song.categoryid = songs.get(count).categoryid;
-                song.basetype = songs.get(count).basetype;
                 song.number = songs.get(count).number;
                 song.alias = songs.get(count).alias;
                 song.title = songs.get(count).title;
                 song.tags = songs.get(count).tags;
                 song.content = songs.get(count).content;
                 song.created = songs.get(count).created;
-                song.what = songs.get(count).what;
-                song.when = songs.get(count).when;
-                song.where = songs.get(count).where;
-                song.netthumbs = songs.get(count).netthumbs;
-                song.views = songs.get(count).views;
-                song.acount = songs.get(count).acount;
                 song.userid = songs.get(count).userid;
                 song.isfav = 0;
                 sqlDB.addSong(song);
@@ -173,7 +166,7 @@ public class CcSongsLoad extends AppCompatActivity {
     }
 
     public void finishLoading(){
-        startActivity(new Intent(CcSongsLoad.this, DdStartPage.class));
+        startActivity(new Intent(CcSongsLoad.this, DdHomeView.class));
         finish();
     }
 }

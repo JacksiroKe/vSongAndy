@@ -45,12 +45,6 @@ public interface API {
             @Field("mobile") String mobile
     );
 
-    /*@Headers({CACHE, AGENT})
-    @GET(BaseUrlConfig.UserSignin)
-    Call<CallbackUser> UserSignin(
-            @Query("mobile") String mobile
-    );*/
-
     @FormUrlEncoded
     @POST(BaseUrlConfig.UserSignup)
     Call<CallbackUser> UserSignup(

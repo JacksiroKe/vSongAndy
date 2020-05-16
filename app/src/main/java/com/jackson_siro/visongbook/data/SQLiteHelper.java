@@ -106,21 +106,12 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         values.put(Utils.POSTID, song.postid);
         values.put(Utils.BOOKID, song.bookid);
         values.put(Utils.CATEGORYID, song.categoryid);
-        values.put(Utils.BASETYPE, song.basetype);
         values.put(Utils.NUMBER, song.number);
         values.put(Utils.ALIAS, song.alias);
         values.put(Utils.TITLE, song.title);
         values.put(Utils.TAGS, song.tags);
         values.put(Utils.CONTENT, song.content);
         values.put(Utils.CREATED, song.created);
-        values.put(Utils.UPDATED, song.updated);
-        values.put(Utils.WHAT, song.what);
-        values.put(Utils.WHEN, song.what);
-        values.put(Utils.WHERE, song.what);
-        values.put(Utils.WHO, song.what);
-        values.put(Utils.NETTHUMBS, song.netthumbs);
-        values.put(Utils.VIEWS, song.views);
-        values.put(Utils.ACOUNT, song.acount);
         values.put(Utils.USERID, song.userid);
         values.put(Utils.ISFAV, song.isfav);
 

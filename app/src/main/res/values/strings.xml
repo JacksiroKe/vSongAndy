@@ -161,8 +161,8 @@
     <string name="new_sermon">New Sermon</string>
     <string name="search">Search</string>
     <string name="online">Online</string>
-    <string name="my_songbooks">My Songbooks</string>
-    <string name="manage_songbooks">Manage Songbooks</string>
+    <string name="my_songbooks">My Books</string>
+    <string name="manage_songbooks">Manage Books</string>
     <string name="favorites">Favourites</string>
     <string name="songs_pad">SongsPad</string>
     <string name="sermon_pad">SermonPad</string>
@@ -182,7 +182,7 @@
     <string name="helpdesk_5">Website</string>
     <string name="helpdesk_5_desc">"Log Onto our Website\nhttps://appsmata.com/vsongbook</string>
 
-    <string name="about_1">About vSongBook</string>
+    <string name="about_1">About this App</string>
     <string name="title_activity_ff_settings">App Prefrences</string>
 
     <!-- Preference Titles -->

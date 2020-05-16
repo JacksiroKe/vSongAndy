@@ -44,7 +44,7 @@ public class DdHomeView extends AppCompatActivity implements TabLayout.OnTabSele
 
     private DrawerLayout mDrawerLayout;
     private TextView mTabTitle;
-    private FloatingActionButton fabButton1, fabButton2;
+    private FloatingActionButton fabButton3, fabButton4;
 
     private String mGender = "", mFullname = "";
     private TabLayout tabLayout;
@@ -66,8 +66,8 @@ public class DdHomeView extends AppCompatActivity implements TabLayout.OnTabSele
         }
         mFullname = prefget.getString("user_firstname", "") + " " + prefget.getString("user_lastname", "");
 
-        fabButton1 = findViewById(R.id.fabaction1);
-        fabButton2 = findViewById(R.id.fabaction2);
+        fabButton3 = findViewById(R.id.fabaction3);
+        fabButton4 = findViewById(R.id.fabaction4);
         drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
 
@@ -109,14 +109,14 @@ public class DdHomeView extends AppCompatActivity implements TabLayout.OnTabSele
         //checkDonation();
         displayProfile();
 
-        fabButton1.setOnClickListener(new View.OnClickListener() {
+        fabButton3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(DdHomeView.this, DdSongPad.class));
             }
         });
 
-        fabButton2.setOnClickListener(new View.OnClickListener() {
+        fabButton4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(DdHomeView.this, DdSermonPad.class));
@@ -148,6 +148,22 @@ public class DdHomeView extends AppCompatActivity implements TabLayout.OnTabSele
         int position = tab.getPosition();
         tab.setIcon(tabSelectedIcon[position]);
         mTabTitle.setText(tabTitles[position]);
+
+        if (position == 3)
+        {
+            fabButton3.setVisibility(View.VISIBLE);
+            fabButton4.setVisibility(View.GONE);
+        }
+        else if (position == 4)
+        {
+            fabButton3.setVisibility(View.GONE);
+            fabButton4.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            fabButton3.setVisibility(View.GONE);
+            fabButton4.setVisibility(View.GONE);
+        }
     }
 
     @Override
